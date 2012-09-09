@@ -1,0 +1,89 @@
+%\documentclass{llncs}
+%\NeedsTeXFormat{LaTeX2e}[1995/12/01]
+\documentclass[10pt]{bmc_article}
+\usepackage{cite} % Make references as [1-4], not [1,2,3,4]
+\usepackage{url}  % Formatting web addresses  
+\usepackage{ifthen}  % Conditional 
+\usepackage{multicol}   %Columns
+\usepackage[utf8]{inputenc} %unicode support
+\usepackage{listings}
+%\usepackage[applemac]{inputenc} %applemac support if unicode package fails
+%\usepackage[latin1]{inputenc} %UNIX support if unicode package fails
+\urlstyle{rm}
+
+
+\def\includegraphic{}
+\def\includegraphics{}
+
+
+
+\setlength{\topmargin}{0.0cm}
+\setlength{\textheight}{21.5cm}
+\setlength{\oddsidemargin}{0cm} 
+\setlength{\textwidth}{16.5cm}
+\setlength{\columnsep}{0.6cm}
+
+\newboolean{publ}
+\newenvironment{bmcformat}{\begin{raggedright}\baselineskip20pt\sloppy\setboolean{publ}{false}}{\end{raggedright}\baselineskip20pt\sloppy}
+
+\lstdefinelanguage[1.1]{sparql}{morekeywords={PREFIX,SELECT,CONSTRUCT,WHERE,ASK,DESCRIBE,A,NOT,EXISTS,FILTER,regex},sensitive=true,morestring=[s]{<>},morestring=[s]{""},escapeinside={~}{~},extendedchars=true,morecomment=[l]{\#}}
+\lstset{
+  basicstyle=\small, % print whole listing small
+  identifierstyle=, % nothing happens
+  commentstyle=\color{blue}, % white comments
+  stringstyle=\ttfamily, % typewriter type for strings
+  showstringspaces=false
+  numbers=left, 
+  numberstyle=\tiny,
+  numberbychapter=true,
+  xleftmargin=0.1\linewidth,
+  xrightmargin=0.1\linewidth,
+  boxpos=c,
+  frame=, 
+  numbersep=2p,
+  columns=fullflexible,
+  escapechar=`
+}
+
+%\newfloat{example}{h}{ttl}[section]
+%\floatname{example}{Example}		
+\begin{document}
+\begin{bmcformat}
+\title{Useable semantic integration of multitudes of sequence formats.}
+\author{Jerven Bolleman\correspondingauthor$^1$ \email{Jerven Bolleman\correspondingauthor - jerven.bolleman@isb-sib.ch} 
+         \and Robert Beuels$^2$ \email {Robert Beuels}%
+         \and Robert Hoehndorf$^3$ \email {leechuck@leechuck.de} %
+         }
+\address{
+    \iid(1)SIB Swiss Institute of Bioinformatics, Centre Medical Universitaire, 1 rue Michel
+Servet, 1211 Geneva 4, Switzerland,
+\maketitle
+\section{Abstract}
+
+
+
+\section{List of abbreviations}
+\begin{description}
+\item[SPARQL] SPARQL Protocol and RDF Query Language
+\item[UniProtKB] Universal Protein Knowledgebase 
+\item[SPIN] SPARQL Inferencing Notation
+\item[RDF] Resource Description Framework
+\item[DNA] Deoxyribonucleic acid
+\end{description}
+\bigskip
+
+\section{Authors contributions}
+
+Jerven Bolleman wrote the basic ontology file and mapping to UniProt rdf. Robert Hoehndorf <leechuck@leechuck.de> did the gff3 to OWL conversion. Peter Cock adapted the BioPython daobjec tmodel to this format. Raoul Bonnal adapted BioRuby to match the ontology. Fransesco Strozzi wrote the cufflink to locations.rdf converter. Totokama ... implemented the DDBJ rdf in terms of this format. Robert Beuels adapted JBrowse to query sparql datasources that use this format. 
+
+\section{Acknowledgments}
+
+This activity at SIB Swiss Institute of Bioinformatics is mainly supported by the Swiss Federal Government through the Federal Office of Education and Science, by the National Institutes of Health (NIH) grant 1U41HG006104-02, and from the European Commission contracts GEN2PHEN (200754), MICROME (222886-2) and SLING (226073);. 
+
+\newpage
+{\ifthenelse{\boolean{publ}}{\footnotesize}{\small}
+ \bibliographystyle{bmc_article}  % Style BST file
+  \bibliography{locations} }     % Bibliography file (usually '*.bib' ) 
+  
+\end{bmcformat}
+\end{document}
