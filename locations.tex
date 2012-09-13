@@ -49,26 +49,45 @@
 %\floatname{example}{Example}		
 \begin{document}
 \begin{bmcformat}
-\title{Useable semantic integration of multitudes of sequence formats.}
+\title{Semantic standard for describing the location of nucleotide and protein feature annotation.}
 \author{Jerven Bolleman\correspondingauthor$^1$ \email{Jerven Bolleman\correspondingauthor - jerven.bolleman@isb-sib.ch} 
-         \and Robert Beuels$^2$ \email {Robert Beuels}%
-         \and Robert Hoehndorf$^3$ \email {leechuck@leechuck.de} %
+         \and Robert Beuels$^2$%
+         \and Robert Hoehndorf$^3$%
+         \and Peter Cock$^3$ %
+		 \and Toshiaki Katayama$^4$ %
+		 \and Raoul Bonnal$5$ %
+		 \and Michel Dumontier$^5$ %
+		 \and Takatomo Fujisawa$^6$ %
+		 \and Francesco Strozzi$^7$ %
+		 \and Joachim Baran$^8$ %
          }
 \address{
     \iid(1)SIB Swiss Institute of Bioinformatics, Centre Medical Universitaire, 1 rue Michel
 Servet, 1211 Geneva 4, Switzerland,
+ \iid(2) fill in,
+ \iid(3) fill in,
+ \iid(4) fill in,
+ \iid(5) INGM,
+ \iid(6) fill in,
+ \iid(7) fill in, and
+ \iid(8) fill in.
+        }
 \maketitle
-\section{Abstract}
 
-We developed a schema ontology to describe the positions of annotated features that is usable for glycans, protein and nucleotide sequence records.
+\begin{abstract}
+\begin{description}
+\item[Background] Nucleotide sequence feature annotation is essential to understand our biology on the genome, transcriptome, and proteome level. Unfortunatly, there is no standard that describes the 
+\item[Description] We developed a schema ontology to describe the positions of annotated features that is usable for glycans, protein and nucleotide sequence records.
 Using the same data format to represent sequence positions independent of files allows us to integrate sequence data from multiple sources and types.
-The integration capabilities are shown by JBrowse using multiple SPARQL endpoints to display genomic feature annotation as well as protein annotation mmapped to genomic locations.
+The integration capabilities are shown by JBrowse using multiple SPARQL endpoints to display genomic feature annotation as well as protein annotation from UniProt mapped to genomic locations.
+\item[Conclusions] This standard ontology allows users to merge sequence annotation from multiple sources.
+\end{description}
+\end{abstract}
 
 \section{List of abbreviations}
 \begin{description}
 \item[SPARQL] SPARQL Protocol and RDF Query Language
 \item[UniProtKB] Universal Protein Knowledgebase 
-\item[SPIN] SPARQL Inferencing Notation
 \item[RDF] Resource Description Framework
 \item[DNA] Deoxyribonucleic acid
 \end{description}
@@ -76,11 +95,11 @@ The integration capabilities are shown by JBrowse using multiple SPARQL endpoint
 
 \section{Authors contributions}
 
-Jerven Bolleman wrote the basic ontology file and mapping to UniProt rdf. Robert Hoehndorf <leechuck@leechuck.de> did the gff3 to OWL conversion. Peter Cock adapted the BioPython daobjec tmodel to this format. Raoul Bonnal adapted BioRuby to match the ontology. Fransesco Strozzi wrote the cufflink to locations.rdf converter. Totokama ... implemented the DDBJ rdf in terms of this format. Robert Beuels adapted JBrowse to query sparql datasources that use this format. 
+Jerven Bolleman wrote the basic ontology file and mapping to UniProt rdf. Robert Hoehndorf did the gff3 to OWL conversion. Peter Cock adapted the BioPython data object model to this format. Raoul Bonnal adapted BioRuby to match the ontology. Fransesco Strozzi wrote the cufflink to locations.rdf converter. Totokama Fujisawa. implemented the DDBJ rdf in terms of this format. Robert Beuels adapted JBrowse to query sparql endpoints that use this format to generate custom tracks. 
 
 \section{Acknowledgments}
 
-This activity at SIB Swiss Institute of Bioinformatics is mainly supported by the Swiss Federal Government through the Federal Office of Education and Science, by the National Institutes of Health (NIH) grant 1U41HG006104-02, and from the European Commission contracts GEN2PHEN (200754), MICROME (222886-2) and SLING (226073);. 
+
 
 \newpage
 {\ifthenelse{\boolean{publ}}{\footnotesize}{\small}
