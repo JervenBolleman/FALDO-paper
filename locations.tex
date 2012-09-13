@@ -76,11 +76,12 @@ Servet, 1211 Geneva 4, Switzerland,
 
 \begin{abstract}
 \begin{description}
-\item[Background] Nucleotide sequence feature annotation is essential to understand our biology on the genome, transcriptome, and proteome level. Unfortunatly, there is no standard that describes the 
-\item[Description] We developed a schema ontology to describe the positions of annotated features that is usable for glycans, protein and nucleotide sequence records.
+\item[Background] Nucleotide sequence feature annotation is essential to understand our biology on the genome, transcriptome, and proteome level. Unfortunately, there is no standard that describes the describes this potentially complex location information as
+subject-predicate-object triples suitable for semantic web queries using RDF/SPARQL.
+\item[Description] We developed a schema ontology to describe the positions of annotated features that is usable for describing glycan binding sites, protein annotation and nucleotide features in sequence records.
 Using the same data format to represent sequence positions independent of files allows us to integrate sequence data from multiple sources and types.
 The integration capabilities are shown by JBrowse using multiple SPARQL endpoints to display genomic feature annotation as well as protein annotation from UniProt mapped to genomic locations.
-\item[Conclusions] This standard ontology allows users to merge sequence annotation from multiple sources.
+\item[Conclusions] This standard ontology allows users to merge sequence annotation from multiple sources using federalized SPARQL queries against public endpoints and local private datasources.
 \end{description}
 \end{abstract}
 
