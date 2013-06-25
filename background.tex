@@ -1,4 +1,23 @@
 \section*{Background}
+Describing regions of biological sequences is a vital part of genome and protein sequence
+annotation, and beyond such as in describing modifications such methylation of nucleotide
+sequences or glycosylation or proteins.
+There are multiple different conventions for storing this kind of information in
+plain text flat file formats such as GTF, GFF3, GenBank and EMBL,
+and more structured domain specific XML formats such as the INSDC or UniProt XML.
+As a result, file format interconversion is a common background task in current script-centric
+bioinformatics pipelines, a necessary evil for combining tools supporting different formats or
+format variables.
+
+In the growing area of semantic web technologies, it was recognised at the BioHackathon 2012
+meeting [REF Katayama et al 2013] that a failure to standardise how to describe positions
+and regions on biological sequences would be an obstacle to the adoption of federalized
+SPARQL/RDF queries which have the potential to enable cross-database queries and
+analyses. Discussion and prototyping with representatives from major sequence databases
+such as UniProt and DDBJ (part of the INSDC partnership with the NCBI and EMBL-Bank)
+\textit{(TODO - and PDBj too?)} and assorted open source developers during this meeting
+led to the development of the Feature Annotation Location Description Ontology (FALDO).
+
 Understanding how nucleotide and protein sequences in databases correspond to the real world is key to understanding biological processes.
 Determined nucleotide sequences are stored in a large number of databases,
 such as GenBank/DDBJ/EMBL and vast numbers of new sequence records are generated every day since the advent of high throughput sequencing.
