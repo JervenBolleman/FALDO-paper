@@ -1,2 +1,21 @@
 \section*{Results}
-bla bla bla bla bla bla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla bla
+One of the practical goal driving the development of FALDO was to be able
+to represent all the annotated sequences in UniProt and the INSDC as RDF
+triples, as a step towards providing this data via SPARQL end points whereby
+it can be queried.
+
+The protein examples considered, such as the UniProt feature annotations,
+require relatively simple locations within protein sequences to be described.
+There are corner cases for situations like unknown boundaries.
+\textit{TODO - examples - how about cysteine bonds in PDB data?}.
+
+Nucleotide data from the INSDC can require considerably more complicated
+sequence regions, both in terms of ambiguous end points, and the need for
+various compound locations.
+\textit{TODO - examples}.
+
+All of the UniProt protein sequences are now available in RDF format,
+with a SPARQL end point currently in beta. Converting more recent
+curated INSDC data has been straightforward, however there are a
+number of deprecated location strings which have been problematic.
+\textit{TODO - examples? manual curation to fix last few oddities?}
