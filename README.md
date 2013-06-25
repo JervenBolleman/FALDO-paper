@@ -17,9 +17,8 @@ primary file which includes the sub-sections as separate child files:
  * `conclusions.tex` - Conclusions
  * `avareq.tex` - Availability and requirements
 
-To produce the whole PDF file, use:
+To produce the whole PDF file, use LaTeX and BibTex:
 
     $ pdflatex location.tex
-
-Once we start adding references etc then calling bibtex would also be
-needed.
+    $ bibtex location
+    $ pdflatex location.tex
