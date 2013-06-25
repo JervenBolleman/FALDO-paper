@@ -1,2 +1,26 @@
 \section*{Discussion}
+When designing FALDO, a broad range of use cases were considered from
+human genome annotation to glycan binding sites and protein domains on
+amino acid sequences, with the goal of developing a scheme general enough
+to describe regions of DNA, RNA and protein sequences.
+
+Advantages and drawbacks of existing file formats were considered, including
+line based column formats like BED and GTF/GFF which focus on exact
+ranges on a given sequence, and the more complex locations supported
+by the INSDC feature tables used by GenBank/EMBL/DDBJ.
+
+The simplest non-stranded range location on a linear sequence requires
+a start and end coordinate, but even here there are existing competing
+conventions for describing open or closed end points using zero and
+one based counting. \textit{TODO refer to examples}
+
+Similarly multiple schemes exist for describing strand specific locations,
+with some formats describing features on the reverse strand implicitly
+when the start coordinate is numerically higher than the end coordinate
+\textit{(TODO - example of format which does this)}.
+For a semantic description describing the strand explicitly is preferable,
+and as in formats like GFF3 in FALDO adopts the convention that
+the start coordinate is always numerically smaller than the end
+coordinate \textit{(TODO - circular genomes?)}.
+
 bla bla bla bla bla bla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla bla
