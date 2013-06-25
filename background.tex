@@ -5,11 +5,16 @@ of nucleotide sequences, or glycosylation of proteins.
 There are multiple different conventions for storing this kind of information in
 plain text flat file formats such as GTF, GFF3, GenBank and EMBL,
 and more structured domain specific XML formats such as the INSDC or UniProt XML.
-As a result, file format interconversion is a common background task in current script-centric
-bioinformatics pipelines -- a necessary evil for combining tools supporting different formats
-or format variables. As a result of this common need, file format parsing is a
-particular strength of community developed open source bioinformatics libraries like
-BioPerl \cite{BioPerl2002}, BioPython \cite{Biopython2009}, BioRuby \cite{BioRuby2010}
+Even fundamental details are inconsistent, for example both zero-based and
+one-based counting standards exist, a regular source of off-by-one programming
+errors which experienced bioinformaticians learn to look out for.
+
+Although non-trivial, file format interconversion is a common background task
+in current script-centric bioinformatics pipelines, often essential for combining
+tools supporting different formats or format variables.
+As a result of this common need, file format parsing is a particular strength of
+community developed open source bioinformatics libraries like BioPerl
+\cite{BioPerl2002}, Biopython \cite{Biopython2009}, BioRuby \cite{BioRuby2010}
 and BioJava \cite{BioJava2012}. While using such shared libraries can reduce the
 programmer time spent dealing with different file formats, adopting semantic
 web technologies has even greater potential to greatly simplify data integration
