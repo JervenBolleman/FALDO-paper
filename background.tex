@@ -6,11 +6,22 @@ There are multiple different conventions for storing this kind of information in
 plain text flat file formats such as GTF, GFF3, GenBank and EMBL,
 and more structured domain specific XML formats such as the INSDC or UniProt XML.
 As a result, file format interconversion is a common background task in current script-centric
-bioinformatics pipelines, a necessary evil for combining tools supporting different formats or
-format variables.
+bioinformatics pipelines -- a necessary evil for combining tools supporting different formats
+or format variables. As a result of this common need, file format parsing is a
+particular strength of community developed open source bioinformatics libraries like
+BioPerl \cite{BioPerl2002}, BioPython \cite{Biopython2009}, BioRuby \cite{BioRuby2010}
+and BioJava \cite{BioJava2012}. While using such shared libraries can reduce the
+programmer time spent dealing with different file formats, adopting semantic
+web technologies has even greater potential to greatly simplify data integration
+tasks.
 
-In the growing area of semantic web technologies, it was recognised at the BioHackathon 2012
-meeting \cite{BioHack2011and2012} that a failure to standardise how to describe positions
+As part of the Integrated Database Project to integrate life science databases in
+Japan, the National Bioscience Database Center (NBDC) and the Database
+Center for Life Science (DBCLS) have hosted an annual ``BioHackathon'' series
+of meetings bringing together biological database teams, open source programmers,
+and domain experts in Semantic Web and Linked Data \cite{BioHack2010,BioHack2011and2012}.
+During the BioHackathon 2012 meeting it was
+recognised that a failure to standardise how to describe positions
 and regions on biological sequences would be an obstacle to the adoption of federalized
 SPARQL/RDF queries which have the potential to enable cross-database queries and
 analyses. Discussion and prototyping with representatives from major sequence databases
