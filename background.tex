@@ -5,7 +5,8 @@ of nucleotide sequences, or glycosylation of proteins.
 There are multiple different conventions for storing this kind of information in
 plain text flat file formats such as GTF, GFF3, GenBank and EMBL,
 and more structured domain specific XML formats such as the INSDC or UniProt XML.
-Even fundamental details are inconsistent, for example both zero-based and
+None of the above tools or formats are flexible enough to discuss all of genetics or proteomics. 
+Furthermore, fundamental details are inconsistent, for example both zero-based and
 one-based counting standards exist, a regular source of off-by-one programming
 errors which experienced bioinformaticians learn to look out for.
 
@@ -52,21 +53,8 @@ and GFF3. This includes compound locations which are the combination of
 several regions (such as the `join' location string in INSDC), and ambiguous
 positions.
 
-Understanding how nucleotide and protein sequences in databases correspond to the real world is key to understanding biological processes.
-Determined nucleotide sequences are stored in a large number of databases,
-such as DDBJ/ENA/GenBank and vast numbers of new sequence records are generated every day since the advent of high throughput sequencing.
-Currently there are a vast number of ways of describing such sequences and their biological relation e.g. GenBank format, GFF3 and variants.
-All of these formats require the annotation to be stored in the same file as the sequence,
-making it difficult to merge information between files without copying all data.
-
-While determining sequences has become vastly cheaper over time basic curation of annotation has not.
-This means that we still move most annotation from one sequence to another,
-e.g. gene annotation moves from one genome assembly to the next.
-
 The proposed standard allows us to accurately describe the position of a feature on multiple sequences.
+This is expected to be most useful when lifting annotation from one draft assembly version to another.
 For example a gene can start at position $X$ on genome assembly $A$,
 while conceptually the same gene is positioned on $X'$ on genome assembly $A+1$.
-The proposed standard also deals with incomplete assemblies as well as protein sequence annotation such as found in UniProtKB.
-
-None of the above tools or formats are flexible enough to discuss all of genetics or proteomics. 
 
