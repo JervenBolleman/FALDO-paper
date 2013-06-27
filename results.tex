@@ -13,15 +13,18 @@ There are corner cases for situations like unknown boundaries.
 \textit{TODO - examples - how about cysteine bonds in PDB data?}.
 
 Feature locations on nucleotide sequences can be relatively simple,
+%GenBank
 for example the \textit{cheY} gene in
 \textit{Escherichia coli} str. K-12 substr. MG1655 (accession NC\_000913.2)
 is described in the INSDC feature table as \texttt{complement(1965072..1965461)},
-which is 390 base pairs using inclusive one-based counting. In FALDO,
+which is 390 base pairs using inclusive one-based counting.
+This is interpreted as \texttt{complement($end$..$start$)}, where
+the feature begins on the base complementary to $start = 1965461$
+and finishes at $end = 1965072$. FALDO respects this biological
+interpretation of a feature location on the reverse strand:
 
-%Need to check begin, end = 1965072, 1965461 (numerical like GFF)
-%or if begin, end = 1965461, 1965072 (biological interpretation)
+%Notice begin, end = 1965461, 1965072 (biological interpretation)
 \begin{verbatim}
-
 <_:geneCheY> a so:Gene ;
            rdfs:label "cheY" ;
            faldo:location <_:example> ;
@@ -35,21 +38,29 @@ uniprot:P0AE67 up:encodedBy <_:geneCheY> .
 <_:example_b> a :Position ; 
            a :ExactlyKnownPosition ;
            a :ReverseStrandPosition ;
-            :position "1965072"^^xsd:int ;
+            :position "1965461"^^xsd:int ;
             :reference refseq:NC_000913.2 .
 
 <_:example_e> a :Position ; 
            a :ExactlyKnownPosition ;
            a :ReverseStrandPosition ;
-            :position "1965461"^^xsd:int ;
+            :position "1965072"^^xsd:int ;
             :reference refseq:NC_000913.2 .
 \end{verbatim}
+
+In contrast, other formats like GFF require $start \leq end$
+regardless of the strand, which is equivalent to interpreting
+the INSDC location string as \texttt{complement($start$..$end$)}.
+This convention has a number of practical advantages when
+dealing with numerical operations on features sets, such as
+checking for overlaps or indexing data. For example, the
+feature length is given by $length = end - start + 1$ under
+this numerically convenient scheme where the interpretation
+of $start$ versus $end$ is strand independent.
 
 Nucleotide data from the INSDC can require considerably more complicated
 sequence regions, both in terms of ambiguous end points, and the need for
 various compound locations.
-
-
 
 \textit{TODO - examples}.
 
