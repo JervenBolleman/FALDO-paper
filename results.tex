@@ -12,9 +12,45 @@ require relatively simple locations within protein sequences to be described.
 There are corner cases for situations like unknown boundaries.
 \textit{TODO - examples - how about cysteine bonds in PDB data?}.
 
+Feature locations on nucleotide sequences can be relatively simple,
+for example the \textit{cheY} gene in
+\textit{Escherichia coli} str. K-12 substr. MG1655 (accession NC\_000913.2)
+is described in the INSDC feature table as \texttt{complement(1965072..1965461)},
+which is 390 base pairs using inclusive one-based counting. In FALDO,
+
+%Need to check begin, end = 1965072, 1965461 (numerical like GFF)
+%or if begin, end = 1965461, 1965072 (biological interpretation)
+\begin{verbatim}
+
+<_:geneCheY> a so:Gene ;
+           rdfs:label "cheY" ;
+           faldo:location <_:example> ;
+
+uniprot:P0AE67 up:encodedBy <_:geneCheY> .
+
+<_:example> a :Region ;
+           :begin <_:example_b> ;
+           :end <_:example_e> .
+
+<_:example_b> a :Position ; 
+           a :ExactlyKnownPosition ;
+           a :ReverseStrandPosition ;
+            :position "1965072"^^xsd:int ;
+            :reference refseq:NC_000913.2 .
+
+<_:example_e> a :Position ; 
+           a :ExactlyKnownPosition ;
+           a :ReverseStrandPosition ;
+            :position "1965461"^^xsd:int ;
+            :reference refseq:NC_000913.2 .
+\end{verbatim}
+
 Nucleotide data from the INSDC can require considerably more complicated
 sequence regions, both in terms of ambiguous end points, and the need for
 various compound locations.
+
+
+
 \textit{TODO - examples}.
 
 All of the UniProt protein sequences are now available in RDF format,
