@@ -25,12 +25,17 @@ interpretation of a feature location on the reverse strand:
 
 %Notice begin, end = 1965461, 1965072 (biological interpretation)
 \begin{verbatim}
+# Incomplete Turtle format triples example using FALDO to describe
+# gene chrY being at complement(NC_000913.2:1965072..1965461)
+@prefix faldo: <http://biohackathon.org/resource/faldo#> .
+
+# Here are example triples describing a gene, note the location line:
 <_:geneCheY> a so:Gene ;
            rdfs:label "cheY" ;
            faldo:location <_:example> ;
 
-uniprot:P0AE67 up:encodedBy <_:geneCheY> .
-
+# The following triples define the location used by the feature above,
+# made up of a region and its two positions:
 <_:example> a faldo:Region ;
            faldo:begin <_:example_b> ;
            faldo:end <_:example_e> .
