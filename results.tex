@@ -31,21 +31,21 @@ interpretation of a feature location on the reverse strand:
 
 uniprot:P0AE67 up:encodedBy <_:geneCheY> .
 
-<_:example> a :Region ;
-           :begin <_:example_b> ;
-           :end <_:example_e> .
+<_:example> a faldo:Region ;
+           faldo:begin <_:example_b> ;
+           faldo:end <_:example_e> .
 
-<_:example_b> a :Position ; 
-           a :ExactlyKnownPosition ;
-           a :ReverseStrandPosition ;
-            :position "1965461"^^xsd:int ;
-            :reference refseq:NC_000913.2 .
+<_:example_b> a faldo:Position ; 
+           a faldo:ExactlyKnownPosition ;
+           a faldo:ReverseStrandPosition ;
+           faldo:position "1965461"^^xsd:int ;
+           faldo:reference refseq:NC_000913.2 .
 
-<_:example_e> a :Position ; 
-           a :ExactlyKnownPosition ;
-           a :ReverseStrandPosition ;
-            :position "1965072"^^xsd:int ;
-            :reference refseq:NC_000913.2 .
+<_:example_e> a faldo:Position ; 
+           a faldo:ExactlyKnownPosition ;
+           a faldo:ReverseStrandPosition ;
+           faldo:position "1965072"^^xsd:int ;
+           faldo:reference refseq:NC_000913.2 .
 \end{verbatim}
 
 In contrast, other formats like GFF require $start \leq end$
