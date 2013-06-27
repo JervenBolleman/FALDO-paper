@@ -63,6 +63,14 @@ feature length is given by $length = end - start + 1$ under
 this numerically convenient scheme where the interpretation
 of $start$ versus $end$ is strand independent.
 
+Note that the object model used treats the strand and reference
+as properties of the start and end positions of a region. This is
+not possible in the INSDC feature tables or the GFF formats,
+so a stricter version of FALDO includes an OWL constraint
+on the region class that the start and end properties have
+the same reference and strand information.
+\textit{TODO - implement that}
+
 Nucleotide data from the INSDC can require considerably more complicated
 sequence regions, both in terms of ambiguous end points, and the need for
 various compound locations.
