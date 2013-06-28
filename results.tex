@@ -76,13 +76,13 @@ on the region class that the start and end properties have
 the same reference and strand information.
 \textit{TODO - implement that}
 
-\subsection{Compound locations}
+\subsection*{Compound locations}
 Nucleotide data from the INSDC (or GFF3) can require considerably
 more complicated sequence locations built out of multiple-regions.
 
 \textit{TODO - examples}.
 
-\subsection{Fuzzy locations}
+\subsection*{Fuzzy locations}
 Nucleotide data from the INSDC can also require ambiguous end points.
 
 \textit{TODO - examples}.
@@ -93,7 +93,66 @@ curated INSDC data has been straightforward, however there are a
 number of deprecated location strings which have been problematic.
 \textit{TODO - examples? manual curation to fix last few oddities?}
 
-\subsection{More examples}
+\subsection*{Restriction enzymes}
+
+The recognition sites of most restriction enzymes are relatively
+straightforward to describe, as is the cleavage site of a blunt
+end cutting enzyme \textit{TODO - example of this? Between location}.
+
+However, the cutting point of sticky-end cutting enzymes which
+leave an overhang are more challenging to describe. Here the
+flexibility in FALDO to allow the start and end positions of a region
+to have different strands can be used (Figure~\ref{fig:HindIII}).
+
+\begin{figure}
+\begin{framed}
+\small
+\begin{verbatim}
+    \/
+5'..AAGCTT..3' 
+    123456
+3'..TTCGAA..5'
+        /\
+        
+:EnzymeRestrictionSite a example:EnzymeRestrictionSite ;
+       faldo:location :EnzymeRestrictionRegion .
+       
+:EnzymeRestrictionRegion a faldo:Region ;
+       faldo:begin :53_1 ;
+       faldo:end   :35_6 .
+       
+:53cleaveageSite a example:CleavageSite ;
+       faldo:location :53cleaveageSitePosition .
+:35cleaveageSite a example:CleavageSite ;
+       faldo:location :35cleaveageSitePosition .
+        
+:53cleaveageSitePosition a faldo:InBetweenPosition, SO:0001689  ; #five_prime_restriction_enzyme_junction 
+       faldo:after :53_1 ;        
+       faldo:before :53_2 .
+       
+:35cleaveageSitePosition a faldo:InBetweenPosition, SO:0001690 ; #three_prime_restriction_enzyme_junction 
+       faldo:before :35_5 ;
+       faldo:after :35_6 . #Note the before after reversion due to biological start      
+
+       
+:53_1 a faldo:ExactPosition , faldo:ForwardStrandedPosition ;
+      faldo:position 1 .
+
+:53_2 a faldo:ExactPosition , faldo:ForwardStrandedPosition ;
+      faldo:position 2 .
+
+:35_5 a faldo:ExactPosition , faldo:ReverseStrandedPosition ;
+      faldo:position 5 .
+
+:35_6 a faldo:ExactPosition , faldo:ReverseStrandedPosition ;
+      faldo:position 6 .
+\end{verbatim}
+\end{framed}
+\caption{HindIII restriction enzyme cleavage site with sticky ends}
+\label{fig:HindIII}
+\end{figure}
+
+\subsection*{More examples}
 
 \textit{TODO - other ideas:}
 \begin{itemize}
