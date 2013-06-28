@@ -4,7 +4,7 @@ to represent all the annotated sequences in UniProt and the INSDC as RDF
 triples, as a step towards providing this data via SPARQL end points whereby
 it can be queried.
 UniProt is already available as RDF, and a revised version of the full
-dataset using FALDO has already tested and is expected to be included
+dataset using FALDO has already been tested and is expected to be included
 in the UniProt XXX release \textit{TODO - fill in version and data}.
 
 The protein examples considered, such as the UniProt feature annotations,
@@ -12,19 +12,22 @@ require relatively simple locations within protein sequences to be described.
 There are corner cases for situations like unknown boundaries.
 \textit{TODO - examples - how about cysteine bonds in PDB data?}.
 
+\subsection*{Complement strand}
 Feature locations on nucleotide sequences can be relatively simple,
 %GenBank
 for example the \textit{cheY} gene in
 \textit{Escherichia coli} str. K-12 substr. MG1655 (accession NC\_000913.2)
 is described in the INSDC feature table as \texttt{complement(1965072..1965461)},
 which is 390 base pairs using inclusive one-based counting.
-This is interpreted as \texttt{complement($end$..$start$)}, where
-the feature begins on the base complementary to $start = 1965461$
-and finishes at $end = 1965072$. FALDO respects this biological
-interpretation of a feature location on the reverse strand:
+This feature begins on the base complementary to $start = 1965461$
+and finishes at $end = 1965072$, and so the INSDC location string
+can be interpreted as \texttt{complement($end$..$start$)},
+FALDO respects this biological interpretation of a feature location
+on the reverse strand:
 
 %Notice begin, end = 1965461, 1965072 (biological interpretation)
 \begin{shaded}
+\small
 \begin{verbatim}
 # Incomplete Turtle format triples example using FALDO to describe
 # gene chrY being at complement(NC_000913.2:1965072..1965461)
@@ -73,9 +76,14 @@ on the region class that the start and end properties have
 the same reference and strand information.
 \textit{TODO - implement that}
 
-Nucleotide data from the INSDC can require considerably more complicated
-sequence regions, both in terms of ambiguous end points, and the need for
-various compound locations.
+\subsection{Compound locations}
+Nucleotide data from the INSDC (or GFF3) can require considerably
+more complicated sequence locations built out of multiple-regions.
+
+\textit{TODO - examples}.
+
+\subsection{Fuzzy locations}
+Nucleotide data from the INSDC can also require ambiguous end points.
 
 \textit{TODO - examples}.
 
@@ -85,6 +93,7 @@ curated INSDC data has been straightforward, however there are a
 number of deprecated location strings which have been problematic.
 \textit{TODO - examples? manual curation to fix last few oddities?}
 
+\subsection{More examples}
 
 \textit{TODO - other ideas:}
 \begin{itemize}
