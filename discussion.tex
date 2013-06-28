@@ -18,9 +18,55 @@ Similarly multiple schemes exist for describing strand specific locations,
 with some formats describing features on the reverse strand implicitly
 when the start coordinate is numerically higher than the end coordinate
 \textit{(TODO - example of format which does this)}.
-For a semantic description describing the strand explicitly is preferable,
-and as in formats like GFF3 in FALDO adopts the convention that
-the start coordinate is always numerically smaller than the end
-coordinate \textit{(TODO - circular genomes?)}.
 
-bla bla bla bla bla bla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla blabla bla bla bla bla
+For a semantic description describing the strand explicitly is preferable.
+FALDO chooses to add the strand information to the position. 
+This is required to accurately describe for example the sticky ends of an enzyme digestion.
+For example the HindIII restriction enzyme cleavage and sticky end locations are described in example \ref{RestrictionEnzymeExample}.
+
+\begin{verbatim}
+    \/
+5'..AAGCTT..3' 
+    123456
+3'..TTCGAA..5'
+        /\
+        
+:EnzymeRestrictionSite a example:EnzymeRestrictionSite ;
+       faldo:location :EnzymeRestrictionRegion .
+       
+:EnzymeRestrictionRegion a faldo:Region ;
+       faldo:begin :53_1 ;
+       faldo:end   :35_6 .
+       
+:53cleaveageSite a example:CleavageSite ;
+       faldo:location :53cleaveageSitePosition .
+:35cleaveageSite a example:CleavageSite ;
+       faldo:location :35cleaveageSitePosition .
+        
+:53cleaveageSitePosition a faldo:InBetweenPosition, SO:0001689  ; #five_prime_restriction_enzyme_junction 
+       faldo:after :53_1 ;        
+       faldo:before :53_2 .
+       
+:35cleaveageSitePosition a faldo:InBetweenPosition, SO:0001690 ; #three_prime_restriction_enzyme_junction 
+       faldo:before :35_5 ;
+       faldo:after :35_6 . #Note the before after reversion due to biological start      
+
+       
+:53_1 a faldo:ExactPosition , faldo:ForwardStrandedPosition ;
+      faldo:position 1 .
+
+:53_2 a faldo:ExactPosition , faldo:ForwardStrandedPosition ;
+      faldo:position 2 .
+
+:35_5 a faldo:ExactPosition , faldo:ReverseStrandedPosition ;
+      faldo:position 5 .
+
+:35_6 a faldo:ExactPosition , faldo:ReverseStrandedPosition ;
+      faldo:position 6 .
+\end{verbatim}
+
+
+Unlike formats like GFF3, FALDO adopts the convention that
+the start coordinate should be the biological start which 
+may be numerically a higher value than the end coordinate.
+
