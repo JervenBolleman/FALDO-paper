@@ -24,6 +24,7 @@ and finishes at $end = 1965072$. FALDO respects this biological
 interpretation of a feature location on the reverse strand:
 
 %Notice begin, end = 1965461, 1965072 (biological interpretation)
+\begin{shaded}
 \begin{verbatim}
 # Incomplete Turtle format triples example using FALDO to describe
 # gene chrY being at complement(NC_000913.2:1965072..1965461)
@@ -52,6 +53,7 @@ interpretation of a feature location on the reverse strand:
            faldo:position "1965072"^^xsd:int ;
            faldo:reference refseq:NC_000913.2 .
 \end{verbatim}
+\end{shaded}
 
 In contrast, other formats like GFF require $start \leq end$
 regardless of the strand, which is equivalent to interpreting
