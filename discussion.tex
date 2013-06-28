@@ -24,6 +24,8 @@ FALDO chooses to add the strand information to the position.
 This is required to accurately describe for example the sticky ends of an enzyme digestion.
 For example the HindIII restriction enzyme cleavage and sticky end locations are described in example \ref{RestrictionEnzymeExample}.
 
+%TODO - Make this into a figure?
+\begin{framed}
 \begin{verbatim}
     \/
 5'..AAGCTT..3' 
@@ -64,9 +66,9 @@ For example the HindIII restriction enzyme cleavage and sticky end locations are
 :35_6 a faldo:ExactPosition , faldo:ReverseStrandedPosition ;
       faldo:position 6 .
 \end{verbatim}
+\end{framed}
 
-
-Unlike formats like GFF3, FALDO adopts the convention that
-the start coordinate should be the biological start which 
+Unlike formats like GTF/GFF3, FALDO adopts the convention
+that the start coordinate should be the biological start which 
 may be numerically a higher value than the end coordinate.
 
