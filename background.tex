@@ -43,18 +43,20 @@ led to the development of the Feature Annotation Location Description Ontology (
 FALDO has a deliberately narrow scope which does not address general annotation
 issues about the meaning or evidence of a location, rather FALDO is intended be
 used in combination with other relevant ontologies such as the Sequence Ontology
-(SO) \cite{SequenceOntology2005} or a local database specific ontology.
+(SO) \cite{SequenceOntology2005} or a local database specific ontologies. 
+i.e. it tells you where you can find something not what you found.
 
 The ontology has been designed to be general enough to describe the annotation
 of proteins and nucleotides using the various levels of location complexity used
 in major databases such as INSDC (DDBJ/ENA/GenBank) and UniProt, their
 associated file formats and other generic annotation file formats such as GTF
-and GFF3. This includes compound locations which are the combination of
+and GFF3. 
+This includes compound locations which are the combination of
 several regions (such as the `join' location string in INSDC), and ambiguous
 positions.
 
 The proposed standard allows us to accurately describe the position of a feature on multiple sequences.
 This is expected to be most useful when lifting annotation from one draft assembly version to another.
 For example a gene can start at position $X$ on genome assembly $A$,
-while conceptually the same gene is positioned on $X'$ on genome assembly $A+1$.
+while what is conceptually the same gene is positioned on $X'$ on genome assembly $A+1$.
 
