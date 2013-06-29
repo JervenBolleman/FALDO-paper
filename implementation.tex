@@ -1,23 +1,18 @@
-\section*{Implementations}
+\section*{Implementation}
 FALDO was implemented and used in a number of tools and databases.
 
 \begin{description}
 \item[JBrowse sparql] FALDO is used sparql queries determine where to draw information related to a reference sequence in tracks filled with data from semantic databases. 
-\item[UniProt] UniProt annotates many protein features and sites. From release 2013\_10 in the RDF rendering of UniProt this is done with FALDO.
+\item[UniProt] UniProt annotates many protein features and sites. From release 2013$\_$10 in the RDF rendering of UniProt this is done with FALDO.
 \item[INSDC-DDBJ] DDBJ is currently working on a RDF format for the INSDC data that is stored in DDBJ/GenBank/EMBL-Bank.
 \item[Biointerchange] uses FALDO to make position information in current bioinformatics data stored in files such as GFF3 and GVF available to the semantic web.
 \item[TogoGenomes] a bacterial genome database collection provided by the DBCLS also uses FALDO in its RDF representation.
 \item[Intermine] The popular model organism database software collection uses FALDO in its SPARQL mode.
 \item[phenomebrowser] Positions of phenotypes and disease related natural variations are positioned onto the Mouse genome using FALDO.
-\item{ENSEMBL-R2RML] The open source conversion layer to make the ENSEMBL mysql databases available on the semantic web also uses FALDO to describe all feature locations.
+\item[ENSEMBL-R2RML] The open source conversion layer to make the ENSEMBL mysql databases available on the semantic web also uses FALDO to describe all feature locations.
 %\cite(e) 
 \item[SPARQL-bed] This simple tool that turns any BED file into a web accessible SPARQL endpoint also uses FALDO to describe BED feature positions.
 \end{description}
-
-The core ontology is described in the RDF rendering of OWL with minimal extensions for quality control in INSDC and UNIPROT databases.
-It is maintained as open source using the Creative-Commons 3.0 Attribution license in a git repository where anyone can raise issues or bug reports 
-as well as request changes using pull requests.
-The ontology is available via purl hosted at the biohackathon.org website.
 
 
 
