@@ -88,5 +88,30 @@ Current formats describe single amino acid binding sites as regions.
 FALDO allows us to describe such sites directly on positions therefore the Position class needs the reference sequence property.
 For the Region class it is not required as a Region always ends and starts with Positions.
 
+\subsection*{OWL2 reasoning based compression}
+For large databases such as INDSC or UniProt the need to repeat the reference sequence for positions again and again incurs a significant cost in storage.
+OWL2 reasoning introduced a new option called PropertyChain reasoning. 
+With the following axioms the faldo:reference triples can be inferred for any position described by a INSDC record.
+\begin{verbatim}
+INDSC:reference
+      a       owl:ObjectProperty ;
+      rdfs:subPropertyOf faldo:reference ;
+      owl:propertyChainAxiom
+              (faldo:beginOf faldo:endOf :featureOf insdc:sequence) .
+\end{verbatim}
+A OWL capable query rewriter (e.g. such as part of Stardog) means that users do not see the difference between encoding the faldo:reference explicitly or having them inferred at query time.
+Other stores that do not have such capabilities can easily add the necessary triples using a single SPARQL insert query.
+\begin{verbatim}
+CONSTRUCT {
+    ?position faldo:reference ?sequence .
+}
+WHERE {
+    ?record a insdc:Entry .
+    ?record insdc:feature ?feature .
+    ?feature faldo:position ?position .
+    ?record insdc:sequence ?sequence .
+}
+\end{verbatim} 
+For a SPARQL mapping to legacy files such as SPARQL-bed these extra triples do not matter as they do not exist in any way on disc .
 
 
