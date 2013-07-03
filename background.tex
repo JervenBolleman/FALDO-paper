@@ -4,7 +4,7 @@ annotation, and in areas beyond this such as describing modifications such methy
 of nucleotide sequences, or glycosylation of proteins.
 There are multiple different conventions for storing this kind of information in
 plain text flat file formats such as GTF, GFF3, GenBank and EMBL,
-and more structured domain specific XML formats such as the INSDC or UniProt XML.
+and more structured domain specific XML formats such as those from INSDC or UniProt.
 None of the above tools or formats are flexible enough to discuss all of genetics or proteomics. 
 Furthermore, fundamental details are inconsistent, for example both zero-based and
 one-based counting standards exist, a regular source of off-by-one programming
@@ -48,14 +48,13 @@ i.e. it tells you where you can find something not what you found.
 
 The ontology has been designed to be general enough to describe the annotation
 of proteins and nucleotides using the various levels of location complexity used
-in major databases such as INSDC (DDBJ/ENA/GenBank) and UniProt, their
+in major databases such as INSDC (DDBJ/ENA/GenBank)\cite{DDBJ2013,ENA2013,GenBank2013} and UniProt \cite{UniProt2013}, their
 associated file formats, and other generic annotation file formats such as BED,
 GTF and GFF3. This includes compound locations which are the combination of
 several regions (such as the `join' location string in INSDC), and ambiguous
 positions.
 
-The proposed standard allows us to accurately describe the position of a feature on multiple sequences.
+The proposed standard allows accurate descriptions of the position of a feature on multiple sequences.
 This is expected to be most useful when lifting annotation from one draft assembly version to another.
 For example a gene can start at position $X$ on genome assembly $A$,
 while what is conceptually the same gene is positioned on $X'$ on genome assembly $A+1$.
-
