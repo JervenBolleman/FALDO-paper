@@ -5,17 +5,36 @@ triples, as a step towards providing this data via SPARQL end points whereby
 it can be queried.
 UniProt is already available as RDF, and a revised version of the full
 dataset using FALDO has already been tested and is expected to be included
-in the UniProt XXX release \textit{TODO - fill in version and data}.
+in the UniProt 2013\_10 release \textit{TODO - fill in version and data}.
 
 The protein examples considered, such as the UniProt feature annotations,
-require relatively simple locations within protein sequences to be described.
-There are corner cases for situations like unknown boundaries.
-\textit{TODO - examples - how about cysteine bonds in PDB data?}.
+require relatively simple locations within protein sequences to be described (see Fig:\ref{fig:UniProt}).
+There are corner cases for situations like unknown boundaries for these we use the faldo:InRangePosition.
 
+\begin{figure}
+\begin{verbatim}
+AC   P05064;
+...
+FT   ACT_SITE    230    230       Schiff-base intermediate with
+FT                                dihydroxyacetone-P.
+\end{verbatim}
+\begin{verbatim}
+uniprot:P05064 a up:Protein ;
+   up:annotation SHA:E50..1B .
+SHA:E50..1B a up:Active_Site_Annotation ;
+   rdfs:comment ``Schiff-base intermediate with dihydroxyacetone-P''
+   faldo:location range:22571003137111085tt230tt230 .
+range:22571003137111085tt230tt230 a faldo:Position ;
+   faldo:position 230 ;
+   faldo:reference isoform:P05064-1 .
+\end{verbatim}
+\caption{Example from UniProt entry P05064 showing the position of an active site in both faldo and the UniProt flat-file format.}
+\label{fig:UniProt}
+\end{figure}
 \subsection*{Complement strand}
 Feature locations on nucleotide sequences can be relatively simple,
 %GenBank
-for example the \textit{cheY} gene in
+for the example (shown in Fig:\ref{fig:insdcComplement}) the \textit{cheY} gene in
 \textit{Escherichia coli} str. K-12 substr. MG1655 (accession NC\_000913.2)
 is described in the INSDC feature table as \texttt{complement(1965072..1965461)},
 which is 390 base pairs using inclusive one-based counting.
@@ -26,11 +45,11 @@ FALDO respects this biological interpretation of a feature location
 on the reverse strand:
 
 %Notice begin, end = 1965461, 1965072 (biological interpretation)
+\begin{figure}
 \begin{shaded}
 \small
 \begin{verbatim}
-# Incomplete Turtle format triples example using FALDO to describe
-# gene chrY being at complement(NC_000913.2:1965072..1965461)
+# 
 @prefix faldo: <http://biohackathon.org/resource/faldo#> .
 
 # Here are example triples describing a gene, note the location line:
@@ -57,6 +76,10 @@ on the reverse strand:
            faldo:reference refseq:NC_000913.2 .
 \end{verbatim}
 \end{shaded}
+\caption{Incomplete example of using Faldo in turtle format to describe
+gene chrY being at complement(NC\_$000913.2:1965072..1965461$)}
+\label{fig:insdcComplement}
+\end{figure}
 
 In contrast, other formats like GFF require $start \leq end$
 regardless of the strand, which is equivalent to interpreting
