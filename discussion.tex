@@ -49,7 +49,8 @@ For the Region class it is not required as a Region always ends and starts with 
 \subsection*{OWL2 reasoning based compression}
 For large databases such as INDSC or UniProt the need to repeat the reference sequence for positions again and again incurs a significant cost in storage.
 OWL2 reasoning introduced a new option called PropertyChain reasoning. 
-With the following axioms the faldo:reference triples can be inferred for any position described by a INSDC record.
+With the axiom shown in fig:\ref{owl:chainProperty} the faldo:reference triples can be inferred for any faldo:position described by a INSDC record.
+\begin{figure}
 \begin{verbatim}
 INDSC:reference
       a       owl:ObjectProperty ;
@@ -57,8 +58,12 @@ INDSC:reference
       owl:propertyChainAxiom
               (faldo:beginOf faldo:endOf :featureOf insdc:sequence) .
 \end{verbatim}
+\caption{OWL2 property chain axiom to infer that all positions described in a INSDC record are positioned relative to the main sequence of the record.}
+\label{owl:chainProprty}
+\end{figure}
 A OWL capable query rewriter (e.g. such as part of Stardog) means that users do not see the difference between encoding the faldo:reference explicitly or having them inferred at query time.
-Other stores that do not have such capabilities can easily add the necessary triples using a single SPARQL insert query.
+Other stores that do not have such capabilities can easily add the necessary triples using a single SPARQL insert query as shown in fig:\ref{sparql:chainProperty}.
+\begin{figure}
 \begin{verbatim}
 CONSTRUCT {
     ?position faldo:reference ?sequence .
@@ -69,9 +74,15 @@ WHERE {
     ?feature faldo:position ?position .
     ?record insdc:sequence ?sequence .
 }
-\end{verbatim} 
-For a SPARQL mapping to legacy files such as SPARQL-bed these extra triples do not matter as they do not exist in any way on disc .
+\end{verbatim}
+\caption{SPARQL query to add all faldo:reference properties to faldo:positions described from a insdc:record.}
+\label{sparql:chainProperty}
+\end{figure}
+
+FALDO has been designed to be open to extension for future use.
+To avoid unnesecarry contradictions we avoid stating that a position is unknown.
+i.e. a missing triple means unknown. 
+This means that a new datasource with more specific information is not contradicted e.g.
+we never get $\_:position a :faldo:ExactPosition,faldo:UnknownPosition$ when merging rdf sources.
 
 
-FALDO has been designed to be open to extension for future
-use \textit{TODO - expand on this with Jerven}.
