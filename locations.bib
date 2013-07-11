@@ -142,3 +142,33 @@
 		eprint = {http://bioinformatics.oxfordjournals.org/content/23/13/i337.full.pdf+html}, 
 		journal = {Bioinformatics} 
 }
+
+@ARTICLE{NCL2007,
+  author = {Alexander V Alekseyenko and Christopher J Lee},
+  title = {Nested Containment List {(NCList):} A new algorithm for accelerating
+	interval query of genome alignment and interval databases},
+  journal = {Bioinformatics},
+  year = {2007},
+  pages = {btl647},
+  abstract = {Motivation: The exponential growth of sequence databases poses a major
+	challenge to bioinformatics tools for querying alignment and annotation
+	databases. There is a pressing need for methods for finding overlapping
+	sequence intervals that are highly scalable to database size, query
+	interval size, result size, and construction / updating of the interval
+	database. Results: We have developed a new interval database representation,
+	the Nested Containment List {(NCList),} whose query time is O(n +
+	log N), where N is the database size and n is the size of the result
+	set. In all cases tested this query algorithm is 5 -500 fold faster
+	than other indexing methods tested in this study, such as {MySQL}
+	mult-column indexing, {MySQL} binning, and {R-Tree} indexing. We
+	provide performance comparisons both in simulated datasets and real-world
+	genome alignment databases, across a wide range of data-base sizes
+	and query interval widths. We also present an in-place {NCList} construction
+	algorithm that yields database construction times that are approximately
+	100-fold faster than other methods available. The {NCList} data structure
+	appears to provide a useful foundation for highly scalable interval
+	database applications. Availability: {NCList} data structure is part
+	of Pygr, a bioinformatics graph database library, available at http://sourceforge.net/projects/pygr},
+  doi = {10.1093/bioinformatics/btl647},
+  url = {http://bioinformatics.oxfordjournals.org/cgi/content/abstract/btl647v1}
+}
