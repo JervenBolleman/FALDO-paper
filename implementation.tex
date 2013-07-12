@@ -5,7 +5,7 @@ FALDO was implemented and used in a number of tools and databases.
 \item[JBrowse sparql] FALDO is used sparql queries determine where to draw information related to a reference sequence in tracks filled with data from semantic databases. 
 \item[UniProt] UniProt annotates many protein features and sites. From release 2013$\_$10 in the RDF rendering of UniProt this is done with FALDO.
 \item[INSDC-DDBJ] DDBJ is currently working on a RDF format for the INSDC data that is stored in DDBJ/GenBank/EMBL-Bank.
-\item[Biointerchange] uses FALDO to make position information in current bioinformatics data stored in files such as GFF3 and GVF available to the semantic web.
+\item[BioInterchange] uses FALDO to make position information in current bioinformatics data stored in files such as GFF3 and GVF available to the semantic web.
 \item[TogoGenomes] a bacterial genome database collection provided by the DBCLS also uses FALDO in its RDF representation.
 \item[Intermine] The popular model organism database software collection uses FALDO in its SPARQL mode.
 \item[phenomebrowser] Positions of phenotypes and disease related natural variations are positioned onto the Mouse genome using FALDO.
@@ -39,7 +39,8 @@ respectively if implicitly given in terms of the reference chr1.
 Using the GTF/GFF3 family of formats, regardless of the
 strand these two locations are described with $start = 1050$
 and $end = 2080$, and in general, $start \leq end$.
-Biologically speaking, the start is strand dependent.
+Biologically speaking, in terms of transcription, the start of a genomic
+feature is strand dependent.
 For the forward strand feature (orange), the start is 1050
 while the reverse strand feature (blue) starts from 2080.
 \textit{TODO - Replace with real example? Add FALDO illustration?}
