@@ -26,17 +26,17 @@ FALDO chooses to add the strand information to the position.
 This is required to accurately describe for example the sticky ends
 of an enzyme digestion cut site, as in the HindIII example (Figure~\ref{fig:HindIII}).
 
-Unlike formats like GTF/GFF3, FALDO adopts the convention
-that the start coordinate should be the biological start which 
-may be numerically a higher value than the end coordinate.
+Unlike formats like GTF/GFF3, FALDO shares with Chado the convention
+that the start coordinate should be the biological start (which 
+may be numerically a higher value than the end coordinate).
 
 A major difference with other proposed standards is that we chose to make strandedness and reference sequence a property of the position instead of the region.
 This is important in a number of use cases.
 One is when we someone needs to describe the position of a Gene on a rough assembly where the start and end are known to be on a different contig. 
 This can be the case when RNA mapping is used in the genome assembly process.
 Another is when rough semantics are used in queries e.g. answering what is the start and end of a Gene. 
-In a process called transplicing exons of one gene can be found on multiple chromosomes e.g. \textit(TODO find an example)
-In such a case the start of the gene is on a different reference sequence than the end.
+In a process called transplicing, exons of one gene can be found on multiple chromosomes, or on different strands of the same chromosome. e.g. \textit(TODO find an example)
+In such a case the start of the gene is on a different reference sequence or strand than the end.
 We encourage that data providers describe the biology more precise than gene start-end in their databases, but we know that legacy data is not easily converted.
 Another is Disulfide bonds in a protein complex the start position is on one chain while the end is on another chain in the complex.
 FALDO can describe the position of the bridge with InBetweenPositions where the start and end of the bridge is on different protein chains.
@@ -45,6 +45,41 @@ The last difference is that it makes queries more predictable.
 Current formats describe single amino acid binding sites as regions.
 FALDO allows us to describe such sites directly on positions therefore the Position class needs the reference sequence property.
 For the Region class it is not required as a Region always ends and starts with Positions.
+
+% this could also be integrated with the above rather than forming its own section
+\subsection*{Comparison with GMOD/Chado}
+
+The GMOD (Generic Model Organism Database) schema
+Chado\cite{Chado2007} includes a module for representing sequences and
+sequence features. The Chado model has similarities with RDF in that
+the subject-predicate-object pattern is used to represent connections
+between biological entities, with community ontologies such as SO used
+to type entities and predicates.
+
+Like FALDO, Chado uses the convention that the start position is
+always the biological start, even on the reverse strand. Chado allows
+multiple locations per feature, but unlike FALDO, the start and end of
+any location must be in the same region, which prohibits for example a
+feature that spans more than one contig.
+
+The Chado triple pattern is layered on top of a conventional
+relational database which leads to inefficiencies when performing many
+queries due to the large number of joins required. An RDF store
+provides a more natural fit for this kind of model.
+
+\subsection*{Efficiency of Region-of-Interest queries}
+
+Region of interest (ROI) queries are common operations performed on a
+set of genome annotations to extract a set of features within a
+range. For applications such as genome browsers, it is important that
+these are as efficient as possible. Many RDF query engines will
+perform poorly when performing ROI queries over large feature
+sets. However, we expect that it should be possible to combine
+efficient algorithms and indexes such as Nested Containment Lists
+(NCLs)\cite{NCL2007} or spatial indexes to optimize these operations
+in the context of a SPARQL query.
+
+
 
 \subsection*{OWL2 reasoning based compression}
 For large databases such as INDSC or UniProt the need to repeat the reference sequence for positions again and again incurs a significant cost in storage.
