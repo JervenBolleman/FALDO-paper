@@ -91,7 +91,10 @@ INDSC:reference
       a       owl:ObjectProperty ;
       rdfs:subPropertyOf faldo:reference ;
       owl:propertyChainAxiom
-              (faldo:beginOf faldo:endOf :featureOf insdc:sequence) .
+              (faldo:endOf faldo:locationOf INDSC:featureOf INDSC:sequence) , 
+              (faldo:locationOf INDSC:featureOf INDSC:sequence) , 
+              (faldo:beginOf faldo:locationOf INDSC:featureOf INDSC:sequence) .
+
 \end{verbatim}
 \caption{OWL2 property chain axiom to infer that all positions described in a INSDC record are positioned relative to the main sequence of the record.}
 \label{owl:chainProprty}
@@ -106,7 +109,14 @@ CONSTRUCT {
 WHERE {
     ?record a insdc:Entry .
     ?record insdc:feature ?feature .
-    ?feature faldo:position ?position .
+    ?feature faldo:location ?location .
+    {
+        ?location faldo:begin|faldo:end ?position .
+    }
+    UNION
+    {
+        ?location a faldo:Position .
+    } .
     ?record insdc:sequence ?sequence .
 }
 \end{verbatim}
