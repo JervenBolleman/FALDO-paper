@@ -1,4 +1,18 @@
 \section*{Implementation}
+
+FALDO is a small OWL2 ontology which fits in the ALCQ(D) classification difficulty.
+It has 14 classes of which 9 deal with the concept of a Position on a sequence. 
+4 of those classes there to describe accurately an what we know of a position that is not precisely determined. 
+4 are to deal with the concept of a position on a strand of DNA i.e. positive, negative and on both strands.
+
+The ontology contains only one datatype property: $faldo:position$ which is there to give a integer, one based offset from 
+the start of the reference sequence. This $faldo:position$ together with the $faldo:reference$ object property links the concept
+of a $faldo:Position$ to an instance of sequence in the biological sense.
+
+
+
+
+
 FALDO was implemented and used in a number of tools and databases.
 
 \begin{description}
