@@ -39,11 +39,11 @@ In a process called transplicing, exons of one gene can be found on multiple chr
 In such a case the start of the gene is on a different reference sequence or strand than the end.
 We encourage that data providers describe the biology more precise than gene start-end in their databases, but we know that legacy data is not easily converted.
 
-Another use case is describing Disulfide bonds in a protein complex where the start position is on one chain while the end is on another chain in the complex. FALDO can describe the position of the Disulfide bond with \mathtt{faldo:InBetweenPositions} where the start and end of the bridge is on different protein chains.
+Another use case is describing Disulfide bonds in a protein complex where the start position is on one chain while the end is on another chain in the complex. FALDO can describe the position of the Disulfide bond with $faldo:InBetweenPositions$ where the start and end of the bridge is on different protein chains.
 These biological realities are can not be described accuratly if the reference sequence was a property of the region. 
 As a side effect it allows single nucleotide or amino acid sites to be described directly as a position without a need for an artificial region of length one.
 
-Every \mathtt{faldo:Position} references to the sequence it is on. This allows us to say that gene XX starts on position 4 of assembly Y1 while the same conceptual gene starts on position 5 of assembly Y2. Chado also allows multiple locations per feature, but unlike FALDO, the start and end of
+Every $faldo:Position$ references to the sequence it is on. This allows us to say that gene XX starts on position 4 of assembly Y1 while the same conceptual gene starts on position 5 of assembly Y2. Chado also allows multiple locations per feature, but unlike FALDO, the start and end of
 any location must be in the same region, which prohibits for example a feature that spans more than one contig, or describing the same feature on two different genome assemblies.
 
 \subsection*{Efficiency of Region-of-Interest queries}
@@ -67,7 +67,7 @@ the query translation step is an added cpu burden.
 \subsection*{OWL2 reasoning based compression}
 For large databases such as INDSC or UniProt the need to repeat the reference sequence for positions again and again incurs a significant cost in storage.
 OWL2 reasoning introduced a new option called PropertyChain reasoning. 
-With the axiom shown in fig:\ref{owl:chainProperty} the \mathtt{faldo:reference} triples can be inferred for any \mathtt{faldo:position} described by a INSDC record.
+With the axiom shown in fig:\ref{owl:chainProperty} the $faldo:reference$ triples can be inferred for any $faldo:position$ described by a INSDC record.
 \begin{figure}
 \begin{verbatim}
 INDSC:reference
@@ -82,11 +82,11 @@ INDSC:reference
 \caption{OWL2 property chain axiom to infer that all positions described in a INSDC record are positioned relative to the main sequence of the record (in RDF turtle syntax).}
 \label{owl:chainProprty}
 \end{figure}
-A OWL capable query rewriter means that users do not see the difference between encoding the \mathtt{faldo:reference} explicitly or having them inferred at query time.
-Other stores that do not have such capabilities can easily add the necessary triples using a single SPARQL insert query as shown in fig:\ref{sparql:chainProperty}.
+A OWL capable query rewriter means that users do not see the difference between encoding the $faldo:reference$ explicitly or having them inferred at query time.
+Other stores that do not have such capabilities can easily add the necessary triples using a single SPARQL insert query as shown in fig:\ref{sparql:chainProperty}. This flexibility in solving this problem allows users of the data to use the best approach for their infrastructure instead of being limited by the decisions of the data provider.
 \begin{figure}
 \begin{verbatim}
-CONSTRUCT {
+INSERT {
     ?position faldo:reference ?sequence .
 }
 WHERE {
@@ -100,11 +100,10 @@ WHERE {
     UNION
     {
         ?location a faldo:Position .
-    } .
-
+    }
 }
 \end{verbatim}
-\caption{SPARQL query to add all \mathtt{faldo:reference} properties to \mathtt{faldo:positions} described from a \mathtt{insdc:record}.}
+\caption{SPARQL query to add all $faldo:reference$ properties to $faldo:positions$ described from a $insdc:record$.}
 \label{sparql:chainProperty}
 \end{figure}
 
@@ -116,7 +115,7 @@ or UniProt that requires a feature to be described in relation to the canonical 
 Semantic technology gives a number of different options\cite{RDFValidationReport} to add 
 such optional constraints to a datamodel. 
 The benefit of such optionality is that constraints needed for quality control at 
-the data provider do not restrict the users. 
+the data provider do not restrict the users of the data in any way. 
 
 For example the UniProtKB constraint that positions are annotated on the canonical isoform 
 (for comparability with legacy data formats), if enforced, may make it difficult for a proteomics
