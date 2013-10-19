@@ -7,8 +7,8 @@ It has 14 classes of which 9 deal with the concept of a Position on a sequence.
 Unlike many representations there is no explicit way to say that it is not ``known'' on which strand a position is,
 such an explicit statement can introduce knowledge clashes when merging different datasets.
 For example this would lead to positions that are both of the type forward stranded position and a unknown position.
-There is also no benefit to expcitly stating that something is unknown as it does not make queries simpler and 
-increases the data size.
+There is also no benefit to explicitly stating that something is unknown as it does not make queries simpler and 
+only increases the data size.
 
 The ontology contains only one datatype property: $faldo:position$ which is there to give a integer, one based offset from 
 the start of the reference sequence. This $faldo:position$ together with the $faldo:reference$ object property links the concept
@@ -36,6 +36,62 @@ while the reverse strand feature (blue) starts from 2080.
 }
 \label{fig:strands}
 \end{figure}
+
+\subsection*{OWL2 reasoning based compression}
+For large databases such as INDSC or UniProt the need to repeat the reference sequence for positions again and again incurs a significant cost in storage. However, this triple does not need to be materialized in the database as it is inferable using OWL2 property chain reasoning.
+With the axiom shown in fig:\ref{owl:chainProperty} the $faldo:reference$ triples can be inferred for any $faldo:position$ described by a INSDC record.
+\begin{figure}
+\begin{verbatim}
+INDSC:reference
+      a       owl:ObjectProperty ;
+      rdfs:subPropertyOf faldo:reference ;
+      owl:propertyChainAxiom
+              (faldo:endOf faldo:locationOf INDSC:featureOf INDSC:sequence) , 
+              (faldo:locationOf INDSC:featureOf INDSC:sequence) , 
+              (faldo:beginOf faldo:locationOf INDSC:featureOf INDSC:sequence) .
+
+\end{verbatim}
+\caption{OWL2 property chain axiom to infer that all positions described in a INSDC record are positioned relative to the main sequence of the record (in RDF turtle syntax).}
+\label{owl:chainProprty}
+\end{figure}
+A OWL capable query rewriter means that users do not see the difference between encoding the $faldo:reference$ explicitly or having them inferred at query time.
+For RDF databases that do not have such capabilities can easily add the necessary triples using a single SPARQL insert query as shown in fig:\ref{sparql:chainProperty}. This flexibility in solving this problem allows users of the data to use the best approach for their infrastructure instead of being limited by the decisions of the data provider.
+\begin{figure}
+\begin{verbatim}
+INSERT {
+    ?position faldo:reference ?sequence .
+}
+WHERE {
+    ?record a insdc:Entry ;
+            insdc:feature ?feature ;
+            insdc:sequence ?sequence .
+    ?feature faldo:location ?location .
+    {
+        ?location faldo:begin|faldo:end ?position .
+    }
+    UNION
+    {
+        ?location a faldo:Position .
+    }
+}
+\end{verbatim}
+\caption{SPARQL query to add all $faldo:reference$ properties to $faldo:positions$ described from a $insdc:record$.}
+\label{sparql:chainProperty}
+\end{figure}
+
+\subsection*{Validating a FALDO model}
+
+Some databases only allow a subset of all FALDO. For example
+INSDC requires that the start and end of a region are on the same sequence 
+or UniProt that requires a feature to be described in relation to the canonical isoform.
+Semantic technology gives a number of different options\cite{RDFValidationReport} to add 
+such optional constraints to a datamodel. 
+The benefit of such optionality is that constraints needed for quality control at 
+the data provider do not restrict the users of the data in any way. 
+
+For example the UniProtKB constraint that positions are annotated on the canonical isoform 
+(for comparability with legacy data formats), if enforced, may make it difficult for a proteomics
+database describing a glycosylation site that is specific to a single isoform described in UniProtKB.
 
 \subsection*{Users}
 FALDO is implemented and used in a number of tools and databases.
