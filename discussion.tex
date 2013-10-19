@@ -15,7 +15,7 @@ conventions for describing open or closed end points using zero and
 one based counting (for example BED versus GTF/GFF3/INSDC).
 In FALDO we always count from the start of the forward 5'-3' strand even on the reverse strand.
 This encoding means there is no need to know the length of the sequence to compare positions on the different strands.
-The end position of a region is inclusive.
+The end and start position of a region is inclusive.
 
 %Similarly multiple schemes exist for describing strand specific locations,
 %with some formats describing features on the reverse strand implicitly
@@ -38,12 +38,11 @@ One is when we someone needs to describe the position of a Gene on a rough assem
 This can be the case when RNA mapping is used in the genome assembly process.
 Another is when rough semantics are used in queries e.g. answering what is the start and end of a Gene. 
 In a process called transplicing, exons of one gene can be found on multiple chromosomes, or on different strands of the same chromosome. e.g. 
-mod(mdg4) of Drosophila melanogaster (uniprot:Q86B87)
+gene mod(mdg4) of Drosophila melanogaster (uniprot:Q86B87)
 In such a case the start of the gene is on a different reference sequence or strand than the end.
-We encourage that data providers describe the biology more precise than gene start-end in their databases, but we know that legacy data is not easily converted.
 
 Another use case is describing Disulfide bonds in a protein complex where the start position is on one chain while the end is on another chain in the complex. FALDO can describe the position of the Disulfide bond with $faldo:InBetweenPositions$ where the start and end of the bridge is on different protein chains.
-These biological realities are can not be described accuratly if the reference sequence was a property of the region. 
+These biological realities are can not be described accurately if the reference sequence was a property of the region. 
 As a side effect it allows single nucleotide or amino acid sites to be described directly as a position without a need for an artificial region of length one.
 
 Every $faldo:Position$ references to the sequence it is on. This allows us to say that gene XX starts on position 4 of assembly Y1 while the same conceptual gene starts on position 5 of assembly Y2. Chado also allows multiple locations per feature, but unlike FALDO, the start and end of
@@ -51,7 +50,7 @@ any location must be in the same region, which prohibits for example a feature t
 
 \subsection*{Efficiency of Region-of-Interest queries}
 
-For FALDO we also considered query efficiency. 
+For FALDO we also considered query efficiency in comparison to existing search technology. 
 Region of interest (ROI) queries are common operations performed on a
 set of genome annotations to extract a set of features within a
 range. For applications such as genome browsers, it is important that
@@ -67,62 +66,7 @@ the query translation step is an added cpu burden.
 
 
 
-\subsection*{OWL2 reasoning based compression}
-For large databases such as INDSC or UniProt the need to repeat the reference sequence for positions again and again incurs a significant cost in storage.
-OWL2 reasoning introduced a new option called PropertyChain reasoning. 
-With the axiom shown in fig:\ref{owl:chainProperty} the $faldo:reference$ triples can be inferred for any $faldo:position$ described by a INSDC record.
-\begin{figure}
-\begin{verbatim}
-INDSC:reference
-      a       owl:ObjectProperty ;
-      rdfs:subPropertyOf faldo:reference ;
-      owl:propertyChainAxiom
-              (faldo:endOf faldo:locationOf INDSC:featureOf INDSC:sequence) , 
-              (faldo:locationOf INDSC:featureOf INDSC:sequence) , 
-              (faldo:beginOf faldo:locationOf INDSC:featureOf INDSC:sequence) .
 
-\end{verbatim}
-\caption{OWL2 property chain axiom to infer that all positions described in a INSDC record are positioned relative to the main sequence of the record (in RDF turtle syntax).}
-\label{owl:chainProprty}
-\end{figure}
-A OWL capable query rewriter means that users do not see the difference between encoding the $faldo:reference$ explicitly or having them inferred at query time.
-Other stores that do not have such capabilities can easily add the necessary triples using a single SPARQL insert query as shown in fig:\ref{sparql:chainProperty}. This flexibility in solving this problem allows users of the data to use the best approach for their infrastructure instead of being limited by the decisions of the data provider.
-\begin{figure}
-\begin{verbatim}
-INSERT {
-    ?position faldo:reference ?sequence .
-}
-WHERE {
-    ?record a insdc:Entry ;
-            insdc:feature ?feature ;
-            insdc:sequence ?sequence .
-    ?feature faldo:location ?location .
-    {
-        ?location faldo:begin|faldo:end ?position .
-    }
-    UNION
-    {
-        ?location a faldo:Position .
-    }
-}
-\end{verbatim}
-\caption{SPARQL query to add all $faldo:reference$ properties to $faldo:positions$ described from a $insdc:record$.}
-\label{sparql:chainProperty}
-\end{figure}
-
-\subsection{*Validating a FALDO model}
-
-Some databases only allow a subset of all FALDO. For example
-INSDC requires that the start and end of a region are on the same sequence 
-or UniProt that requires a feature to be described in relation to the canonical isoform.
-Semantic technology gives a number of different options\cite{RDFValidationReport} to add 
-such optional constraints to a datamodel. 
-The benefit of such optionality is that constraints needed for quality control at 
-the data provider do not restrict the users of the data in any way. 
-
-For example the UniProtKB constraint that positions are annotated on the canonical isoform 
-(for comparability with legacy data formats), if enforced, may make it difficult for a proteomics
-database describing a glycosylation site that is specific to a single isoform described in UniProtKB.
 
 
 

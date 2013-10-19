@@ -83,7 +83,7 @@ WHERE {
 
 Some databases only allow a subset of all FALDO. For example
 INSDC requires that the start and end of a region are on the same sequence 
-or UniProt that requires a feature to be described in relation to the canonical isoform.
+and UniProt requires that a feature is described in relation to the canonical isoform.
 Semantic technology gives a number of different options\cite{RDFValidationReport} to add 
 such optional constraints to a datamodel. 
 The benefit of such optionality is that constraints needed for quality control at 
@@ -106,7 +106,7 @@ FALDO is implemented and used in a number of tools and databases.
 \item[BOING] The ``bio-ontology integrated querying of sequence annotations'' also uses FALDO to describe all feature locations \cite{BOING}.
 \item[SPARQL-bed] This simple tool that turns any BED file into a web accessible SPARQL endpoint also uses FALDO to describe BED feature positions\url{https://github.com/JervenBolleman/sparql-bed}.
 \item[BioBerl] BioPerl\cite{BioPerl2002} now includes a FALDO exporter (Bio::FeatureIO::faldo), which allows any bioperl feature format to be translated to FALDO.
-\item[UniProt] UniProt annotates many protein features and sites. From release 2013$\_$11 in the RDF rendering of UniProt this is done with FALDO.
+\item[UniProt] UniProt annotates many protein features and sites. Starting with UniProt RDF release 2013$\_$11 the positions of a protein feature is described using FALDO.
 \end{description}
 
 

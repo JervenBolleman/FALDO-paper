@@ -3,10 +3,6 @@ One of the practical goal driving the development of FALDO was to be able
 to represent all the annotated sequences in UniProt and the INSDC as RDF
 triples, as a step towards providing this data via SPARQL end points whereby
 it can be queried.
-UniProt is already available as RDF, and a revised version of the full
-dataset using FALDO has already been tested and is expected to be included
-in the UniProt 2013\_11 release.
-%TODO make sure it gets into release 2013_11
 
 The protein examples considered, such as the UniProt feature annotations,
 require relatively simple locations within protein sequences to be described (see Fig:\ref{fig:UniProt}).
@@ -101,7 +97,27 @@ more complicated sequence locations built out of multiple-regions.
 \textit{TODO - examples}.
 
 \subsection*{Fuzzy locations}
-Nucleotide data from the INSDC can also require ambiguous end points.
+Nucleotide data from the INSDC or experimental data described in UniProt 
+can also require ambiguous end points. For example position 5 or 7 is glycosylated
+as shown in fig \ref{uniprot2}.
+
+\begin{figure}
+\begin{verbatim}
+AC                                 dihydroxyacetone-P.
+\end{verbatim}
+\begin{verbatim}
+uniprot: a up:Protein ;
+   up:annotation SHA: .
+SHA: a up:Glycosylation_Annotation ;
+   rdfs:comment ``GlcNAC''
+   faldo:location range: .
+range: a faldo:Position ;
+   faldo:position  ;
+   faldo:reference isoform: .
+\end{verbatim}
+\caption{Example from UniProt entry XXXXX showing the approximate position of a glycosylation site in both FALDO and the UniProt flat-file format.}
+\label{fig:UniProt}
+\end{figure}
 
 \textit{TODO - examples}.
 
