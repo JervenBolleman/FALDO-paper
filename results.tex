@@ -5,8 +5,7 @@ triples, as a step towards providing this data via SPARQL end points whereby
 it can be queried.
 
 The protein examples considered, such as the UniProt feature annotations,
-require relatively simple locations within protein sequences to be described (see figure \ref{fig:UniProt}).
-There are corner cases for situations like unknown boundaries for these we use the $faldo:InRangePosition$.
+require relatively simple locations within protein sequences to be described (see the active site annotation in figure \ref{fig:UniProtDDBJ}).
 
 \begin{figure}
 \begin{shaded}
@@ -21,7 +20,8 @@ FT   ACT_SITE    153    153       Nucleophile (By similarity).
 \begin{verbatim}
 uniprot:Q6Q250 rdf:type :Protein ;
    up:annotation SHA:E50..1B ;
-   up:sequence isoform:P05064-1 .
+   up:sequence isoform:P05064-1 ;
+   rdfs:seeAlso ddbj-cds:AAS67043.1 .
 SHA:E50..1B a up:Signal_Peptide_Annotation ;
   faldo:location region:22859195476160557tf1tt15> .
 SHA:E50..1C a up:Active_Site_Annotation ;
@@ -44,9 +44,44 @@ position:153 a faldo:ExactPosition ;
 isoform:P05064-1 up:fragment "single" ;
    up:precursor true .
 \end{verbatim}
+\begin{verbatim}
+LOCUS       AY566647                 948 bp    mRNA    linear   INV 22-MAR-2004
+...
+FEATURES             Location/Qualifiers
+...
+     CDS             <1..>948
+                     /note="allergen Pol d 1.03"
+                     /codon_start=1
+                     /product="venom phospholipase A1 3 precursor"
+                     /protein_id="AAS67043.1"
+                     /db_xref="GI:45510891"
+                     /translation="ADDLTTLRNGTLDRGITPDCTFNEKDIELHVYSRDKRNGIILKK
+                     EILKNYDLFQKSQISHQIAILIHGFLSTGNNENFDAMAKALIEIDNFLVISVDWKKGA
+                     CNAFASTNDVLGYSQAVGNTRHVGKYVADFTKLLVEQYKVPMSNIRLIGHSLGAHTSG
+                     FAGKEVQRLKLGKYKEIIGLDPAGPSFLTSKCPDRLCETDAEYVQAIHTSAILGVYYN
+                     VGSVDFYVNYGKSQPGCSEPSCSHTKAVKYLTECIKRECCLIGTPWKSYFSTPKPISQ
+                     CKRDTCVCVGLNAQSYPAKGSFYVPVDKDAPYCHNEGIKL"
+\end{verbatim}
+\begin{verbatim}
+ddbj-cds:AAS67043.1 rdf:type :Nucleotide_Resource ;
+  faldo:location ddbj-reg:AY566647b1a948 .
+ddbj-reg:AY566647b1a948 a faldo:Region ;
+	faldo:begin ddbj-reg:AY566647before1 ;
+	faldo:end ddbj-reg:AY566647after948 .
+ddbj-reg:AY566647before1 a faldo:InRangePosition ;
+	faldo:before ddbj-reg:AY566647p1 .
+ddbj-reg:AY566647after948 a faldo:InRangePosition ;
+	faldo:after ddbj-reg:AY566647p948 ;
+ddbj-reg:AY566647p1	a faldo:ExactPosition ;
+	faldo:position 1 ;
+	faldo:reference ddbj-seq:AY566647 .
+ddbj-reg:AY566647p948 a faldo:ExactPosition ;
+	faldo:position 948 ;
+	faldo:reference ddbj-seq:AY566647 .
+\end{verbatim}
 \end{shaded}
-\caption{Example from UniProt entry P05064 showing the position of an active site in both faldo and the UniProt flat-file format.}
-\label{fig:UniProt}
+\caption{Example from UniProt entry P05064 showing the position of an active site in both faldo and the UniProt flat-file format. As well as the underlying DDBJ record showing the related CDS sequence and how its coding region start and ends outside of the known deposited mRNA sequence.}
+\label{fig:UniProtDDBJ}
 \end{figure}
 
 
@@ -162,13 +197,10 @@ CDS protein II being at J02448 $join(6006..6407,1..831)$}
 
 \subsection*{Fuzzy locations}
 Nucleotide data from the INSDC or experimental data described in UniProt can also require ambiguous end points. 
-For example position the Signal Peptide annotation shown in figure \ref{fig:UniProt}, 
+For example position the Signal Peptide annotation shown in figure \ref{fig:UniProtDDBJ}, 
 here the protein sequence is known to belong to a family of proteins, unfortunately only a part of the amino acid sequence is known. 
 The UniProt curator deduced that the Signal Peptide region starts only partly overlaps the known sequence fragment.
-
-Converting more recent curated INSDC data has been straightforward, however there are a
-number of deprecated location strings which have been problematic.
-\textit{TODO - examples? manual curation to fix last few oddities?}
+The same is true in the related INSDC record, were the CDS starts and ends before the known mRNA sequence.
 
 \subsection*{Restriction enzymes}
 
@@ -223,15 +255,15 @@ to have different strands can be used (Figure~\ref{fig:HindIII}).
 \end{figure}
 
 
-\subsection*{More examples}
+%\subsection*{More examples}
 
-\textit{TODO - other ideas:}
-\begin{itemize}
-\item Example of Cys bonding between one or two proteins?
-\item RNA/DNA digest sites, and the cut sites -- especially for over hangs (start and ends on opposite strands)
-\item tRNA hairpin (two complementary regions)?
-\item $\beta$-sheet in protein?
-\item RNA-Seq mapping (useful for SAM/BAM)?
-\end{itemize}
+%\textit{TODO - other ideas:}
+%\begin{itemize}
+%\item Example of Cys bonding between one or two proteins?
+%\item RNA/DNA digest sites, and the cut sites -- especially for over hangs (start and ends on opposite strands)
+%\item tRNA hairpin (two complementary regions)?
+%\item $\beta$-sheet in protein?
+%\item RNA-Seq mapping (useful for SAM/BAM)?
+%\end{itemize}
 
 
