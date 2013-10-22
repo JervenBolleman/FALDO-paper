@@ -9,6 +9,7 @@ require relatively simple locations within protein sequences to be described (se
 There are corner cases for situations like unknown boundaries for these we use the $faldo:InRangePosition$.
 
 \begin{figure}
+\begin{shaded}
 \begin{verbatim}
 AC   Q6Q250;
 ...
@@ -43,28 +44,19 @@ position:153 a faldo:ExactPosition ;
 isoform:P05064-1 up:fragment "single" ;
    up:precursor true .
 \end{verbatim}
+\end{shaded}
 \caption{Example from UniProt entry P05064 showing the position of an active site in both faldo and the UniProt flat-file format.}
 \label{fig:UniProt}
 \end{figure}
-\subsection*{Complement strand}
-Feature locations on nucleotide sequences can be relatively simple,
-%GenBank
-for the example (shown in Fig:\ref{fig:insdcComplement}) the \textit{cheY} gene in
-\textit{Escherichia coli} str. K-12 substr. MG1655 (accession NC\_000913.2)
-is described in the INSDC feature table as \texttt{complement(1965072..1965461)},
-which is 390 base pairs using inclusive one-based counting.
-This feature begins on the base complementary to $start = 1965461$
-and finishes at $end = 1965072$, and so the INSDC location string
-can be interpreted as \texttt{complement($end$..$start$)},
-FALDO respects this biological interpretation of a feature location
-on the reverse strand:
 
+
+
+%
 %Notice begin, end = 1965461, 1965072 (biological interpretation)
 \begin{figure}
 \begin{shaded}
 \small
-\begin{verbatim}
-# 
+\begin{verbatim} 
 @prefix faldo: <http://biohackathon.org/resource/faldo#> .
 
 # Here are example triples describing a gene, note the location line:
@@ -96,23 +88,77 @@ gene chrY being at complement(NC\_$000913.2:1965072..1965461$)}
 \label{fig:insdcComplement}
 \end{figure}
 
+
+\subsection*{Complement strand and ISDC compound locations}
+
+Describing biological features in relation to a genomic DNA sequence does not have to be complicated.
+
+For example the \textit{cheY} gene (shown in Fig:\ref{fig:insdcComplement}) 
+\textit{Escherichia coli} str. K-12 substr. MG1655 (accession NC\_000913.2)
+is described in the INSDC feature table as \texttt{complement(1965072..1965461)},
+which is 390 base pairs using inclusive one-based counting.
+This feature begins on the base complementary to $start = 1965461$
+and finishes at $end = 1965072$, and so the INSDC location string
+can be interpreted as \texttt{complement($end$..$start$)},
+FALDO respects this biological interpretation of a feature location
+on the reverse strand:
+
 In contrast, other formats like GFF require $start \leq end$
 regardless of the strand, which is equivalent to interpreting
 the INSDC location string as \texttt{complement($start$..$end$)}.
-This convention has a number of practical advantages when
+This convention has some practical advantages when
 dealing with numerical operations on features sets, such as
 checking for overlaps or indexing data. For example, the
 feature length is given by $length = end - start + 1$ under
 this numerically convenient scheme where the interpretation
 of $start$ versus $end$ is strand independent.
 
+However, there are a number of implicit conventions in INSDC data that need to be translated into the simpler FALDO world.
+Some of the complicated regions for INSDC are features on a circular genome. 
+The most common is  a feature that straddles the origin of replication or the '0' mark.
+For example a the "Protein II" gene encoded on the reverse strand of the f1 bacteriophage (ddbj:J02448) that straddles the origin of replication.
+"Protein II" transcription starts from reverse strand position 6006 and the transcription ends at reverse strand position  831 (see figure \ref{fig:insdcOverOrigin}).
 
 
-\subsection*{Compound locations}
-Nucleotide data from the INSDC (or GFF3) can require considerably
-more complicated sequence locations built out of multiple-regions.
+\begin{figure}
+\begin{shaded}
+\small
+\begin{verbatim}
+# 
+@prefix faldo: <http://biohackathon.org/resource/faldo#> .
+@prefix ddbj-.... : examples of possible DDBJ/INSDC related prefixes
+# Here are example triples describing a gene, note the location line:
+ddbj-record:J02448 dc:identifier "J02448" ;
+           rdfs:Comment "Bacteriophage f1, complete genome" ;
+           taxonomy:10863 ;
+           ddbj:CDS ddbj ddbj-protein:AAA32209.1 .
+ddbj-protein:AAA32209.1 a so:0000316 ; #CDS
+           rdfs:label "Protein II" ;
+           faldo:location ddbj-reg:J02448f6006t831 ;
 
-\textit{TODO - examples}.
+ddbj-reg:J02448f6006t831 a faldo:Region ;
+           faldo:begin ddbj-pos:J02448p6006+ ;
+           faldo:end ddbj-pos:J02448p831+ .
+
+ddbj-pos:J02448p6006+ a faldo:Position ,
+             faldo:ExactlyKnownPosition ,
+             faldo:ForwardStrandPosition ;
+           faldo:position 6006 ;
+           faldo:reference ddbj-seq:J02448 .
+
+ddbj-pos:J02448p831+ a faldo:Position , 
+             faldo:ExactlyKnownPosition ,
+             faldo:ForwardStrandPosition ;
+           faldo:position 831 ;
+           faldo:reference ddbj-seq:J02448 .
+           
+\end{verbatim}
+\end{shaded}
+\caption{Incomplete example of using Faldo in turtle format to describe
+CDS protein II being at J02448 $join(6006..6407,1..831)$}
+\label{fig:insdcReverseOverOrigin}
+\end{figure}
+
 
 \subsection*{Fuzzy locations}
 Nucleotide data from the INSDC or experimental data described in UniProt can also require ambiguous end points. 
@@ -136,7 +182,7 @@ flexibility in FALDO to allow the start and end positions of a region
 to have different strands can be used (Figure~\ref{fig:HindIII}).
 
 \begin{figure}
-\begin{framed}
+\begin{shaded}
 \small
 \begin{verbatim}
     \/
@@ -147,46 +193,34 @@ to have different strands can be used (Figure~\ref{fig:HindIII}).
         
 :EnzymeRestrictionSite a example:EnzymeRestrictionSite ;
        faldo:location :EnzymeRestrictionRegion .
-       
 :EnzymeRestrictionRegion a faldo:Region ;
        faldo:begin :53_1 ;
        faldo:end   :35_6 .
-       
 :53cleaveageSite a example:CleavageSite ;
        faldo:location :53cleaveageSitePosition .
 :35cleaveageSite a example:CleavageSite ;
        faldo:location :35cleaveageSitePosition .
-        
-:53cleaveageSitePosition a faldo:InBetweenPosition, SO:0001689  ; #five_prime_restriction_enzyme_junction 
+:53cleaveageSitePosition a faldo:InBetweenPosition, 
+                           SO:0001689  ; # 5' restriction enzyme junction 
        faldo:after :53_1 ;        
        faldo:before :53_2 .
-       
-:35cleaveageSitePosition a faldo:InBetweenPosition, SO:0001690 ; #three_prime_restriction_enzyme_junction 
+:35cleaveageSitePosition a faldo:InBetweenPosition, 
+                           SO:0001690 ; # 3' restriction enzyme junction 
        faldo:before :35_5 ;
        faldo:after :35_6 . #Note the before after reversion due to biological start      
-
-       
 :53_1 a faldo:ExactPosition , faldo:ForwardStrandedPosition ;
       faldo:position 1 .
-
 :53_2 a faldo:ExactPosition , faldo:ForwardStrandedPosition ;
       faldo:position 2 .
-
 :35_5 a faldo:ExactPosition , faldo:ReverseStrandedPosition ;
       faldo:position 5 .
-
 :35_6 a faldo:ExactPosition , faldo:ReverseStrandedPosition ;
       faldo:position 6 .
 \end{verbatim}
-\end{framed}
+\end{shaded}
 \caption{HindIII restriction enzyme cleavage site with sticky ends}
 \label{fig:HindIII}
 \end{figure}
-
-Circular genomes bring have number of interesting features to describe. 
-The most common is  a feature that straddles the origin of replication or the '0' mark.
-For example a gene encoded on the reverse strand of the f1 bacteriophage \textit{todo find accession} which is 6407 base pairs long.
-GeneII transcription starts from coordinate 6006 and the transcription ends at position 831.
 
 
 \subsection*{More examples}
