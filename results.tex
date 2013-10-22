@@ -5,25 +5,43 @@ triples, as a step towards providing this data via SPARQL end points whereby
 it can be queried.
 
 The protein examples considered, such as the UniProt feature annotations,
-require relatively simple locations within protein sequences to be described (see Fig:\ref{fig:UniProt}).
+require relatively simple locations within protein sequences to be described (see figure \ref{fig:UniProt}).
 There are corner cases for situations like unknown boundaries for these we use the $faldo:InRangePosition$.
 
 \begin{figure}
 \begin{verbatim}
-AC   P05064;
+AC   Q6Q250;
 ...
-FT   ACT_SITE    230    230       Schiff-base intermediate with
-FT                                dihydroxyacetone-P.
+DE   Flags: Precursor; Fragment;
+...
+FT   SIGNAL       <1     15
+FT   ACT_SITE    153    153       Nucleophile (By similarity).
 \end{verbatim}
 \begin{verbatim}
-uniprot:P05064 a up:Protein ;
-   up:annotation SHA:E50..1B .
-SHA:E50..1B a up:Active_Site_Annotation ;
-   rdfs:comment ``Schiff-base intermediate with dihydroxyacetone-P''
-   faldo:location range:22571003137111085tt230tt230 .
-range:22571003137111085tt230tt230 a faldo:Position ;
-   faldo:position 230 ;
-   faldo:reference isoform:P05064-1 .
+uniprot:Q6Q250 rdf:type :Protein ;
+   up:annotation SHA:E50..1B ;
+   up:sequence isoform:P05064-1 .
+SHA:E50..1B a up:Signal_Peptide_Annotation ;
+  faldo:location region:22859195476160557tf1tt15> .
+SHA:E50..1C a up:Active_Site_Annotation ;
+  faldo:location position:22859195476160557tf153tt153> .
+region:22859195476160557tf1tt15 a faldo:Region ;
+   faldo:begin position:before1 ;
+   faldo:end  position:15
+position:before1 a faldo:InRangePosition ;
+   faldo:reference isoform:P05064-1 ;
+   faldo:end position:1 . 
+position:1 a faldo:ExactPosition ;
+   faldo:reference isoform:P05064-1 ;
+   faldo:position 1 .
+position:15 a faldo:ExactPosition ;
+   faldo:reference isoform:P05064-1 ;
+   faldo:position 15 .   
+position:153 a faldo:ExactPosition ;
+   faldo:reference isoform:P05064-1 ;
+   faldo:position 153 .
+isoform:P05064-1 up:fragment "single" ;
+   up:precursor true .
 \end{verbatim}
 \caption{Example from UniProt entry P05064 showing the position of an active site in both faldo and the UniProt flat-file format.}
 \label{fig:UniProt}
@@ -97,33 +115,12 @@ more complicated sequence locations built out of multiple-regions.
 \textit{TODO - examples}.
 
 \subsection*{Fuzzy locations}
-Nucleotide data from the INSDC or experimental data described in UniProt 
-can also require ambiguous end points. For example position 5 or 7 is glycosylated
-as shown in fig \ref{uniprot2}.
+Nucleotide data from the INSDC or experimental data described in UniProt can also require ambiguous end points. 
+For example position the Signal Peptide annotation shown in figure \ref{fig:UniProt}, 
+here the protein sequence is known to belong to a family of proteins, unfortunately only a part of the amino acid sequence is known. 
+The UniProt curator deduced that the Signal Peptide region starts only partly overlaps the known sequence fragment.
 
-\begin{figure}
-\begin{verbatim}
-AC                                 dihydroxyacetone-P.
-\end{verbatim}
-\begin{verbatim}
-uniprot: a up:Protein ;
-   up:annotation SHA: .
-SHA: a up:Glycosylation_Annotation ;
-   rdfs:comment ``GlcNAC''
-   faldo:location range: .
-range: a faldo:Position ;
-   faldo:position  ;
-   faldo:reference isoform: .
-\end{verbatim}
-\caption{Example from UniProt entry XXXXX showing the approximate position of a glycosylation site in both FALDO and the UniProt flat-file format.}
-\label{fig:UniProt}
-\end{figure}
-
-\textit{TODO - examples}.
-
-All of the UniProt protein sequences are now available in RDF format,
-with a SPARQL end point currently in beta. Converting more recent
-curated INSDC data has been straightforward, however there are a
+Converting more recent curated INSDC data has been straightforward, however there are a
 number of deprecated location strings which have been problematic.
 \textit{TODO - examples? manual curation to fix last few oddities?}
 
