@@ -5,7 +5,7 @@ triples, as a step towards providing this data via SPARQL end points whereby
 it can be queried.
 
 The protein examples considered, such as the UniProt feature annotations,
-require relatively simple locations within protein sequences to be described (see the active site annotation in figure \ref{fig:UniProtDDBJ}).
+require relatively simple locations within protein sequences to be described (see the active site annotation in figures \ref{fig:UniProt} and \ref{fig:DDBJ}).
 
 \begin{figure}
 \begin{shaded}
@@ -44,6 +44,12 @@ position:153 a faldo:ExactPosition ;
 isoform:P05064-1 up:fragment "single" ;
    up:precursor true .
 \end{verbatim}
+\end{shaded}
+\caption{Example from UniProt entry Q6Q250 showing the position of an active site and a signal peptide in both faldo and the UniProt flat-file format.}
+\label{fig:UniProt}
+\end{figure}
+\begin{figure}
+\begin{shaded}
 \begin{verbatim}
 LOCUS       AY566647                 948 bp    mRNA    linear   INV 22-MAR-2004
 ...
@@ -66,22 +72,22 @@ FEATURES             Location/Qualifiers
 ddbj-cds:AAS67043.1 rdf:type :Nucleotide_Resource ;
   faldo:location ddbj-reg:AY566647b1a948 .
 ddbj-reg:AY566647b1a948 a faldo:Region ;
-	faldo:begin ddbj-reg:AY566647before1 ;
-	faldo:end ddbj-reg:AY566647after948 .
+  faldo:begin ddbj-reg:AY566647before1 ;
+  faldo:end ddbj-reg:AY566647after948 .
 ddbj-reg:AY566647before1 a faldo:InRangePosition ;
-	faldo:before ddbj-reg:AY566647p1 .
+  faldo:before ddbj-reg:AY566647p1 .
 ddbj-reg:AY566647after948 a faldo:InRangePosition ;
-	faldo:after ddbj-reg:AY566647p948 ;
+  faldo:after ddbj-reg:AY566647p948 ;
 ddbj-reg:AY566647p1	a faldo:ExactPosition ;
-	faldo:position 1 ;
-	faldo:reference ddbj-seq:AY566647 .
+  faldo:position 1 ;
+  faldo:reference ddbj-seq:AY566647 .
 ddbj-reg:AY566647p948 a faldo:ExactPosition ;
-	faldo:position 948 ;
-	faldo:reference ddbj-seq:AY566647 .
+  faldo:position 948 ;
+  faldo:reference ddbj-seq:AY566647 .
 \end{verbatim}
 \end{shaded}
-\caption{Example from UniProt entry P05064 showing the position of an active site in both faldo and the UniProt flat-file format. As well as the underlying DDBJ record showing the related CDS sequence and how its coding region start and ends outside of the known deposited mRNA sequence.}
-\label{fig:UniProtDDBJ}
+\caption{The DDBJ record associated with UniProt Q6Q250 showing the related CDS sequence and how its coding region start and ends outside of the known deposited mRNA sequence.}
+\label{fig:DDBJ}
 \end{figure}
 
 
@@ -93,6 +99,7 @@ ddbj-reg:AY566647p948 a faldo:ExactPosition ;
 \small
 \begin{verbatim} 
 @prefix faldo: <http://biohackathon.org/resource/faldo#> .
+@prefix ddbj-.... : examples of possible DDBJ/INSDC related prefixes
 
 # Here are example triples describing a gene, note the location line:
 <_:geneCheY> a so:Gene ;
@@ -151,18 +158,17 @@ of $start$ versus $end$ is strand independent.
 However, there are a number of implicit conventions in INSDC data that need to be translated into the simpler FALDO world.
 Some of the complicated regions for INSDC are features on a circular genome. 
 The most common is  a feature that straddles the origin of replication or the '0' mark.
-For example a the "Protein II" gene encoded on the reverse strand of the f1 bacteriophage (ddbj:J02448) that straddles the origin of replication.
-"Protein II" transcription starts from reverse strand position 6006 and the transcription ends at reverse strand position  831 (see figure \ref{fig:insdcOverOrigin}).
+For example a the ``Protein I'' gene encoded on the reverse strand of the f1 bacteriophage (ddbj:J02448) that straddles the origin of replication.
+``Protein II'' transcription starts from reverse strand position 6006 and the transcription ends at reverse strand position  831 (see figure \ref{fig:insdcOverOrigin}).
 
 
 \begin{figure}
 \begin{shaded}
 \small
 \begin{verbatim}
-# 
 @prefix faldo: <http://biohackathon.org/resource/faldo#> .
 @prefix ddbj-.... : examples of possible DDBJ/INSDC related prefixes
-# Here are example triples describing a gene, note the location line:
+
 ddbj-record:J02448 dc:identifier "J02448" ;
            rdfs:Comment "Bacteriophage f1, complete genome" ;
            taxonomy:10863 ;
@@ -190,17 +196,17 @@ ddbj-pos:J02448p831+ a faldo:Position ,
 \end{verbatim}
 \end{shaded}
 \caption{Incomplete example of using Faldo in turtle format to describe
-CDS protein II being at J02448 $join(6006..6407,1..831)$}
+the CDS ``Protein II'' being at J02448 $join(6006..6407,1..831)$}
 \label{fig:insdcReverseOverOrigin}
 \end{figure}
 
 
 \subsection*{Fuzzy locations}
 Nucleotide data from the INSDC or experimental data described in UniProt can also require ambiguous end points. 
-For example position the Signal Peptide annotation shown in figure \ref{fig:UniProtDDBJ}, 
+For example position the Signal Peptide annotation shown in figure \ref{fig:UniProt}, 
 here the protein sequence is known to belong to a family of proteins, unfortunately only a part of the amino acid sequence is known. 
 The UniProt curator deduced that the Signal Peptide region starts only partly overlaps the known sequence fragment.
-The same is true in the related INSDC record, were the CDS starts and ends before the known mRNA sequence.
+The same is true in the related INSDC record, were the CDS starts and ends before the known mRNA sequence (see fig:\ref{fig:DDBJ}).
 
 \subsection*{Restriction enzymes}
 
