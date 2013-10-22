@@ -41,6 +41,7 @@ while the reverse strand feature (blue) starts from 2080.
 For large databases such as INDSC or UniProt the need to repeat the reference sequence for positions again and again incurs a significant cost in storage. However, this triple does not need to be materialized in the database as it is inferable using OWL2 property chain reasoning.
 With the axiom shown in fig:\ref{owl:chainProperty} the $faldo:reference$ triples can be inferred for any $faldo:position$ described by a INSDC record.
 \begin{figure}
+\begin{shaded}
 \begin{verbatim}
 INDSC:reference
       a       owl:ObjectProperty ;
@@ -51,12 +52,14 @@ INDSC:reference
               (faldo:beginOf faldo:locationOf INDSC:featureOf INDSC:sequence) .
 
 \end{verbatim}
+\end{shaded}
 \caption{OWL2 property chain axiom to infer that all positions described in a INSDC record are positioned relative to the main sequence of the record (in RDF turtle syntax).}
 \label{owl:chainProprty}
 \end{figure}
 A OWL capable query rewriter means that users do not see the difference between encoding the $faldo:reference$ explicitly or having them inferred at query time.
 For RDF databases that do not have such capabilities can easily add the necessary triples using a single SPARQL insert query as shown in fig:\ref{sparql:chainProperty}. This flexibility in solving this problem allows users of the data to use the best approach for their infrastructure instead of being limited by the decisions of the data provider.
 \begin{figure}
+\begin{shaded}
 \begin{verbatim}
 INSERT {
     ?position faldo:reference ?sequence .
@@ -75,6 +78,7 @@ WHERE {
     }
 }
 \end{verbatim}
+\end{shaded}
 \caption{SPARQL query to add all $faldo:reference$ properties to $faldo:positions$ described from a $insdc:record$.}
 \label{sparql:chainProperty}
 \end{figure}
