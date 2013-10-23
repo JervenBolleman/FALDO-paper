@@ -18,14 +18,14 @@ FT   SIGNAL       <1     15
 FT   ACT_SITE    153    153       Nucleophile (By similarity).
 \end{verbatim}
 \begin{verbatim}
-uniprot:Q6Q250 rdf:type :Protein ;
-   up:annotation SHA:E50..1B ;
+uniprot:Q6Q250 rdf:type up:Protein ;
+   up:annotation SHA:E50-1B, SHA:E50-1C ;
    up:sequence isoform:P05064-1 ;
    rdfs:seeAlso ddbj-cds:AAS67043.1 .
-SHA:E50..1B a up:Signal_Peptide_Annotation ;
-  faldo:location region:22859195476160557tf1tt15> .
-SHA:E50..1C a up:Active_Site_Annotation ;
-  faldo:location position:22859195476160557tf153tt153> .
+SHA:E50-1B a up:Signal_Peptide_Annotation ;
+  faldo:location region:22859195476160557tf1tt15 .
+SHA:E50-1C a up:Active_Site_Annotation ;
+  faldo:location position:22859195476160557tf153tt153 .
 region:22859195476160557tf1tt15 a faldo:Region ;
    faldo:begin position:before1 ;
    faldo:end  position:15
@@ -104,7 +104,7 @@ ddbj-reg:AY566647p948 a faldo:ExactPosition ;
 # Here are example triples describing a gene, note the location line:
 <_:geneCheY> a so:Gene ;
            rdfs:label "cheY" ;
-           faldo:location <_:example> ;
+           faldo:location <_:example> .
 
 # The following triples define the location used by the feature above,
 # made up of a region and its two positions:
@@ -112,15 +112,15 @@ ddbj-reg:AY566647p948 a faldo:ExactPosition ;
            faldo:begin <_:example_b> ;
            faldo:end <_:example_e> .
 
-<_:example_b> a faldo:Position ; 
-           a faldo:ExactlyKnownPosition ;
-           a faldo:ReverseStrandPosition ;
+<_:example_b> a faldo:Position ,
+             faldo:ExactlyKnownPosition ,
+             faldo:ReverseStrandPosition ;
            faldo:position "1965461"^^xsd:int ;
            faldo:reference refseq:NC_000913.2 .
 
-<_:example_e> a faldo:Position ; 
-           a faldo:ExactlyKnownPosition ;
-           a faldo:ReverseStrandPosition ;
+<_:example_e> a faldo:Position ,
+             faldo:ExactlyKnownPosition ;
+             faldo:ReverseStrandPosition ;
            faldo:position "1965072"^^xsd:int ;
            faldo:reference refseq:NC_000913.2 .
 \end{verbatim}
@@ -176,17 +176,14 @@ ddbj-record:J02448 dc:identifier "J02448" ;
 ddbj-protein:AAA32209.1 a so:0000316 ; #CDS
            rdfs:label "Protein II" ;
            faldo:location ddbj-reg:J02448f6006t831 ;
-
 ddbj-reg:J02448f6006t831 a faldo:Region ;
            faldo:begin ddbj-pos:J02448p6006+ ;
            faldo:end ddbj-pos:J02448p831+ .
-
 ddbj-pos:J02448p6006+ a faldo:Position ,
              faldo:ExactlyKnownPosition ,
              faldo:ForwardStrandPosition ;
            faldo:position 6006 ;
            faldo:reference ddbj-seq:J02448 .
-
 ddbj-pos:J02448p831+ a faldo:Position , 
              faldo:ExactlyKnownPosition ,
              faldo:ForwardStrandPosition ;
