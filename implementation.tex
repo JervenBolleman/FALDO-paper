@@ -40,6 +40,7 @@ For large databases such as INDSC or UniProt the need to repeat the reference se
 With the axiom shown in fig:\ref{owl:chainProperty} the $\mathtt{faldo\colon{}reference}$ triples can be inferred for any $\mathtt{faldo\colon{}position}$ described by a INSDC record.
 \begin{figure}
 \begin{shaded}
+\small
 \begin{verbatim}
 INDSC:reference
       a       owl:ObjectProperty ;
@@ -58,6 +59,7 @@ A OWL capable query rewriter means that users do not see the difference between 
 For RDF databases that do not have such capabilities can easily add the necessary triples using a single SPARQL insert query as shown in fig:\ref{sparql:chainProperty}. This flexibility in solving this problem allows users of the data to use the best approach for their infrastructure instead of being limited by the decisions of the data provider.
 \begin{figure}
 \begin{shaded}
+\small
 \begin{verbatim}
 INSERT {
     ?position faldo:reference ?sequence .
@@ -67,17 +69,13 @@ WHERE {
             insdc:feature ?feature ;
             insdc:sequence ?sequence .
     ?feature faldo:location ?location .
-    {
-        ?location faldo:begin|faldo:end ?position .
-    }
+      { ?location faldo:begin|faldo:end ?position . }
     UNION
-    {
-        ?location a faldo:Position .
-    }
+      { ?location a faldo:Position . }
 }
 \end{verbatim}
 \end{shaded}
-\caption{SPARQL query to add all $faldo:reference$ properties to $faldo:positions$ described from a $insdc:record$.}
+\caption{SPARQL query to add all $\mathtt{faldo\colon{}reference}$ properties to $\mathtt{faldo\colon{}positions}$ described from a $\mathtt{insdc\colon{}record}$.}
 \label{sparql:chainProperty}
 \end{figure}
 

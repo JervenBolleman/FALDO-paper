@@ -9,6 +9,7 @@ require relatively simple locations within protein sequences to be described (se
 
 \begin{figure}
 \begin{shaded}
+\small
 \begin{verbatim}
 AC   Q6Q250;
 ...
@@ -23,22 +24,22 @@ uniprot:Q6Q250 rdf:type up:Protein ;
    up:sequence isoform:P05064-1 ;
    rdfs:seeAlso ddbj-cds:AAS67043.1 .
 SHA:E50-1B a up:Signal_Peptide_Annotation ;
-  faldo:location region:22859195476160557tf1tt15 .
+  faldo:location region:f1t15 .
 SHA:E50-1C a up:Active_Site_Annotation ;
-  faldo:location position:22859195476160557tf153tt153 .
-region:22859195476160557tf1tt15 a faldo:Region ;
+  faldo:location position:153 .
+region:f1t15 a faldo:Region ;
    faldo:begin position:before1 ;
-   faldo:end  position:15
+   faldo:end  position:15 .
 position:before1 a faldo:InRangePosition ;
    faldo:reference isoform:P05064-1 ;
    faldo:end position:1 . 
 position:1 a faldo:ExactPosition ;
    faldo:reference isoform:P05064-1 ;
    faldo:position 1 .
-position:15 a faldo:ExactPosition ;
+position:15 a faldo:ExactPosition ; #End of the signal peptide region
    faldo:reference isoform:P05064-1 ;
    faldo:position 15 .   
-position:153 a faldo:ExactPosition ;
+position:153 a faldo:ExactPosition ; #Where the active site should be
    faldo:reference isoform:P05064-1 ;
    faldo:position 153 .
 isoform:P05064-1 up:fragment "single" ;
@@ -50,6 +51,7 @@ isoform:P05064-1 up:fragment "single" ;
 \end{figure}
 \begin{figure}
 \begin{shaded}
+\small
 \begin{verbatim}
 LOCUS       AY566647                 948 bp    mRNA    linear   INV 22-MAR-2004
 ...
@@ -70,20 +72,15 @@ FEATURES             Location/Qualifiers
 \end{verbatim}
 \begin{verbatim}
 ddbj-cds:AAS67043.1 rdf:type :Nucleotide_Resource ;
-  faldo:location ddbj-reg:AY566647b1a948 .
-ddbj-reg:AY566647b1a948 a faldo:Region ;
-  faldo:begin ddbj-reg:AY566647before1 ;
-  faldo:end ddbj-reg:AY566647after948 .
-ddbj-reg:AY566647before1 a faldo:InRangePosition ;
-  faldo:before ddbj-reg:AY566647p1 .
-ddbj-reg:AY566647after948 a faldo:InRangePosition ;
-  faldo:after ddbj-reg:AY566647p948 ;
-ddbj-reg:AY566647p1	a faldo:ExactPosition ;
-  faldo:position 1 ;
-  faldo:reference ddbj-seq:AY566647 .
-ddbj-reg:AY566647p948 a faldo:ExactPosition ;
-  faldo:position 948 ;
-  faldo:reference ddbj-seq:AY566647 .
+  faldo:location [ a faldo:Region ;
+                   faldo:begin [ a faldo:InRangePosition ;
+                                 faldo:before [a faldo:ExactPosition ;
+                                              faldo:position 1 ;
+                                              faldo:reference ddbj-seq:AY566647 ]]];
+                   faldo:end   [ a faldo:InRangePosition ;
+                                 faldo:after [a faldo:ExactPosition ;
+                                              faldo:position 948 ;
+                                              faldo:reference ddbj-seq:AY566647 ]]].
 \end{verbatim}
 \end{shaded}
 \caption{The DDBJ record associated with UniProt Q6Q250 showing the related CDS sequence and how its coding region start and ends outside of the known deposited mRNA sequence.}
@@ -109,20 +106,16 @@ ddbj-reg:AY566647p948 a faldo:ExactPosition ;
 # The following triples define the location used by the feature above,
 # made up of a region and its two positions:
 <_:example> a faldo:Region ;
-           faldo:begin <_:example_b> ;
-           faldo:end <_:example_e> .
-
-<_:example_b> a faldo:Position ,
-             faldo:ExactlyKnownPosition ,
-             faldo:ReverseStrandPosition ;
-           faldo:position "1965461"^^xsd:int ;
-           faldo:reference refseq:NC_000913.2 .
-
-<_:example_e> a faldo:Position ,
-             faldo:ExactlyKnownPosition ;
-             faldo:ReverseStrandPosition ;
-           faldo:position "1965072"^^xsd:int ;
-           faldo:reference refseq:NC_000913.2 .
+           faldo:begin [ a faldo:Position ,
+                           faldo:ExactlyKnownPosition ,
+                           faldo:ReverseStrandPosition ;
+                         faldo:position 1965461 ;
+                         faldo:reference refseq:NC_000913.2 ];
+           faldo:end  [ a faldo:Position ,
+                          faldo:ExactlyKnownPosition ;
+                          faldo:ReverseStrandPosition ;
+                        faldo:position 1965072
+                        faldo:reference refseq:NC_000913.2 ].
 \end{verbatim}
 \end{shaded}
 \caption{Incomplete example of using Faldo in turtle format to describe
@@ -159,7 +152,7 @@ However, there are a number of implicit conventions in INSDC data that need to b
 Some of the complicated regions for INSDC are features on a circular genome. 
 The most common is  a feature that straddles the origin of replication or the '0' mark.
 For example a the ``Protein I'' gene encoded on the reverse strand of the f1 bacteriophage (ddbj:J02448) that straddles the origin of replication.
-``Protein II'' transcription starts from reverse strand position 6006 and the transcription ends at reverse strand position  831 (see figure \ref{fig:insdcOverOrigin}).
+``Protein II'' transcription starts from reverse strand position 6006 and the transcription ends at reverse strand position  831 (see figure \ref{fig:insdcReverseOverOrigin}).
 
 
 \begin{figure}
@@ -175,21 +168,17 @@ ddbj-record:J02448 dc:identifier "J02448" ;
            ddbj:CDS ddbj ddbj-protein:AAA32209.1 .
 ddbj-protein:AAA32209.1 a so:0000316 ; #CDS
            rdfs:label "Protein II" ;
-           faldo:location ddbj-reg:J02448f6006t831 ;
-ddbj-reg:J02448f6006t831 a faldo:Region ;
-           faldo:begin ddbj-pos:J02448p6006+ ;
-           faldo:end ddbj-pos:J02448p831+ .
-ddbj-pos:J02448p6006+ a faldo:Position ,
-             faldo:ExactlyKnownPosition ,
-             faldo:ForwardStrandPosition ;
-           faldo:position 6006 ;
-           faldo:reference ddbj-seq:J02448 .
-ddbj-pos:J02448p831+ a faldo:Position , 
-             faldo:ExactlyKnownPosition ,
-             faldo:ForwardStrandPosition ;
-           faldo:position 831 ;
-           faldo:reference ddbj-seq:J02448 .
-           
+           faldo:location [ a faldo:Region ;
+                            faldo:begin [a faldo:Position ,
+                                           faldo:ExactlyKnownPosition ,
+                                           faldo:ForwardStrandPosition ;
+                                         faldo:position 6006 ;
+                                         faldo:reference ddbj-seq:J02448] ;
+                            faldo:end   [a faldo:Position , 
+                                           faldo:ExactlyKnownPosition ,
+                                           faldo:ForwardStrandPosition ;
+                                         faldo:position 831 ;
+                                         faldo:reference ddbj-seq:J02448]].
 \end{verbatim}
 \end{shaded}
 \caption{Incomplete example of using Faldo in turtle format to describe
@@ -232,17 +221,16 @@ to have different strands can be used (Figure~\ref{fig:HindIII}).
        faldo:begin :53_1 ;
        faldo:end   :35_6 .
 :53cleaveageSite a example:CleavageSite ;
-       faldo:location :53cleaveageSitePosition .
-:35cleaveageSite a example:CleavageSite ;
-       faldo:location :35cleaveageSitePosition .
-:53cleaveageSitePosition a faldo:InBetweenPosition, 
-                           SO:0001689  ; # 5' restriction enzyme junction 
-       faldo:after :53_1 ;        
-       faldo:before :53_2 .
-:35cleaveageSitePosition a faldo:InBetweenPosition, 
+       faldo:location [a faldo:InBetweenPosition, 
                            SO:0001690 ; # 3' restriction enzyme junction 
-       faldo:before :35_5 ;
-       faldo:after :35_6 . #Note the before after reversion due to biological start      
+                       faldo:before :35_5 ;
+                       #Note the before after reversion due to biological start      
+                       faldo:after :35_6 ]. 
+:35cleaveageSite a example:CleavageSite ;
+       faldo:location [a faldo:InBetweenPosition, 
+                           SO:0001689  ; # 5' restriction enzyme junction 
+                       faldo:after :53_1 ;        
+                       faldo:before :53_2 ] .
 :53_1 a faldo:ExactPosition , faldo:ForwardStrandedPosition ;
       faldo:position 1 .
 :53_2 a faldo:ExactPosition , faldo:ForwardStrandedPosition ;
