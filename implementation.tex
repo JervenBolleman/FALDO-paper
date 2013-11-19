@@ -2,7 +2,7 @@
 
 FALDO is a small OWL2 ontology which fits in the ALCQ(D) classification difficulty.
 It has 14 classes of which 9 deal with the concept of a position on a sequence. 
-4 of those classes there to describe accurately an what we know of a position that is not precisely determined. 
+4 of those classes there to describe accurately what we know of a position that is not precisely determined. 
 4 are to deal with the concept of a position on a strand of DNA, e.g. positive, negative and on both strands.
 Unlike many representations there is no explicit way to say that it is not ``known'' on which strand a position is,
 such an explicit statement can introduce knowledge clashes when merging different datasets.
@@ -37,7 +37,8 @@ while the reverse strand feature (blue) starts from 2080.}
 \end{figure}
 
 \subsection*{OWL2 reasoning based compression}
-For large databases such as INDSC or UniProt the need to repeat the reference sequence for positions again and again incurs a significant cost in storage. However, this triple does not need to be materialised in the database as it is inferable using OWL2 property chain reasoning.
+For large databases such as INDSC or UniProt the need to repeat the reference sequence for positions again and again may incur a significant cost in storage.
+However, this triple does not need to be materialised in the database as it is inferable using OWL2 property chain reasoning.
 With the axiom shown in fig:\ref{owl:chainProperty} the $\mathtt{faldo\colon{}reference}$ triples can be inferred for any $\mathtt{faldo\colon{}position}$ described by a INSDC record.
 \begin{figure}
 \begin{shaded}
@@ -98,9 +99,9 @@ database describing a glycosylation site that is specific to a single isoform de
 FALDO is implemented and used in a number of tools and databases.
 
 \begin{description}
-\item[JBrowse sparql] FALDO is used sparql queries determine where to draw information related to a reference sequence in tracks filled with data from semantic databases. 
+\item[JBrowse sparql] FALDO is used in sparql queries determine where to draw information related to a reference sequence in tracks filled with data from semantic databases. 
 \item[INSDC-DDBJ] DDBJ is currently working on a RDF format for the INSDC data that is stored in DDBJ/GenBank/EMBL-Bank.
-\item[BioInterchange] uses FALDO to make position information in current bioinformatics data stored in files such as GFF3 and GVF available to the semantic web (\url{http://www.biointerchange.org/}).
+\item[BioInterchange] uses FALDO to make position information in current bioinformatics data stored in files such as GTF or GFF3 available to the semantic web (\url{http://www.biointerchange.org/}).
 \item[TogoGenomes] a bacterial genome database collection provided by the DBCLS also uses FALDO in its RDF representation (\url{http://togogenome.org/}).
 \item[Intermine] The popular model organism database software collection uses FALDO in its SPARQL mode.
 \item[phenomebrowser] Positions of phenotypes and disease related natural variations are positioned onto the Mouse genome using FALDO.
