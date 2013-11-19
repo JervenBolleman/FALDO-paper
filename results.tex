@@ -136,7 +136,7 @@ This feature begins on the base complementary to $start = 1965461$
 and finishes at $end = 1965072$, and so the INSDC location string
 can be interpreted as \texttt{complement($end$..$start$)},
 FALDO respects this biological interpretation of a feature location
-on the reverse strand:
+on the reverse strand.
 
 In contrast, other formats like GFF require $start \leq end$
 regardless of the strand, which is equivalent to interpreting
@@ -150,8 +150,8 @@ of $start$ versus $end$ is strand independent.
 
 However, there are a number of implicit conventions in INSDC data that need to be translated into the simpler FALDO world.
 Some of the complicated regions for INSDC are features on a circular genome. 
-The most common is  a feature that straddles the origin of replication or the '0' mark.
-For example a the ``Protein I'' gene encoded on the reverse strand of the f1 bacteriophage (ddbj:J02448) that straddles the origin of replication.
+The most common is  a feature that straddles the origin of replication or the `0' mark.
+For example, the ``Protein II'' gene encoded on the reverse strand of the f1 bacteriophage (ddbj:J02448) straddles the origin of replication.
 ``Protein II'' transcription starts from reverse strand position 6006 and the transcription ends at reverse strand position 831 (see Figure~\ref{fig:insdcReverseOverOrigin}).
 
 
