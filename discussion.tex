@@ -13,9 +13,13 @@ The simplest non-stranded range location on a linear sequence requires
 a start and end coordinate, but even here there are existing competing
 conventions for describing open or closed end points using zero and
 one-based counting (for example BED versus GTF/GFF3/INSDC).
-In FALDO we always count from the start of the forward 5'-3' strand even on the reverse strand.
+
+In FALDO we always count from the start of the forward 5'--3' strand, even for features on the reverse strand.
 This encoding means there is no need to know the length of the sequence to compare positions on the different strands.
 The end and start position of a region is inclusive.
+Unlike formats like GTF/GFF3, FALDO shares with Chado\cite{Chado2007} the convention
+that the start coordinate should be the biological start
+(which may be a numerically higher value than the end coordinate).
 
 %Similarly multiple schemes exist for describing strand specific locations,
 %with some formats describing features on the reverse strand implicitly
@@ -28,25 +32,27 @@ FALDO chooses to add the strand information to the position.
 This is required to accurately describe for example the sticky ends
 of an enzyme digestion cut site, as in the HindIII example (Figure~\ref{fig:HindIII}).
 
-Unlike formats like GTF/GFF3, FALDO shares with Chado\cite{Chado2007} the convention
-that the start coordinate should be the biological start (which 
-may be numerically a higher value than the end coordinate).
-
-A major difference with other proposed standards is that we chose to make strandedness and reference sequence a property of the position instead of the region.
+A major difference with other standards is that we chose to make strandedness and reference sequence a property of the position, instead of the region.
 This is important in a number of use cases.
-One is when we someone needs to describe the position of a Gene on a rough assembly where the start and end are known to be on a different contig. 
+For example, one may need to describe the position of a gene on a draft genome assembly where the start and end are known to be on different contigs.
 This can be the case when RNA mapping is used in the genome assembly process.
-Another is when rough semantics are used in queries e.g. answering what is the start and end of a Gene. 
-In a process called transplicing, exons of one gene can be found on multiple chromosomes, or on different strands of the same chromosome. e.g. 
-gene \textit{mod}(\textit{mdg4}) of \textit{Drosophila melanogaster} (uniprot:Q86B87)
-In such a case the start of the gene is on a different reference sequence or strand than the end.
+Another is when rough semantics are used in queries e.g. answering what is the start and end of a gene. 
+In a process called transplicing, exons of one gene can be found on multiple chromosomes, or on different strands of the same chromosome.
+e.g.  gene \textit{mod}(\textit{mdg4}) of \textit{Drosophila melanogaster} (uniprot:Q86B87).
+In such cases the start of the gene can be on a different reference sequence or strand than the end.
 
-Another use case is describing Disulfide bonds in a protein complex where the start position is on one chain while the end is on another chain in the complex. FALDO can describe the position of the Disulfide bond with $\mathtt{faldo\colon{}InBetweenPositions}$ where the start and end of the bridge is on different protein chains.
+Another use case is describing disulfide bonds in a protein complex where the start position is on one chain while the end is on another chain in the complex.
+FALDO can describe the position of the disulfide bond with $\mathtt{faldo\colon{}InBetweenPositions}$ where the start and end of the bridge is on different protein chains.
 These biological realities are can not be described accurately if the reference sequence was a property of the region. 
-As a side effect it allows single nucleotide or amino acid sites to be described directly as a position without a need for an artificial region of length one.
+As a side effect, it allows single nucleotide or amino acid sites to be described directly as a position without a need for an artificial region of length one.
 
-Every $\mathtt{faldo\colon{}Position}$ references to the sequence it is on. This allows us to say that gene XX starts on position 4 of assembly Y1 while the same conceptual gene starts on position 5 of assembly Y2. Chado also allows multiple locations per feature, but unlike FALDO, the start and end of
-any location must be in the same region, which prohibits for example a feature that spans more than one contig, or describing the same feature on two different genome assemblies.
+Every $\mathtt{faldo\colon{}Position}$ refers to the sequence it is on.
+This allows us to say that gene $XX$ starts at position 4 of assembly $Y1$,
+while the same conceptual gene starts at position 5 of assembly $Y2$.
+Chado also allows multiple locations per feature, but unlike FALDO,
+the start and end of any location must be in the same region,
+which prohibits for example a feature that spans more than one contig,
+or describing the same feature on two different genome assemblies.
 
 \subsection*{Efficiency of Region-of-Interest queries}
 
@@ -62,7 +68,7 @@ efficient algorithms and indexes such as Nested Containment Lists
 (NCLs)\cite{NCL2007} or spatial indexes to optimise these operations
 in the context of a SPARQL query. We also note that SPARQL queries can
 be translated to the query language of existing systems, where only 
-the query translation step is an added cpu burden.
+the query translation step is an added CPU burden.
 
 \subsection*{Verbosity of FALDO}
 
@@ -76,7 +82,7 @@ to be both an user interface and a data exchange format at the same time.
 Once stored in an appropriately compressed file a RDF/FALDO representation does not
 need to take more space than a legacy format. SPARQL-BED even shows that a legacy
 format such as BAM can be converted on demand to RDF and be used for SPARQL without 
-needing more disk space to store sequencing data today.
+needing more disk space to store sequencing data.
 
 
 
