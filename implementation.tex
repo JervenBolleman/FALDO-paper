@@ -39,7 +39,7 @@ while the reverse strand feature (blue) starts from 2080.}
 \subsection*{OWL2 reasoning based compression}
 For large databases such as INDSC or UniProt the need to repeat the reference sequence for positions again and again may incur a significant cost in storage.
 However, this triple does not need to be materialised in the database as it is inferable using OWL2 property chain reasoning.
-With the axiom shown in fig:\ref{owl:chainProperty} the $\mathtt{faldo\colon{}reference}$ triples can be inferred for any $\mathtt{faldo\colon{}position}$ described by a INSDC record.
+With the axiom shown in Figure~\ref{owl:chainProperty} the $\mathtt{faldo\colon{}reference}$ triples can be inferred for any $\mathtt{faldo\colon{}position}$ described by a INSDC record.
 \begin{figure}
 \begin{shaded}
 \small
@@ -58,7 +58,8 @@ INDSC:reference
 \label{owl:chainProperty}
 \end{figure}
 A OWL capable query rewriter means that users do not see the difference between encoding the $\mathtt{faldo\colon{}reference}$ explicitly or having them inferred at query time.
-For RDF databases that do not have such capabilities can easily add the necessary triples using a single SPARQL insert query as shown in fig:\ref{sparql:chainProperty}. This flexibility in solving this problem allows users of the data to use the best approach for their infrastructure instead of being limited by the decisions of the data provider.
+For RDF databases that do not have such capabilities can easily add the necessary triples using a single SPARQL insert query as shown in Figure~\ref{sparql:chainProperty}.
+This flexibility in solving this problem allows users of the data to use the best approach for their infrastructure instead of being limited by the decisions of the data provider.
 \begin{figure}
 \begin{shaded}
 \small
