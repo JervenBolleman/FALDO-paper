@@ -1,11 +1,12 @@
 \section*{Results}
-One of the practical goal driving the development of FALDO was to be able
+One of the practical goals driving the development of FALDO was to be able
 to represent all the annotated sequences in UniProt and the INSDC as RDF
 triples, as a step towards providing this data via SPARQL end points whereby
 it can be queried.
 
 The protein examples considered, such as the UniProt feature annotations,
-require relatively simple locations within protein sequences to be described (see the active site annotation in Figures~\ref{fig:UniProt} and \ref{fig:DDBJ}).
+require relatively simple locations within protein sequences to be described
+(see the active site annotation in Figures~\ref{fig:UniProt} and \ref{fig:DDBJ}).
 
 \begin{figure}
 \begin{shaded}
@@ -46,7 +47,7 @@ isoform:P05064-1 up:fragment "single" ;
    up:precursor true .
 \end{verbatim}
 \end{shaded}
-\caption{Example from UniProt entry Q6Q250 showing the position of an active site and a signal peptide in both FALDO and the UniProt flat-file format.}
+\caption{Example from UniProt entry Q6Q250 showing the position of an active site and a signal peptide in both the UniProt flat-file format and FALDO.}
 \label{fig:UniProt}
 \end{figure}
 \begin{figure}
@@ -134,7 +135,7 @@ is described in the INSDC feature table as \texttt{complement(1965072..1965461)}
 which is 390 base pairs using inclusive one-based counting.
 This feature begins on the base complementary to $start = 1965461$
 and finishes at $end = 1965072$, and so the INSDC location string
-can be interpreted as \texttt{complement($end$..$start$)},
+can be interpreted as \texttt{complement($end$..$start$)}.
 FALDO respects this biological interpretation of a feature location
 on the reverse strand.
 
@@ -189,10 +190,10 @@ the CDS ``Protein II'' at \texttt{join(6006..6407,1..831)} on J02448.}
 
 \subsection*{Fuzzy locations}
 Nucleotide data from the INSDC or experimental data described in UniProt can also require ambiguous end points. 
-For example the position of the Signal Peptide annotation shown in Figure~\ref{fig:UniProt}, 
+For example the position of the signal peptide annotation shown in Figure~\ref{fig:UniProt}, 
 where the protein sequence is known to belong to a family of proteins,
 but unfortunately only a part of the amino acid sequence is known. 
-The UniProt curator deduced that the Signal Peptide region starts only partly overlaps the known sequence fragment.
+The UniProt curator deduced that the signal peptide region starts only partly overlaps the known sequence fragment.
 The same is true in the related INSDC record, were the CDS starts and ends before the known mRNA sequence (see Figure~\ref{fig:DDBJ}).
 
 \subsection*{Restriction enzymes}
