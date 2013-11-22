@@ -1,6 +1,6 @@
 \section*{Discussion}
 When designing FALDO, a broad range of use cases were considered from
-human genome annotation to glycan binding sites and protein domains on
+human genome annotation to protein domains and glycan binding sites on
 amino acid sequences, with the goal of developing a scheme general enough
 to describe regions of DNA, RNA and protein sequences.
 
@@ -43,7 +43,7 @@ In such cases the start of the gene can be on a different reference sequence or 
 
 Another use case is describing disulfide bonds in a protein complex where the start position is on one chain while the end is on another chain in the complex.
 FALDO can describe the position of the disulfide bond with $\mathtt{faldo\colon{}InBetweenPositions}$ where the start and end of the bridge is on different protein chains.
-These biological realities are can not be described accurately if the reference sequence was a property of the region. 
+These biological realities can not be described accurately if the reference sequence was a property of the region. 
 As a side effect, it allows single nucleotide or amino acid sites to be described directly as a position without a need for an artificial region of length one.
 
 Every $\mathtt{faldo\colon{}Position}$ refers to the sequence it is on.

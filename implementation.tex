@@ -39,11 +39,11 @@ while the reverse strand feature (blue) starts from 2080.}
 \end{figure}
 
 \subsection*{OWL2 reasoning based compression}
-For large databases such as INDSC or UniProt,
+For large databases such as INSDC or UniProt,
 the need to repeat the reference sequence for positions again and again may incur a significant cost in storage.
 However, this triple does not need to be materialised in the database as it is inferable using OWL2 property chain reasoning.
 With the axiom shown in Figure~\ref{owl:chainProperty} the $\mathtt{faldo\colon{}reference}$ triples can be inferred for any $\mathtt{faldo\colon{}position}$ described by a INSDC record.
-A OWL capable query rewriter means that users do not see the difference between encoding the $\mathtt{faldo\colon{}reference}$ explicitly, or having them inferred at query time.
+An OWL capable query rewriter means that users do not see the difference between encoding the $\mathtt{faldo\colon{}reference}$ explicitly, or having them inferred at query time.
 For RDF databases that do not have such capabilities,
 one can easily add the necessary triples using a single SPARQL insert query,
 as shown in Figure~\ref{sparql:chainProperty}.
@@ -53,13 +53,13 @@ This flexibility users of the data to select the best approach for their infrast
 \begin{shaded}
 \small
 \begin{verbatim}
-INDSC:reference
+insdc:reference
       a       owl:ObjectProperty ;
       rdfs:subPropertyOf faldo:reference ;
       owl:propertyChainAxiom
-              (faldo:endOf faldo:locationOf INDSC:featureOf INDSC:sequence) , 
-              (faldo:locationOf INDSC:featureOf INDSC:sequence) , 
-              (faldo:beginOf faldo:locationOf INDSC:featureOf INDSC:sequence) .
+              (faldo:endOf faldo:locationOf insdc:featureOf insdc:sequence) , 
+              (faldo:locationOf insdc:featureOf insdc:sequence) , 
+              (faldo:beginOf faldo:locationOf insdc:featureOf insdc:sequence) .
 
 \end{verbatim}
 \end{shaded}
@@ -111,14 +111,14 @@ database describing a glycosylation site that is specific to a single isoform de
 FALDO is implemented and used in a number of tools and databases.
 
 \begin{description}
-\item[JBrowse sparql] FALDO is used in sparql queries determine where to draw information related to a reference sequence in tracks filled with data from semantic databases \cite{JBrowse}.
+\item[JBrowse SPARQL] FALDO is used in SPARQL queries determine where to draw information related to a reference sequence in tracks filled with data from semantic databases \cite{JBrowse}.
 \item[INSDC-DDBJ] DDBJ is currently working on a RDF format for the INSDC data that is stored in DDBJ/GenBank/EMBL-Bank.
 \item[BioInterchange] uses FALDO to make position information in current bioinformatics data stored in files such as GTF or GFF3 available to the semantic web (\url{http://www.biointerchange.org/}).
-\item[TogoGenomes] a bacterial genome database collection provided by the DBCLS also uses FALDO in its RDF representation (\url{http://togogenome.org/}).
-\item[Intermine] The popular model organism database software collection uses FALDO in its SPARQL mode \cite{InterMine}.
-\item[phenomebrowser] Positions of phenotypes and disease related natural variations are positioned onto the mouse genome using FALDO.
+\item[TogoGenome] a genome database collection provided by the DBCLS also uses FALDO in its RDF representation (\url{http://togogenome.org/}).
+\item[InterMine] The popular model organism database software collection uses FALDO in its SPARQL mode \cite{InterMine}.
+\item[PhenomeBrowser] Positions of phenotypes and disease related natural variations are positioned onto the mouse genome using FALDO.
 \item[BOING] The ``bio-ontology integrated querying of sequence annotations'' framework uses FALDO to describe all feature locations \cite{BOING}.
-\item[SPARQL-bed] This simple tool that turns any BED file into a web accessible SPARQL endpoint using FALDO to describe BED feature positions (\url{https://github.com/JervenBolleman/sparql-bed}).
+\item[SPARQL-BED] This simple tool that turns any BED file into a Web accessible SPARQL endpoint using FALDO to describe BED feature positions (\url{https://github.com/JervenBolleman/sparql-bed}).
 \item[BioBerl] BioPerl\cite{BioPerl2002} now includes a FALDO exporter (\texttt{Bio::FeatureIO::faldo}), which allows any bioperl feature format to be translated to FALDO.
 \item[UniProt] UniProt annotates many protein features and sites. Starting with UniProt RDF release 2013$\_$12 the positions of protein feature are described using FALDO.
 \end{description}

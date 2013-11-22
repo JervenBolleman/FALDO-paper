@@ -3,8 +3,8 @@ Describing regions of biological sequences is a vital part of genome and protein
 annotation, and in areas beyond this such as describing modifications related to DNA methylation
 or glycosylation of proteins.
 There are multiple different conventions for storing genomic data and its annotations in
-plain text flat file formats such as GTF, GFF3, GenBank and EMBL,
-and more structured domain specific XML formats such as those from INSDC or UniProt.
+plain text flat file formats such as GTF, GFF3, GVF and VCF,
+and more structured domain specific formats such as those from INSDC or UniProt.
 None of the above formats are flexible enough to discuss all aspects of genetics or proteomics. 
 Furthermore, fundamental details are inconsistent, for example both zero-based and
 one-based counting standards exist, a regular source of off-by-one programming
@@ -17,11 +17,12 @@ As a result of this common need, file format parsing is a particular strength of
 community developed open source bioinformatics libraries like BioPerl
 \cite{BioPerl2002}, Biopython \cite{Biopython2009}, BioRuby \cite{BioRuby2010}
 and BioJava \cite{BioJava2012}. While using such shared libraries can reduce the
-programmer time spent dealing with different file formats, adopting semantic
-web technologies has even greater potential to simplify data integration tasks.
+programmer time spent dealing with different file formats, adopting Semantic
+Web technologies has even greater potential to simplify data integration tasks.
 
-As part of the Integrated Database Project to integrate life science databases in
-Japan, the National Bioscience Database Center (NBDC) and the Database
+As part of the Integrated Database Project (\url{http://lifesciencedb.mext.go.jp/en/}) and
+the Core Technology Development Program (\url{http://biosciencedbc.jp/en/tec-dev-prog/programs})
+to integrate life science databases in Japan, the National Bioscience Database Center (NBDC) and the Database
 Center for Life Science (DBCLS) have hosted an annual ``BioHackathon'' series
 of meetings bringing together biological database teams, open source programmers,
 and domain experts in Semantic Web and Linked Data \cite{BioHack2010,BioHack2011and2012}.
@@ -41,7 +42,7 @@ used in combination with other relevant ontologies such as the Sequence Ontology
 i.e. it tells you where you can find something, not what you found.
 
 The ontology has been designed to be general enough to describe the annotation
-of protein and nucleotide sequences using the various levels of location complexity used
+of nucleotide and protein sequences using the various levels of location complexity used
 in major databases such as INSDC (DDBJ, NCBI-GenBank and EMBL-Bank) and UniProt, their
 associated file formats, and other generic annotation file formats such as BED,
 GTF and GFF3. This includes compound locations which are the combination of
