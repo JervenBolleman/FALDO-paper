@@ -1,9 +1,13 @@
 \section*{Implementation}
 
-FALDO is a small OWL2 ontology which fits in the ALCQ(D) classification difficulty.
-It has 14 classes of which 9 deal with the concept of a position on a sequence. 
-4 of those classes there to describe accurately what we know of a position that is not precisely determined. 
-4 are to deal with the concept of a position on a strand of DNA, e.g. positive, negative and on both strands.
+FALDO is a small OWL2 ontology which fits in the ALCQ(D) classification of difficulty
+used in OWL description logic (OWL DL).
+This notation indicates there are restrictions and intersections in classes (AL),
+inverse predicates for  concept negation (C),
+qualified restrictions such as at least one begin (Q), and datatypes (D).
+FALDO has 14 classes of which 9 deal with the concept of a position on a sequence. 
+Four of those classes there to describe accurately what we know of a position that is not precisely determined. 
+Four are to deal with the concept of a position on a strand of DNA, e.g. positive, negative and on both strands.
 Unlike many representations there is no explicit way to say that it is not ``known'' on which strand a position is,
 such an explicit statement can introduce knowledge clashes when merging different datasets.
 For example this could lead to positions that are both type forward stranded position, and a unknown position.
