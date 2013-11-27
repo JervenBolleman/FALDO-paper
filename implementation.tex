@@ -4,7 +4,7 @@ FALDO is a small OWL2 ontology which fits in the ALCQ(D) classification of diffi
 used in OWL description logic (OWL DL).
 This notation indicates there are restrictions and intersections in classes (AL),
 inverse predicates for  concept negation (C),
-qualified restrictions such as at least one begin (Q), and datatypes (D).
+qualified restrictions such as at exactly one begin for each region (Q), and datatypes (D).
 FALDO has 14 classes of which 9 deal with the concept of a position on a sequence. 
 Four of those classes there to describe accurately what we know of a position that is not precisely determined. 
 Four are to deal with the concept of a position on a strand of DNA, e.g. positive, negative and on both strands.
@@ -18,7 +18,11 @@ The ontology contains only one datatype property: $\mathtt{faldo\colon{}position
 a one-based offset from the start of the reference sequence.
 This $\mathtt{faldo\colon{}position}$ together with the $\mathtt{faldo\colon{}reference}$ object property links the concept
 of a $\mathtt{faldo\colon{}Position}$ to an instance of sequence in the biological sense.
-Note these terms are case-sensitive.
+Note these terms are case-sensitive. 
+When a reference sequence is a double stranded sequence then we always count from the start of the forward 5'--3' (Figure~\ref{fig:strands}). 
+We note that the forward/reverse strand concepts are computational concepts not biological ones, it is acceptable in FALDO e.g. to have reference sequences that describe one strand of a double helix.
+
+
 
 \begin{figure}
 \begin{center}
