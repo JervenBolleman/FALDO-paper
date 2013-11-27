@@ -70,17 +70,14 @@ where only the query translation step is an added CPU burden.
 
 \subsection*{Verbosity of FALDO}
 
-Its clear to anyone reading this paper that FALDO is considerably more 
-verbose than existing formats. Part of this is due to the chosen encoding
-in the examples, but in practise reading a sequence record in RDF is not as
-nice as reading one of the legacy flat files. However, RDF/FALDO is aimed to allow
-storing data so that programmers can write great user interfaces instead of trying
-to be both an user interface and a data exchange format at the same time.
-
-Once stored in an appropriately compressed file a RDF/FALDO representation does not
-need to take more space than a legacy format. SPARQL-BED even shows that a legacy
-format such as BAM can be converted on demand to RDF and be used for SPARQL without 
-needing more disk space to store sequencing data.
+Its clear to anyone reading this paper that FALDO is considerably more verbose than existing formats.
+Once stored in an appropriately compressed file a RDF/FALDO representation does not need to take more space than a legacy format.
+In the case of UniProt, approximately 40\% of all data has been stated at least twice in the flat-file an XML representation.
+While the straight UniProt flatfile/xml translation into RDF consumes about 2 times the disk space, a unique triple
+set of UniProt is currently only 5\% larger in size.
+%%TODO Verify information once Matterhorn is restarted.
+This information does not need to be repeated for RDF consuming tools.
+SPARQL-BED shows that a legacy format such as BAM can be converted on demand to RDF and be used for SPARQL without needing more disk space to store sequencing data.
 
 
 
