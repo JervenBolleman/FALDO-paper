@@ -53,8 +53,7 @@ However, this triple does not need to be materialised in the database as it is i
 With the axiom shown in Figure~\ref{owl:chainProperty} the $\mathtt{faldo\colon{}reference}$ triples can be inferred for any $\mathtt{faldo\colon{}position}$ described by a INSDC record.
 An OWL capable query rewriter means that users do not see the difference between encoding the $\mathtt{faldo\colon{}reference}$ explicitly, or having them inferred at query time.
 For RDF databases that do not have such capabilities,
-one can easily add the necessary triples using a single SPARQL insert query,
-as shown in Figure~\ref{sparql:chainProperty}.
+one can easily add the necessary triples using a single SPARQL insert query (Figure~\ref{sparql:chainProperty}).
 This flexibility users of the data to select the best approach for their infrastructure, rather than being constrained by the decisions of the data provider.
 
 \begin{figure}
