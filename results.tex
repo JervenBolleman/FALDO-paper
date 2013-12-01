@@ -1,7 +1,7 @@
 \section*{Results}
 One of the practical goals driving the development of FALDO was to be able
 to represent all the annotated sequences in INSDC and UniProt as RDF
-triples, as a step towards providing this data via SPARQL end points whereby
+triples, as a step towards providing this data via SPARQL end-points whereby
 it can be queried.
 
 The protein examples considered, such as the UniProt feature annotations,
@@ -149,7 +149,7 @@ feature length is given by $length = end - start + 1$ under
 this numerically convenient scheme where the interpretation
 of $start$ versus $end$ is strand independent.
 
-However, there are a number of implicit conventions in INSDC data that need to be translated into the simpler FALDO world.
+However, there are a number of implicit conventions in INSDC data that need to be translated into the more explicit FALDO model.
 Some of the complicated regions for INSDC are features on a circular genome. 
 The most common is  a feature that straddles the origin of replication or the `0' mark.
 For example, the ``Protein II'' gene encoded on the reverse strand of the f1 bacteriophage (ddbj:J02448) straddles the origin of replication.
@@ -189,7 +189,8 @@ the CDS ``Protein II'' at \texttt{join(6006..6407,1..831)} on J02448.}
 
 
 \subsection*{Fuzzy locations}
-Nucleotide data from the INSDC or experimental data described in UniProt can also require ambiguous end points. 
+Feature positions in, e.g. INSDC or UniProt, are not always exactly known or described, we should however describe our limited fuzzy knowledge as accurately as possible.
+In FALDO the classes $\mathtt{faldo\colon{}InRangePosition}$ and $\mathtt{faldo\colon{}OneOfPosition}$ can be used to describe such limited knowledge.
 For example the position of the signal peptide annotation shown in Figure~\ref{fig:UniProt}, 
 where the protein sequence is known to belong to a family of proteins,
 but unfortunately only a part of the amino acid sequence is known. 
