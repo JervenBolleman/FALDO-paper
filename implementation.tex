@@ -1,17 +1,12 @@
 \section*{Implementation}
 
-FALDO is a small OWL2 ontology which fits in the ALCQ(D) classification of difficulty
-used in OWL description logic (OWL DL).
-This notation indicates there are restrictions and intersections in classes (AL),
-inverse predicates for  concept negation (C),
-qualified restrictions such as at exactly one begin for each region (Q), and datatypes (D).
-FALDO has 14 classes of which 9 deal with the concept of a position on a sequence. 
+FALDO is a small OWL2 ontology with 14 classes of which 9 deal with the concept of a position on a sequence (Figure \ref{fig:ontology}). 
 Four of those classes there to describe accurately what we know of a position that is not precisely determined. 
 Four are to deal with the concept of a position on a strand of DNA, e.g. positive, negative and on both strands.
 Unlike many representations there is no explicit way to say that it is not ``known'' on which strand a position is,
 such an explicit statement can introduce knowledge clashes when merging different datasets.
 For example this could lead to positions that are both type forward stranded position, and a unknown position.
-There is also no benefit to explicitly stating that something is unknown as it does not make queries simpler,
+There is no benefit to explicitly stating that something is unknown as it does not make queries simpler,
 and only increases the data size.
 
 The ontology contains only one datatype property: $\mathtt{faldo\colon{}position}$ which is there to give an integer,
@@ -22,6 +17,14 @@ Note these terms are case-sensitive.
 When a reference sequence is a double stranded sequence then we always count from the start of the forward 5'--3' (Figure~\ref{fig:strands}). 
 We note that the forward/reverse strand concepts are computational concepts not biological ones, it is acceptable in FALDO e.g. to have reference sequences that describe one strand of a double helix.
 
+\begin{figure}
+\begin{center}
+\includegraphics{figures/classes.pdf}
+\includegraphics{figures/properties.pdf}
+\end{center}
+\caption{The classes and object properties used in FALDO}
+\label{fig:ontology}
+\end{figure}
 
 
 \begin{figure}
