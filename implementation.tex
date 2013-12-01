@@ -103,12 +103,12 @@ WHERE {
 \label{sparql:chainProperty}
 \end{figure}
 
-\subsection*{Validating a FALDO model}
+\subsection*{Validating data encoded with FALDO}
 
 Some databases only allow a subset of all FALDO. For example
 INSDC requires that the start and end of a region are on the same sequence,
 while UniProt requires that a feature is described in relation to the canonical isoform.
-Semantic technology gives a number of different options\cite{RDFValidationReport} to add 
+Semantic technology give a number of different options\cite{RDFValidationReport} to add 
 such optional constraints to a datamodel. 
 The benefit of such optionality is that constraints needed for quality control at 
 the data provider do not restrict the users of the data in any way. 
@@ -118,7 +118,7 @@ For example the UniProtKB constraint that positions are annotated on the canonic
 database describing a glycosylation site that is specific to a single isoform described in UniProtKB.
 
 \subsection*{Users}
-FALDO is implemented and used in a number of tools and databases.
+FALDO is deployed and used in a number of tools and databases.
 
 \begin{description}
 \item[JBrowse SPARQL] FALDO is used in SPARQL queries determine where to draw information related to a reference sequence in tracks filled with data from semantic databases \cite{JBrowse}.
