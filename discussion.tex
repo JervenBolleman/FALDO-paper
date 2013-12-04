@@ -60,14 +60,13 @@ or describing the same feature on two different genome assemblies.
 For FALDO we also considered query efficiency in comparison to existing search technology. 
 Region of interest (ROI) queries are common operations performed on a
 set of genome annotations to extract a set of features within a range.
-For applications such as genome browsers, it is important that these are as efficient as possible.
+For applications such as genome browsers, it is important that these are as efficient enough.
 Although some RDF query engines may perform poorly when performing ROI queries over large feature sets,
 others have special indexes (e.g. literal filter indexes) that improve query performance.
 There is scope for further optimisation in the context of a SPARQL query by combining
 efficient algorithms and indexes such as Nested Containment Lists (NCLs) \cite{NCL2007}
 or spatial indexes.
-We also note that SPARQL queries can be translated to the query language of existing systems,
-where only the query translation step is an added CPU burden.
+%%Still unhappy with this section. Our modelling did not really look into it, and efficiency depends on store choices.s 
 
 \subsection*{Verbosity of FALDO}
 
