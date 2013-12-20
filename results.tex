@@ -198,13 +198,15 @@ As demonstrated in the figure, this limited knowledge can be described using the
 
 \subsection*{Restriction enzymes}
 
-The recognition sites of most restriction enzymes are relatively
-straightforward to describe, as is the cleavage site of a blunt
-end cutting enzyme.
-However, the cutting point of sticky-end cutting enzymes which
-leave an overhang are more challenging to describe. Here the
-flexibility in FALDO to allow the start and end positions of a region
-to have different strands can be used (Figure~\ref{fig:HindIII}).
+The task of describing the recognition sites of most restriction
+enzymes is quite straightforward, as is describing the cleavage site
+of a blunt end cutting enzyme.
+However, the cut site of a sticky-end cutting enzyme like HindIII that
+leaves an ``overhang'' is more challenging to specify, since it cuts
+in a different place on the forward and reverse strands.
+Figure~\ref{fig:HindIII} demonstrates how to describe this in FALDO by
+specifying start and end positions of the cut site that are on
+different strands.
 
 \begin{figure}
 \begin{shaded}
