@@ -8,13 +8,26 @@ For example, some positions could end up being contradictorily typed both as for
 There is no benefit to explicitly stating that something is unknown, as it does not make queries simpler
 and only increases the data size.
 
-The ontology contains only one datatype property: $\mathtt{faldo\colon{}position}$ which is there to give an integer,
-a one-based offset from the start of the reference sequence.
-This $\mathtt{faldo\colon{}position}$ together with the $\mathtt{faldo\colon{}reference}$ object property links the concept
-of a $\mathtt{faldo\colon{}Position}$ to an instance of sequence in the biological sense.
-Note these terms are case-sensitive. 
-When a reference sequence is a double stranded sequence then we always count from the start of the forward 5'--3' (Figure~\ref{fig:strands}). 
-We note that the forward/reverse strand concepts are computational concepts not biological ones, it is acceptable in FALDO e.g. to have reference sequences that describe one strand of a double helix.
+FALDO defines a single datatype property,
+$\mathtt{faldo\colon{}position}$, that is used to provide a one-based
+integer offset from the start of the reference sequence.
+This property, when used together with the
+$\mathtt{faldo\colon{}reference}$ property, links the concept of
+a $\mathtt{faldo\colon{}Position}$ to an instance of a biological
+sequence.
+Note that these terms are case-sensitive:
+$\mathtt{faldo\colon{}position}$ is a property, and
+$\mathtt{faldo\colon{}Position}$ is a concept.
+
+For compatibility with a wide range of data, FALDO makes very few
+assumptions about the representation of the reference sequence, and
+can be used to describe positions on both single- and double-stranded
+sequences.
+When both strands of a double-stranded sequence are represented by a
+single entity (recommended over each strand being represented
+separately), integer $\mathtt{faldo\colon{}position}$ properties are
+counted from the 5' end of whichever strand is considered the
+``forward'' strand.
 
 \begin{figure}
 \begin{center}
