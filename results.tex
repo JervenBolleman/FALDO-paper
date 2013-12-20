@@ -134,7 +134,7 @@ For example the \textit{cheY} gene (shown in Figure~\ref{fig:insdcComplement})
 is described in the INSDC feature table as \texttt{complement(1965072..1965461)},
 which is 390 base pairs using inclusive one-based counting.
 This feature begins on the base complementary to $start = 1965461$
-and finishes at $end = 1965072$, and so the INSDC location string
+and finishes at $end = 1965072$, so the INSDC location string
 can be interpreted as \texttt{complement($end$..$start$)}.
 FALDO respects this biological interpretation of a feature location
 on the reverse strand.
@@ -149,11 +149,10 @@ feature length is given by $length = end - start + 1$ under
 this numerically convenient scheme where the interpretation
 of $start$ versus $end$ is strand independent.
 
-However, there are a number of implicit conventions in INSDC data that need to be translated into the more explicit FALDO model.
-Some of the complicated regions for INSDC are features on a circular genome. 
-The most common is  a feature that straddles the origin of replication or the `0' mark.
-For example, the ``Protein II'' gene encoded on the reverse strand of the f1 bacteriophage (ddbj:J02448) straddles the origin of replication.
-``Protein II'' transcription starts from reverse strand position 6006 and the transcription ends at reverse strand position 831 (see Figure~\ref{fig:insdcReverseOverOrigin}).
+There are a number of implicit conventions in INSDC data that need to be translated into the more explicit FALDO model.
+Some of the complicated regions for INSDC are features on a circular chromosome, the most common of which are features that overlap the chromosome's origin of replication.
+One such feature is the ``Protein II'' gene from the reverse strand of f1 bacteriophage (ddbj:J02448).
+``Protein II'' transcription starts at position 6006 on the reverse strand and ends at position 831 (see Figure~\ref{fig:insdcReverseOverOrigin}).
 
 
 \begin{figure}
