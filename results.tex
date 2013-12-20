@@ -188,13 +188,13 @@ the CDS ``Protein II'' at \texttt{join(6006..6407,1..831)} on J02448.}
 
 
 \subsection*{Fuzzy locations}
-Feature positions in, e.g. INSDC or UniProt, are not always exactly known or described, we should however describe our limited fuzzy knowledge as accurately as possible.
-In FALDO the classes $\mathtt{faldo\colon{}InRangePosition}$ and $\mathtt{faldo\colon{}OneOfPosition}$ can be used to describe such limited knowledge.
-For example the position of the signal peptide annotation shown in Figure~\ref{fig:UniProt}, 
+Feature positions in, for example, INSDC or UniProt, are not always exactly known or described, but we should strive to describe our limited knowledge as accurately as possible.
+Take for example the position of the signal peptide annotation shown in Figure~\ref{fig:UniProt}, 
 where the protein sequence is known to belong to a family of proteins,
 but unfortunately only a part of the amino acid sequence is known. 
-The UniProt curator deduced that the signal peptide region starts only partly overlaps the known sequence fragment.
+The UniProt curator deduced that the signal peptide region only partly overlaps the known sequence fragment.
 The same is true in the related INSDC record, were the CDS starts and ends before the known mRNA sequence (see Figure~\ref{fig:DDBJ}).
+As demonstrated in the figure, this limited knowledge can be described using the FALDO classes $\mathtt{faldo\colon{}InRangePosition}$ and $\mathtt{faldo\colon{}OneOfPosition}$.
 
 \subsection*{Restriction enzymes}
 
