@@ -2,13 +2,15 @@
 Describing regions of biological sequences is a vital part of genome and protein sequence
 annotation, and in areas beyond this such as describing modifications related to DNA methylation
 or glycosylation of proteins.
-There are multiple different conventions for storing genomic data and its annotations in
-plain text flat file formats such as GFF3, GVF \cite{GVF}, GTF and VCF,
-and more structured domain specific formats such as those from INSDC or UniProt.
-None of the above formats are flexible enough to discuss all aspects of genetics or proteomics. 
-Furthermore, fundamental details are inconsistent, for example both zero-based and
-one-based counting standards exist, a regular source of off-by-one programming
-errors which experienced bioinformaticians learn to look out for.
+There are many different conventions for storing genomic data and its
+annotations in plain text flat file formats such as GFF3, GVF
+\cite{GVF}, GTF and VCF, and more structured domain specific formats
+such as those from INSDC or UniProt, but none are flexible enough to
+discuss all aspects of genetics or proteomics.
+Furthermore, the fundamental designs of these formats are
+inconsistent, for example both zero-based and one-based counting
+standards exist, a regular source of off-by-one programming errors
+which experienced bioinformaticians learn to look out for.
 
 Although non-trivial, file format interconversion is a common background task
 in current script-centric bioinformatics pipelines, often essential for combining
@@ -35,7 +37,7 @@ and a number of glycomics databases:
 BCSDB\cite{doi:10.1021/ci100150d}, GlycomeDB\cite{Ranzinger01012011}, GLYCOSCIENCES.de\cite{Lutteke01052006}, JCGGDB, RINGS\cite{RINGS} and UniCarbKB\cite{UniCarbKB} and assorted open source developers during these meetings
 led to the development of the Feature Annotation Location Description Ontology (FALDO).
 
-The ontology has been designed to be general enough to describe the annotation
+FALDO has been designed to be general enough to describe the annotation
 of nucleotide and protein sequences using the various levels of location complexity used
 in major databases such as INSDC (DDBJ, NCBI-GenBank and EMBL-Bank) and UniProt, their
 associated file formats, and other generic annotation file formats such as BED,
@@ -45,10 +47,12 @@ positions. It also allow us to accurately describe ambiguous positions today
 in such a way that future more precise knowledge does not introduce logical conflicts 
 that can only be resolved by expert human intervention.
 
-The proposed standard allows accurate descriptions of the position of a feature on multiple sequences.
-This is expected to be most useful when lifting annotation from one draft assembly version to another.
+FALDO allows accurate descriptions of the position of
+a feature on multiple sequences.
+This is expected to be most useful when lifting annotation from one
+draft assembly version to another.
 For example a gene can start at position $X$ on genome assembly $A$,
-while what is conceptually the same gene is at position $X'$ on genome assembly $A+1$.
+while what is conceptually the same gene is also at position $X'$ on genome assembly $A+1$.
 
 FALDO has a deliberately narrow scope which does not address general annotation
 issues about the meaning of or evidence for a location, rather FALDO is intended be

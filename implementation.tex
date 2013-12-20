@@ -1,12 +1,11 @@
 \section*{Implementation}
 
-FALDO is a small OWL2 ontology with 14 classes of which 9 deal with the concept of a position on a sequence (Figure \ref{fig:ontology}). 
-Four of those classes there to describe accurately what we know of a position that is not precisely determined. 
-Four are to deal with the concept of a position on a strand of DNA, e.g. positive, negative and on both strands.
-Unlike many representations there is no explicit way to say that it is not ``known'' on which strand a position is,
-such an explicit statement can introduce knowledge clashes when merging different datasets.
-For example this could lead to positions that are both type forward stranded position, and a unknown position.
-There is no benefit to explicitly stating that something is unknown as it does not make queries simpler,
+FALDO is a small OWL2 ontology with 14 classes of which 9 deal with the concept of a position on a sequence (Figure \ref{fig:ontology}).
+Four of those classes are used to describe accurately what we know of a position that is not precisely determined.
+Four are used to describe the concept of a position on a strand of DNA, e.g. positive, negative and on both strands.
+In contrast to other representations, FALDO has no explicit way to say that it is not ``known'' on which strand a position is, because this explicit statement of ``unknownedness'' can introduce contradictions when merging different data sets.
+For example, some positions could end up being contradictorily typed both as forward-stranded, and as having unknown strandedness.
+There is no benefit to explicitly stating that something is unknown, as it does not make queries simpler
 and only increases the data size.
 
 The ontology contains only one datatype property: $\mathtt{faldo\colon{}position}$ which is there to give an integer,
@@ -34,7 +33,7 @@ We note that the forward/reverse strand concepts are computational concepts not 
 \end{center}
 \caption{Assorted conventions for regions, start, end, and strands.
 This figure shows two hypothetical features on a DNA sequence
-(labelled \texttt{chr1}), on either the forward strand (orange) or
+(labeled \texttt{chr1}), on either the forward strand (orange) or
 reverse strand (blue).
 Using the INSDC location string notation, these regions are
 ``\texttt{1050..2080}'' and ``\texttt{complement(1050..2080)}''
@@ -49,15 +48,15 @@ while the reverse strand feature (blue) starts from 2080.}
 \label{fig:strands}
 \end{figure}
 
-\subsection*{OWL2 reasoning based compression}
+\subsection*{Compression via OWL2 reasoning}
 For large databases such as INSDC or UniProt,
-the need to repeat the reference sequence for positions again and again may incur a significant cost in storage.
-However, this triple does not need to be materialised in the database as it is inferable using OWL2 property chain reasoning.
-With the axiom shown in Figure~\ref{owl:chainProperty} the $\mathtt{faldo\colon{}reference}$ triples can be inferred for any $\mathtt{faldo\colon{}position}$ described by a INSDC record.
-An OWL capable query rewriter means that users do not see the difference between encoding the $\mathtt{faldo\colon{}reference}$ explicitly, or having them inferred at query time.
-For RDF databases that do not have such capabilities,
-one can easily add the necessary triples using a single SPARQL insert query (Figure~\ref{sparql:chainProperty}).
-This flexibility users of the data to select the best approach for their infrastructure, rather than being constrained by the decisions of the data provider.
+the need to repeat the reference sequence for each position may come with a significant cost in storage.
+However, this triple does not need to be materialised in the database, as it is inferrable using OWL2 property chain reasoning.
+With the axiom shown in Figure~\ref{owl:chainProperty} the $\mathtt{faldo\colon{}reference}$ triples can be inferred for any $\mathtt{faldo\colon{}position}$ described by an INSDC record.
+Having an OWL-capable query rewriter allows users to ignore the difference between encoding the $\mathtt{faldo\colon{}reference}$ properties explicitly and having them inferred at query time.
+For RDF databases that do not offer this capability,
+the necessary triples can be easily added using a single SPARQL insert query (Figure~\ref{sparql:chainProperty}).
+This flexibility allows users of the data to select the best approach for their infrastructure, rather than being constrained by the decisions of the data provider.
 
 \begin{figure}
 \begin{shaded}
@@ -73,13 +72,9 @@ insdc:reference
 
 \end{verbatim}
 \end{shaded}
-\caption{OWL2 property chain axiom to infer that all positions described in an INSDC record are positioned relative to the main sequence of the record (in RDF turtle syntax).}
+\caption{OWL2 property chain axiom to infer that all positions described in an INSDC record are relative to the main sequence of the record (in RDF turtle syntax).}
 \label{owl:chainProperty}
 \end{figure}
-
-A OWL capable query rewriter means that users do not see the difference between encoding the $\mathtt{faldo\colon{}reference}$ explicitly or having them inferred at query time.
-For RDF databases that do not have such capabilities can easily add the necessary triples using a single SPARQL insert query as shown in Figure~\ref{sparql:chainProperty}.
-This flexibility in solving this problem allows users of the data to use the best approach for their infrastructure instead of being limited by the decisions of the data provider.
 
 \begin{figure}
 \begin{shaded}
@@ -105,32 +100,30 @@ WHERE {
 
 \subsection*{Validating data encoded with FALDO}
 
-Some databases only allow a subset of all FALDO. For example
+Some databases only allow a subset of FALDO. For example
 INSDC requires that the start and end of a region are on the same sequence,
-while UniProt requires that a feature is described in relation to the canonical isoform.
-Semantic technology give a number of different options\cite{RDFValidationReport} to add 
-such optional constraints to a datamodel. 
-The benefit of such optionality is that constraints needed for quality control at 
-the data provider do not restrict the users of the data in any way. 
+while UniProt requires that a feature is described in relation to the reference's canonical isoform.
+There are many ways to add such optional constraints to the data model using Semantic technologies\cite{RDFValidationReport}.
+The benefit of such optionality is that constraints needed for quality control at
+the data provider do not restrict the users of the data in any way.
 
-For example the UniProtKB constraint that positions are annotated on the canonical isoform 
+For example the UniProtKB constraint that positions are annotated on the canonical isoform
 (for comparability with legacy data formats), if enforced, may make it difficult for a proteomics
 database describing a glycosylation site that is specific to a single isoform described in UniProtKB.
 
 \subsection*{Users}
-FALDO is deployed and used in a number of tools and databases.
+FALDO is already deployed and used in a number of tools and databases.
 
 \begin{description}
-\item[JBrowse SPARQL] FALDO is used in SPARQL queries determine where to draw information related to a reference sequence in tracks filled with data from semantic databases \cite{JBrowse}.
-\item[INSDC-DDBJ] DDBJ is currently working on a RDF format for the INSDC data that is stored in DDBJ/GenBank/EMBL-Bank.
+\item[JBrowse] can use SPARQL queries with FALDO to visualize annotations on reference sequences from semantic databases \cite{JBrowse}.
+\item[INSDC-DDBJ] DDBJ is currently working on an RDF format for the INSDC data that is stored in DDBJ/GenBank/EMBL-Bank.
 \item[BioInterchange] uses FALDO to make position information in current bioinformatics data stored in files such as GFF3, GVF, or GTF available to the semantic web (\url{http://www.biointerchange.org/}).
 \item[TogoGenome] a genome database collection provided by the DBCLS also uses FALDO in its RDF representation (\url{http://togogenome.org/}).
 \item[InterMine] The popular model organism database software collection uses FALDO in its SPARQL mode \cite{InterMine}.
 \item[PhenomeBrowser] Positions of phenotypes and disease related natural variations are positioned onto the mouse genome using FALDO.
 \item[BOING] The ``bio-ontology integrated querying of sequence annotations'' framework uses FALDO to describe all feature locations \cite{BOING}.
 \item[SPARQL-BED] This simple tool that turns any BED file into a Web accessible SPARQL endpoint using FALDO to describe BED feature positions (\url{https://github.com/JervenBolleman/sparql-bed}).
-\item[BioBerl] BioPerl\cite{BioPerl2002} now includes a FALDO exporter (\texttt{Bio::FeatureIO::faldo}), which allows any bioperl feature format to be translated to FALDO.
+\item[BioPerl] BioPerl\cite{BioPerl2002} now includes a FALDO exporter (\texttt{Bio::FeatureIO::faldo}), which allows any BioPerl-supported feature format to be translated to FALDO.
 \item[UniProt] UniProt annotates many protein features and sites. Starting with UniProt RDF release 2014$\_$01 the positions of protein feature are described using FALDO.
 \end{description}
-
 

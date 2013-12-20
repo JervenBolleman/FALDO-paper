@@ -1,0 +1,709 @@
+%% BioMed_Central_Bib_Style_v1.01
+
+\begin{thebibliography}{10}
+\providecommand{\url}[1]{[#1]}
+\providecommand{\urlprefix}{}
+
+\bibitem{GVF}
+Reese MG, Moore B, Batchelor C, Salas F, Cunningham F, Marth GT, Stein L,
+  Flicek P, Yandell M, Eilbeck K: \textbf{A standard variation file format for
+  human genome sequences}. \emph{Genome Biology} 2010, \textbf{11}(R88),
+  \urlprefix\url{[http://dx.doi.org/10.1186/gb-2010-11-8-r88]}.
+
+\bibitem{BioPerl2002}
+Stajich JE, Block D, Boulez K, Brenner SE, Chervitz SA, Dagdigian C, Fuellen G,
+  Gilbert JGR, Korf I, Lapp H, Lehv{\"a}slaiho H, Matsalla C, Mungall CJ,
+  Osborne BI, Pocock MR, Schattner P, Senger M, Stein LD, Stupka E, Wilkinson
+  MD, Birney E: \textbf{The {Bioperl} toolkit: Perl modules for the life
+  sciences}. \emph{Genome Research} 2002, \textbf{12}(10):1611--1618,
+  \urlprefix\url{[http://dx.doi.org/10.1101/gr.361602]}.
+
+\bibitem{Biopython2009}
+Cock PJA, Antao T, Chang JT, Chapman BA, Cox CJ, Dalke A, Friedberg I,
+  Hamelryck T, Kauff F, Wilczynski B, de~Hoon MJL: \textbf{{Biopython}: freely
+  available {Python} tools for computational molecular biology and
+  bioinformatics}. \emph{Bioinformatics} 2009, \textbf{25}(11):1422--1423,
+  \urlprefix\url{[http://dx.doi.org/10.1093/bioinformatics/btp163]}.
+
+\bibitem{BioRuby2010}
+Goto N, Prins P, Nakao M, Bonnal R, Aerts J, Katayama T: \textbf{{BioRuby}:
+  bioinformatics software for the {Ruby} programming language.}
+  \emph{Bioinformatics} 2010, \textbf{26}(20):2617--2619,
+  \urlprefix\url{[http://dx.doi.org/10.1093/bioinformatics/btq475]}.
+
+\bibitem{BioJava2012}
+Prli\'{c} A, Yates A, Bliven SE, Rose PW, Jacobsen J, Troshin PV, Chapman M,
+  Gao J, Koh CH, Foisy S, Holland R, Rimsa G, Heuer ML,
+  Brandst\"{a}tter-M\"{u}ller H, Bourne PE, Willis S: \textbf{{BioJava}: an
+  open-source framework for bioinformatics in 2012}. \emph{Bioinformatics}
+  2012, \textbf{28}(20):2693--2695,
+  \urlprefix\url{[http://dx.doi.org/10.1093/bioinformatics/bts494]}.
+
+\bibitem{BioHack2010}
+Katayama T, Wilkinson MD, Micklem G, Kawashima S, Yamaguchi A, Nakao M,
+  Yamamoto Y, Okamoto S, Oouchida K, Chun HW, Aerts J, Afzal H, Antezana E,
+  Arakawa K, Aranda B, Belleau F, Bolleman J, Bonnal RJP, Chapman B, Cock PJA,
+  Eriksson T, Gordon PMK, Goto N, Hayashi K, Horn H, Ishiwata R, Kaminuma E,
+  Kasprzyk A, Kawaji H, Kido N, Kim YJ, Kinjo AR, Konishi F, Kwon KH, Labarga
+  A, Lamprecht AL, Lin Y, Lindenbaum P, McCarthy L, Morita H, Murakami K, Nagao
+  K, Nishida K, Nishimura K, Nishizawa T, Ogishima S, Ono K, Oshita K, Park KJ,
+  Prins P, Saito TL, Samwald M, Satagopam VP, Shigemoto Y, Smith R, Splendiani
+  A, Sugawara H, Taylor J, Vos RA, Withers D, Yamasaki C, Zmasek CM, Kawamoto
+  S, Okubo K, Asai K, Takagi T: \textbf{The {3rd} {DBCLS} {BioHackathon}:
+  improving life science data integration with {Semantic Web} technologies}.
+  \emph{Journal of Biomedical Semantics} 2013, \textbf{4}:6,
+  \urlprefix\url{[http://dx.doi.org/10.1186/2041-1480-4-6]}.
+
+\bibitem{BioHack2011and2012}
+Katayama T, Wilkinson MD, et~al.: \textbf{BioHackathon series in 2011 and 2012:
+  penetration of ontology and {Linked Data} in life science domains}.
+  \emph{Journal of Biomedical Semantics}. [{In press}].
+
+\bibitem{UniProt2013}
+{The UniProt Consortium}: \textbf{Update on activities at the {Universal
+  Protein Resource} ({UniProt}) in 2013}. \emph{Nucleic Acids Research} 2013,
+  \textbf{41}(D1):D43--D47,
+  \urlprefix\url{[http://dx.doi.org/10.1093/nar/gks1068]}.
+
+\bibitem{DDBJ2013}
+Ogasawara O, Mashima J, Kodama Y, Kaminuma E, Nakamura Y, Okubo K, Takagi T:
+  \textbf{DDBJ new system and service refactoring}. \emph{Nucleic Acids
+  Research} 2013, \textbf{41}(D1):D25--D29,
+  \urlprefix\url{[http://dx.doi.org/10.1093/nar/gks1152]}.
+
+\bibitem{GenBank2013}
+Benson DA, Cavanaugh M, Clark K, Karsch-Mizrachi I, Lipman DJ, Ostell J, Sayers
+  EW: \textbf{GenBank}. \emph{Nucleic Acids Research} 2013,
+  \textbf{41}(D1):D36--D42,
+  \urlprefix\url{[http://dx.doi.org/10.1093/nar/gks1195]}.
+
+\bibitem{ENA2013}
+Cochrane G, Alako B, Amid C, Bower L, Cerde{\~n}o-T{\'a}rraga A, Cleland I,
+  Gibson R, Goodgame N, Jang M, Kay S, Leinonen R, Lin X, Lopez R, McWilliam H,
+  Oisel A, Pakseresht N, Pallreddy S, Park Y, Plaister S, Radhakrishnan R,
+  Rivi{\`e}re S, Rossello M, Senf A, Silvester N, Smirnov D, ten Hoopen P,
+  Toribio A, Vaughan D, Zalunin V: \textbf{Facing growth in the {European
+  Nucleotide Archive}}. \emph{Nucleic Acids Research} 2013,
+  \textbf{41}(D1):D30--D35,
+  \urlprefix\url{[http://dx.doi.org/10.1093/nar/gks1175]}.
+
+\bibitem{doi:10.1021/ci100150d}
+Toukach PV: \textbf{Bacterial Carbohydrate Structure Database 3: Principles and
+  Realization}. \emph{Journal of Chemical Information and Modeling} 2011,
+  \textbf{51}:159--170, \urlprefix\url{[http://dx.doi.org/10.1021/ci100150d]}.
+
+\bibitem{Ranzinger01012011}
+Ranzinger R, Herget S, von~der Lieth CW, Frank M: \textbf{{GlycomeDB} -- a
+  unified database for carbohydrate structures}. \emph{Nucleic Acids Research}
+  2011, \textbf{39}(suppl 1):D373--D376,
+  \urlprefix\url{[http://dx.doi.org/10.1093/nar/gkq1014]}.
+
+\bibitem{Lutteke01052006}
+L{\"u}tteke T, Bohne-Lang A, Loss A, Goetz T, Frank M, von~der Lieth CW:
+  \textbf{GLYCOSCIENCES.de: an Internet portal to support glycomics and
+  glycobiology research}. \emph{Glycobiology} 2006, \textbf{16}(5):71R--81R,
+  \urlprefix\url{[http://dx.doi.org/10.1093/glycob/cwj049]}.
+
+\bibitem{RINGS}
+Akune Y, Hosoda M, Kaiya S, Shinmachi D, Aoki-Kinoshita KF: \textbf{The {RINGS}
+  Resource for Glycome Informatics Analysis and Data Mining on the Web}.
+  \emph{OMICS: A Journal of Integrative Biology} 2010, \textbf{14}(4):475--486,
+  \urlprefix\url{[http://dx.doi.org/10.1089/omi.2009.0129]}.
+
+\bibitem{UniCarbKB}
+Campbell MP, Peterson R, Mariethoz J, Gasteiger E, Akune Y, Aoki-Kinoshita KF,
+  Lisacek F, Packer NH: \textbf{UniCarbKB: Building a Knowledge Platform for
+  Glycoproteomics}. \emph{Underconsideration for NAR Databases} 2014,
+  \urlprefix\url{[http://dx.doi.org/10.1093/nar/gkt1128]}.
+
+\bibitem{SequenceOntology2005}
+Eilbeck K, Lewis SE, Mungall CJ, Yandell M, Stein L, Durbin R, Ashburner M:
+  \textbf{The {Sequence} {Ontology}: A tool for the unification of genome
+  annotations.} \emph{Genome Biology} 2005, \textbf{6}(5):R44,
+  \urlprefix\url{[http://dx.doi.org/10.1186/gb-2005-6-5-r44]}.
+
+\bibitem{RDFValidationReport}
+{Le Hors} A, Solbrig H, Prud'hommeaux E: \textbf{RDF Validation Workshop
+  Report, Practical Assurances for Quality RDF Data}. Tech. rep., W3C 2013,
+  \urlprefix\url{[http://www.w3.org/2012/12/rdf-val/report]}.
+
+\bibitem{JBrowse}
+Skinner ME, Uzilov AV, Stein LD, Mungall CJ, Holmes IH: \textbf{{JBrowse}: A
+  next-generation genome browser}. \emph{Genome Research} 2009,
+  \textbf{19}:1630--1638,
+  \urlprefix\url{[http://dx.doi.org/10.1101/gr.094607.109]}.
+
+\bibitem{InterMine}
+Smith RN, Aleksic J, Butano D, Carr A, Contrino S, Hu F, Lyne M, Lyne R,
+  Kalderimis A, Rutherford K, Stepan R, Sullivan J, Wakeling M, Watkins X,
+  Micklem G: \textbf{{InterMine}: a flexible data warehouse system for the
+  integration and analysis of heterogeneous biological data}.
+  \emph{Bioinformatics} 2012, \textbf{28}(23):3163--3165,
+  \urlprefix\url{[http://dx.doi.org/10.1093/bioinformatics/bts577]}.
+
+\bibitem{BOING}
+Devisscher M, {De Meyer} T, {Van Criekinge} W, Dawyndt P: \textbf{An ontology
+  based query engine for querying biological sequences}. \emph{EMBnet.journal}
+  2013, \textbf{19}(B):51--55,
+  \urlprefix\url{[http://journal.embnet.org/index.php/embnetjournal/article/vi%
+ew/729]}.
+
+\bibitem{Chado2007}
+Mungall CJ, Emmert DB, {The FlyBase Consortium}: \textbf{A {Chado} case study:
+  an ontology-based modular schema for representing genome-associated
+  biological information}. \emph{Bioinformatics} 2007,
+  \textbf{23}(13):i337--i346,
+  \urlprefix\url{[http://dx.doi.org/10.1093/bioinformatics/btm189]}.
+
+\bibitem{NCL2007}
+Alekseyenko AV, Lee CJ: \textbf{Nested Containment List {(NCList):} A new
+  algorithm for accelerating interval query of genome alignment and interval
+  databases}. \emph{Bioinformatics} 2007, :btl647,
+  \urlprefix\url{[http://dx.doi.org/10.1093/bioinformatics/btl647]}.
+
+\end{thebibliography}
+
+\newcommand{\BMCxmlcomment}[1]{}
+
+\BMCxmlcomment{
+
+<refgrp>
+
+<bibl id="B1">
+  <title><p>A standard variation file format for human genome
+  sequences</p></title>
+  <aug>
+    <au><snm>Reese</snm><fnm>MG</fnm></au>
+    <au><snm>Moore</snm><fnm>B</fnm></au>
+    <au><snm>Batchelor</snm><fnm>C</fnm></au>
+    <au><snm>Salas</snm><fnm>F</fnm></au>
+    <au><snm>Cunningham</snm><fnm>F</fnm></au>
+    <au><snm>Marth</snm><fnm>GT</fnm></au>
+    <au><snm>Stein</snm><fnm>L</fnm></au>
+    <au><snm>Flicek</snm><fnm>P</fnm></au>
+    <au><snm>Yandell</snm><fnm>M</fnm></au>
+    <au><snm>Eilbeck</snm><fnm>K</fnm></au>
+  </aug>
+  <source>Genome Biology</source>
+  <pubdate>2010</pubdate>
+  <volume>11</volume>
+  <issue>R88</issue>
+  <url>http://dx.doi.org/10.1186/gb-2010-11-8-r88</url>
+</bibl>
+
+<bibl id="B2">
+  <title><p>The {Bioperl} toolkit: Perl modules for the life
+  sciences</p></title>
+  <aug>
+    <au><snm>Stajich</snm><fnm>JE</fnm></au>
+    <au><snm>Block</snm><fnm>D</fnm></au>
+    <au><snm>Boulez</snm><fnm>K</fnm></au>
+    <au><snm>Brenner</snm><fnm>SE</fnm></au>
+    <au><snm>Chervitz</snm><fnm>SA</fnm></au>
+    <au><snm>Dagdigian</snm><fnm>C</fnm></au>
+    <au><snm>Fuellen</snm><fnm>G</fnm></au>
+    <au><snm>Gilbert</snm><fnm>JGR</fnm></au>
+    <au><snm>Korf</snm><fnm>I</fnm></au>
+    <au><snm>Lapp</snm><fnm>H</fnm></au>
+    <au><snm>Lehv{\"a}slaiho</snm><fnm>H</fnm></au>
+    <au><snm>Matsalla</snm><fnm>C</fnm></au>
+    <au><snm>Mungall</snm><fnm>CJ</fnm></au>
+    <au><snm>Osborne</snm><fnm>BI</fnm></au>
+    <au><snm>Pocock</snm><fnm>MR</fnm></au>
+    <au><snm>Schattner</snm><fnm>P</fnm></au>
+    <au><snm>Senger</snm><fnm>M</fnm></au>
+    <au><snm>Stein</snm><fnm>LD</fnm></au>
+    <au><snm>Stupka</snm><fnm>E</fnm></au>
+    <au><snm>Wilkinson</snm><fnm>MD</fnm></au>
+    <au><snm>Birney</snm><fnm>E</fnm></au>
+  </aug>
+  <source>Genome Research</source>
+  <pubdate>2002</pubdate>
+  <volume>12</volume>
+  <issue>10</issue>
+  <fpage>1611</fpage>
+  <lpage>1618</lpage>
+  <url>http://dx.doi.org/10.1101/gr.361602</url>
+</bibl>
+
+<bibl id="B3">
+  <title><p>{Biopython}: freely available {Python} tools for computational
+  molecular biology and bioinformatics</p></title>
+  <aug>
+    <au><snm>Cock</snm><fnm>PJA</fnm></au>
+    <au><snm>Antao</snm><fnm>T</fnm></au>
+    <au><snm>Chang</snm><fnm>JT</fnm></au>
+    <au><snm>Chapman</snm><fnm>BA</fnm></au>
+    <au><snm>Cox</snm><fnm>CJ</fnm></au>
+    <au><snm>Dalke</snm><fnm>A</fnm></au>
+    <au><snm>Friedberg</snm><fnm>I</fnm></au>
+    <au><snm>Hamelryck</snm><fnm>T</fnm></au>
+    <au><snm>Kauff</snm><fnm>F</fnm></au>
+    <au><snm>Wilczynski</snm><fnm>B</fnm></au>
+    <au><snm>Hoon</snm><fnm>MJL</fnm></au>
+  </aug>
+  <source>Bioinformatics</source>
+  <pubdate>2009</pubdate>
+  <volume>25</volume>
+  <issue>11</issue>
+  <fpage>1422</fpage>
+  <lpage>1423</lpage>
+  <url>http://dx.doi.org/10.1093/bioinformatics/btp163</url>
+</bibl>
+
+<bibl id="B4">
+  <title><p>{BioRuby}: bioinformatics software for the {Ruby} programming
+  language.</p></title>
+  <aug>
+    <au><snm>Goto</snm><fnm>N.</fnm></au>
+    <au><snm>Prins</snm><fnm>P.</fnm></au>
+    <au><snm>Nakao</snm><fnm>M.</fnm></au>
+    <au><snm>Bonnal</snm><fnm>R.</fnm></au>
+    <au><snm>Aerts</snm><fnm>J.</fnm></au>
+    <au><snm>Katayama</snm><fnm>T.</fnm></au>
+  </aug>
+  <source>Bioinformatics</source>
+  <pubdate>2010</pubdate>
+  <volume>26</volume>
+  <issue>20</issue>
+  <fpage>2617</fpage>
+  <lpage>2619</lpage>
+  <url>http://dx.doi.org/10.1093/bioinformatics/btq475</url>
+</bibl>
+
+<bibl id="B5">
+  <title><p>{BioJava}: an open-source framework for bioinformatics in
+  2012</p></title>
+  <aug>
+    <au><snm>Prli\'{c}</snm><fnm>A.</fnm></au>
+    <au><snm>Yates</snm><fnm>A.</fnm></au>
+    <au><snm>Bliven</snm><fnm>S. E.</fnm></au>
+    <au><snm>Rose</snm><fnm>P. W.</fnm></au>
+    <au><snm>Jacobsen</snm><fnm>J.</fnm></au>
+    <au><snm>Troshin</snm><fnm>P. V.</fnm></au>
+    <au><snm>Chapman</snm><fnm>M.</fnm></au>
+    <au><snm>Gao</snm><fnm>J.</fnm></au>
+    <au><snm>Koh</snm><fnm>C. H.</fnm></au>
+    <au><snm>Foisy</snm><fnm>S.</fnm></au>
+    <au><snm>Holland</snm><fnm>R.</fnm></au>
+    <au><snm>Rimsa</snm><fnm>G.</fnm></au>
+    <au><snm>Heuer</snm><fnm>M. L.</fnm></au>
+    <au><snm>Brandst\"{a}tter M\"{u}ller</snm><fnm>H.</fnm></au>
+    <au><snm>Bourne</snm><fnm>P. E.</fnm></au>
+    <au><snm>Willis</snm><fnm>S.</fnm></au>
+  </aug>
+  <source>Bioinformatics</source>
+  <pubdate>2012</pubdate>
+  <volume>28</volume>
+  <issue>20</issue>
+  <fpage>2693</fpage>
+  <lpage>2695</lpage>
+  <url>http://dx.doi.org/10.1093/bioinformatics/bts494</url>
+</bibl>
+
+<bibl id="B6">
+  <title><p>The {3rd} {DBCLS} {BioHackathon}: improving life science data
+  integration with {Semantic Web} technologies</p></title>
+  <aug>
+    <au><snm>Katayama</snm><fnm>T</fnm></au>
+    <au><snm>Wilkinson</snm><fnm>MD</fnm></au>
+    <au><snm>Micklem</snm><fnm>G</fnm></au>
+    <au><snm>Kawashima</snm><fnm>S</fnm></au>
+    <au><snm>Yamaguchi</snm><fnm>A</fnm></au>
+    <au><snm>Nakao</snm><fnm>M</fnm></au>
+    <au><snm>Yamamoto</snm><fnm>Y</fnm></au>
+    <au><snm>Okamoto</snm><fnm>S</fnm></au>
+    <au><snm>Oouchida</snm><fnm>K</fnm></au>
+    <au><snm>Chun</snm><fnm>HW</fnm></au>
+    <au><snm>Aerts</snm><fnm>J</fnm></au>
+    <au><snm>Afzal</snm><fnm>H</fnm></au>
+    <au><snm>Antezana</snm><fnm>E</fnm></au>
+    <au><snm>Arakawa</snm><fnm>K</fnm></au>
+    <au><snm>Aranda</snm><fnm>B</fnm></au>
+    <au><snm>Belleau</snm><fnm>F</fnm></au>
+    <au><snm>Bolleman</snm><fnm>J</fnm></au>
+    <au><snm>Bonnal</snm><fnm>RJP</fnm></au>
+    <au><snm>Chapman</snm><fnm>B</fnm></au>
+    <au><snm>Cock</snm><fnm>PJA</fnm></au>
+    <au><snm>Eriksson</snm><fnm>T</fnm></au>
+    <au><snm>Gordon</snm><fnm>PMK</fnm></au>
+    <au><snm>Goto</snm><fnm>N</fnm></au>
+    <au><snm>Hayashi</snm><fnm>K</fnm></au>
+    <au><snm>Horn</snm><fnm>H</fnm></au>
+    <au><snm>Ishiwata</snm><fnm>R</fnm></au>
+    <au><snm>Kaminuma</snm><fnm>E</fnm></au>
+    <au><snm>Kasprzyk</snm><fnm>A</fnm></au>
+    <au><snm>Kawaji</snm><fnm>H</fnm></au>
+    <au><snm>Kido</snm><fnm>N</fnm></au>
+    <au><snm>Kim</snm><fnm>YJ</fnm></au>
+    <au><snm>Kinjo</snm><fnm>AR</fnm></au>
+    <au><snm>Konishi</snm><fnm>F</fnm></au>
+    <au><snm>Kwon</snm><fnm>KH</fnm></au>
+    <au><snm>Labarga</snm><fnm>A</fnm></au>
+    <au><snm>Lamprecht</snm><fnm>AL</fnm></au>
+    <au><snm>Lin</snm><fnm>Y</fnm></au>
+    <au><snm>Lindenbaum</snm><fnm>P</fnm></au>
+    <au><snm>McCarthy</snm><fnm>L</fnm></au>
+    <au><snm>Morita</snm><fnm>H</fnm></au>
+    <au><snm>Murakami</snm><fnm>K</fnm></au>
+    <au><snm>Nagao</snm><fnm>K</fnm></au>
+    <au><snm>Nishida</snm><fnm>K</fnm></au>
+    <au><snm>Nishimura</snm><fnm>K</fnm></au>
+    <au><snm>Nishizawa</snm><fnm>T</fnm></au>
+    <au><snm>Ogishima</snm><fnm>S</fnm></au>
+    <au><snm>Ono</snm><fnm>K</fnm></au>
+    <au><snm>Oshita</snm><fnm>K</fnm></au>
+    <au><snm>Park</snm><fnm>KJ</fnm></au>
+    <au><snm>Prins</snm><fnm>P</fnm></au>
+    <au><snm>Saito</snm><fnm>TL</fnm></au>
+    <au><snm>Samwald</snm><fnm>M</fnm></au>
+    <au><snm>Satagopam</snm><fnm>VP</fnm></au>
+    <au><snm>Shigemoto</snm><fnm>Y</fnm></au>
+    <au><snm>Smith</snm><fnm>R</fnm></au>
+    <au><snm>Splendiani</snm><fnm>A</fnm></au>
+    <au><snm>Sugawara</snm><fnm>H</fnm></au>
+    <au><snm>Taylor</snm><fnm>J</fnm></au>
+    <au><snm>Vos</snm><fnm>RA</fnm></au>
+    <au><snm>Withers</snm><fnm>D</fnm></au>
+    <au><snm>Yamasaki</snm><fnm>C</fnm></au>
+    <au><snm>Zmasek</snm><fnm>CM</fnm></au>
+    <au><snm>Kawamoto</snm><fnm>S</fnm></au>
+    <au><snm>Okubo</snm><fnm>K</fnm></au>
+    <au><snm>Asai</snm><fnm>K</fnm></au>
+    <au><snm>Takagi</snm><fnm>T</fnm></au>
+  </aug>
+  <source>Journal of Biomedical Semantics</source>
+  <pubdate>2013</pubdate>
+  <volume>4</volume>
+  <fpage>6</fpage>
+  <url>http://dx.doi.org/10.1186/2041-1480-4-6</url>
+</bibl>
+
+<bibl id="B7">
+  <title><p>BioHackathon series in 2011 and 2012: penetration of ontology and
+  {Linked Data} in life science domains</p></title>
+  <aug>
+    <au><snm>Katayama</snm><fnm>T</fnm></au>
+    <au><snm>Wilkinson</snm><fnm>MD</fnm></au>
+    <au><cnm>others</cnm></au>
+  </aug>
+  <source>Journal of Biomedical Semantics</source>
+  <note>{In press}</note>
+</bibl>
+
+<bibl id="B8">
+  <title><p>Update on activities at the {Universal Protein Resource}
+  ({UniProt}) in 2013</p></title>
+  <aug>
+    <au><cnm>{The UniProt Consortium}</cnm></au>
+  </aug>
+  <source>Nucleic Acids Research</source>
+  <pubdate>2013</pubdate>
+  <volume>41</volume>
+  <issue>D1</issue>
+  <fpage>D43</fpage>
+  <lpage>D47</lpage>
+  <url>http://dx.doi.org/10.1093/nar/gks1068</url>
+</bibl>
+
+<bibl id="B9">
+  <title><p>DDBJ new system and service refactoring</p></title>
+  <aug>
+    <au><snm>Ogasawara</snm><fnm>O</fnm></au>
+    <au><snm>Mashima</snm><fnm>J</fnm></au>
+    <au><snm>Kodama</snm><fnm>Y</fnm></au>
+    <au><snm>Kaminuma</snm><fnm>E</fnm></au>
+    <au><snm>Nakamura</snm><fnm>Y</fnm></au>
+    <au><snm>Okubo</snm><fnm>K</fnm></au>
+    <au><snm>Takagi</snm><fnm>T</fnm></au>
+  </aug>
+  <source>Nucleic Acids Research</source>
+  <pubdate>2013</pubdate>
+  <volume>41</volume>
+  <issue>D1</issue>
+  <fpage>D25</fpage>
+  <lpage>D29</lpage>
+  <url>http://dx.doi.org/10.1093/nar/gks1152</url>
+</bibl>
+
+<bibl id="B10">
+  <title><p>GenBank</p></title>
+  <aug>
+    <au><snm>Benson</snm><fnm>DA</fnm></au>
+    <au><snm>Cavanaugh</snm><fnm>M</fnm></au>
+    <au><snm>Clark</snm><fnm>K</fnm></au>
+    <au><snm>Karsch Mizrachi</snm><fnm>I</fnm></au>
+    <au><snm>Lipman</snm><fnm>DJ</fnm></au>
+    <au><snm>Ostell</snm><fnm>J</fnm></au>
+    <au><snm>Sayers</snm><fnm>EW</fnm></au>
+  </aug>
+  <source>Nucleic Acids Research</source>
+  <pubdate>2013</pubdate>
+  <volume>41</volume>
+  <issue>D1</issue>
+  <fpage>D36</fpage>
+  <lpage>D42</lpage>
+  <url>http://dx.doi.org/10.1093/nar/gks1195</url>
+</bibl>
+
+<bibl id="B11">
+  <title><p>Facing growth in the {European Nucleotide Archive}</p></title>
+  <aug>
+    <au><snm>Cochrane</snm><fnm>G</fnm></au>
+    <au><snm>Alako</snm><fnm>B</fnm></au>
+    <au><snm>Amid</snm><fnm>C</fnm></au>
+    <au><snm>Bower</snm><fnm>L</fnm></au>
+    <au><snm>Cerde{\~n}o T{\'a}rraga</snm><fnm>A</fnm></au>
+    <au><snm>Cleland</snm><fnm>I</fnm></au>
+    <au><snm>Gibson</snm><fnm>R</fnm></au>
+    <au><snm>Goodgame</snm><fnm>N</fnm></au>
+    <au><snm>Jang</snm><fnm>M</fnm></au>
+    <au><snm>Kay</snm><fnm>S</fnm></au>
+    <au><snm>Leinonen</snm><fnm>R</fnm></au>
+    <au><snm>Lin</snm><fnm>X</fnm></au>
+    <au><snm>Lopez</snm><fnm>R</fnm></au>
+    <au><snm>McWilliam</snm><fnm>H</fnm></au>
+    <au><snm>Oisel</snm><fnm>A</fnm></au>
+    <au><snm>Pakseresht</snm><fnm>N</fnm></au>
+    <au><snm>Pallreddy</snm><fnm>S</fnm></au>
+    <au><snm>Park</snm><fnm>Y</fnm></au>
+    <au><snm>Plaister</snm><fnm>S</fnm></au>
+    <au><snm>Radhakrishnan</snm><fnm>R</fnm></au>
+    <au><snm>Rivi{\`e}re</snm><fnm>S</fnm></au>
+    <au><snm>Rossello</snm><fnm>M</fnm></au>
+    <au><snm>Senf</snm><fnm>A</fnm></au>
+    <au><snm>Silvester</snm><fnm>N</fnm></au>
+    <au><snm>Smirnov</snm><fnm>D</fnm></au>
+    <au><snm>Hoopen</snm><fnm>P</fnm></au>
+    <au><snm>Toribio</snm><fnm>A</fnm></au>
+    <au><snm>Vaughan</snm><fnm>D</fnm></au>
+    <au><snm>Zalunin</snm><fnm>V</fnm></au>
+  </aug>
+  <source>Nucleic Acids Research</source>
+  <pubdate>2013</pubdate>
+  <volume>41</volume>
+  <issue>D1</issue>
+  <fpage>D30</fpage>
+  <lpage>D35</lpage>
+  <url>http://dx.doi.org/10.1093/nar/gks1175</url>
+</bibl>
+
+<bibl id="B12">
+  <title><p>Bacterial Carbohydrate Structure Database 3: Principles and
+  Realization</p></title>
+  <aug>
+    <au><snm>Toukach</snm><fnm>PV</fnm></au>
+  </aug>
+  <source>Journal of Chemical Information and Modeling</source>
+  <pubdate>2011</pubdate>
+  <volume>51</volume>
+  <issue>1</issue>
+  <fpage>159</fpage>
+  <lpage>170</lpage>
+  <url>http://dx.doi.org/10.1021/ci100150d</url>
+</bibl>
+
+<bibl id="B13">
+  <title><p>{GlycomeDB} -- a unified database for carbohydrate
+  structures</p></title>
+  <aug>
+    <au><snm>Ranzinger</snm><fnm>R</fnm></au>
+    <au><snm>Herget</snm><fnm>S</fnm></au>
+    <au><snm>Lieth</snm><fnm>CW</fnm></au>
+    <au><snm>Frank</snm><fnm>M</fnm></au>
+  </aug>
+  <source>Nucleic Acids Research</source>
+  <pubdate>2011</pubdate>
+  <volume>39</volume>
+  <issue>suppl 1</issue>
+  <fpage>D373</fpage>
+  <lpage>D376</lpage>
+  <url>http://dx.doi.org/10.1093/nar/gkq1014</url>
+</bibl>
+
+<bibl id="B14">
+  <title><p>GLYCOSCIENCES.de: an Internet portal to support glycomics and
+  glycobiology research</p></title>
+  <aug>
+    <au><snm>L{\"u}tteke</snm><fnm>T</fnm></au>
+    <au><snm>Bohne Lang</snm><fnm>A</fnm></au>
+    <au><snm>Loss</snm><fnm>A</fnm></au>
+    <au><snm>Goetz</snm><fnm>T</fnm></au>
+    <au><snm>Frank</snm><fnm>M</fnm></au>
+    <au><snm>Lieth</snm><fnm>CW</fnm></au>
+  </aug>
+  <source>Glycobiology</source>
+  <pubdate>2006</pubdate>
+  <volume>16</volume>
+  <issue>5</issue>
+  <fpage>71R</fpage>
+  <lpage>81R</lpage>
+  <url>http://dx.doi.org/10.1093/glycob/cwj049</url>
+</bibl>
+
+<bibl id="B15">
+  <title><p>The {RINGS} Resource for Glycome Informatics Analysis and Data
+  Mining on the Web</p></title>
+  <aug>
+    <au><snm>Akune</snm><fnm>Y</fnm></au>
+    <au><snm>Hosoda</snm><fnm>M</fnm></au>
+    <au><snm>Kaiya</snm><fnm>S</fnm></au>
+    <au><snm>Shinmachi</snm><fnm>D</fnm></au>
+    <au><snm>Aoki Kinoshita</snm><fnm>KF</fnm></au>
+  </aug>
+  <source>OMICS: A Journal of Integrative Biology</source>
+  <pubdate>2010</pubdate>
+  <volume>14</volume>
+  <issue>4</issue>
+  <fpage>475</fpage>
+  <lpage>486</lpage>
+  <url>http://dx.doi.org/10.1089/omi.2009.0129</url>
+</bibl>
+
+<bibl id="B16">
+  <title><p>UniCarbKB: Building a Knowledge Platform for
+  Glycoproteomics</p></title>
+  <aug>
+    <au><snm>Campbell</snm><fnm>M. P.</fnm></au>
+    <au><snm>Peterson</snm><fnm>R.</fnm></au>
+    <au><snm>Mariethoz</snm><fnm>J.</fnm></au>
+    <au><snm>Gasteiger</snm><fnm>E.</fnm></au>
+    <au><snm>Akune</snm><fnm>Y.</fnm></au>
+    <au><snm>Aoki Kinoshita</snm><fnm>K. F.</fnm></au>
+    <au><snm>Lisacek</snm><fnm>F.</fnm></au>
+    <au><snm>Packer</snm><fnm>N. H.</fnm></au>
+  </aug>
+  <source>Underconsideration for NAR Databases</source>
+  <pubdate>2014</pubdate>
+  <url>http://dx.doi.org/10.1093/nar/gkt1128</url>
+</bibl>
+
+<bibl id="B17">
+  <title><p>The {Sequence} {Ontology}: A tool for the unification of genome
+  annotations.</p></title>
+  <aug>
+    <au><snm>Eilbeck</snm><fnm>K.</fnm></au>
+    <au><snm>Lewis</snm><fnm>S. E.</fnm></au>
+    <au><snm>Mungall</snm><fnm>C. J.</fnm></au>
+    <au><snm>Yandell</snm><fnm>M.</fnm></au>
+    <au><snm>Stein</snm><fnm>L.</fnm></au>
+    <au><snm>Durbin</snm><fnm>R.</fnm></au>
+    <au><snm>Ashburner</snm><fnm>M.</fnm></au>
+  </aug>
+  <source>Genome Biology</source>
+  <pubdate>2005</pubdate>
+  <volume>6</volume>
+  <issue>5</issue>
+  <fpage>R44</fpage>
+  <url>http://dx.doi.org/10.1186/gb-2005-6-5-r44</url>
+</bibl>
+
+<bibl id="B18">
+  <title><p>RDF Validation Workshop Report, Practical Assurances for Quality
+  RDF Data</p></title>
+  <aug>
+    <au><snm>{Le Hors}</snm><fnm>A</fnm></au>
+    <au><snm>Solbrig</snm><fnm>H</fnm></au>
+    <au><snm>Prud'hommeaux</snm><fnm>E</fnm></au>
+  </aug>
+  <pubdate>2013</pubdate>
+  <url>http://www.w3.org/2012/12/rdf-val/report</url>
+</bibl>
+
+<bibl id="B19">
+  <title><p>{JBrowse}: A next-generation genome browser</p></title>
+  <aug>
+    <au><snm>Skinner</snm><fnm>ME</fnm></au>
+    <au><snm>Uzilov</snm><fnm>AV</fnm></au>
+    <au><snm>Stein</snm><fnm>LD</fnm></au>
+    <au><snm>Mungall</snm><fnm>CJ</fnm></au>
+    <au><snm>Holmes</snm><fnm>IH</fnm></au>
+  </aug>
+  <source>Genome Research</source>
+  <pubdate>2009</pubdate>
+  <volume>19</volume>
+  <fpage>1630</fpage>
+  <lpage>1638</lpage>
+  <url>http://dx.doi.org/10.1101/gr.094607.109</url>
+</bibl>
+
+<bibl id="B20">
+  <title><p>{InterMine}: a flexible data warehouse system for the integration
+  and analysis of heterogeneous biological data</p></title>
+  <aug>
+    <au><snm>Smith</snm><fnm>RN</fnm></au>
+    <au><snm>Aleksic</snm><fnm>J</fnm></au>
+    <au><snm>Butano</snm><fnm>D</fnm></au>
+    <au><snm>Carr</snm><fnm>A</fnm></au>
+    <au><snm>Contrino</snm><fnm>S</fnm></au>
+    <au><snm>Hu</snm><fnm>F</fnm></au>
+    <au><snm>Lyne</snm><fnm>M</fnm></au>
+    <au><snm>Lyne</snm><fnm>R</fnm></au>
+    <au><snm>Kalderimis</snm><fnm>A</fnm></au>
+    <au><snm>Rutherford</snm><fnm>K</fnm></au>
+    <au><snm>Stepan</snm><fnm>R</fnm></au>
+    <au><snm>Sullivan</snm><fnm>J</fnm></au>
+    <au><snm>Wakeling</snm><fnm>M</fnm></au>
+    <au><snm>Watkins</snm><fnm>X</fnm></au>
+    <au><snm>Micklem</snm><fnm>G</fnm></au>
+  </aug>
+  <source>Bioinformatics</source>
+  <pubdate>2012</pubdate>
+  <volume>28</volume>
+  <issue>23</issue>
+  <fpage>3163</fpage>
+  <lpage>3165</lpage>
+  <url>http://dx.doi.org/10.1093/bioinformatics/bts577</url>
+</bibl>
+
+<bibl id="B21">
+  <title><p>An ontology based query engine for querying biological
+  sequences</p></title>
+  <aug>
+    <au><snm>Devisscher</snm><fnm>M</fnm></au>
+    <au><snm>{De Meyer}</snm><fnm>T</fnm></au>
+    <au><snm>{Van Criekinge}</snm><fnm>W</fnm></au>
+    <au><snm>Dawyndt</snm><fnm>P</fnm></au>
+  </aug>
+  <source>EMBnet.journal</source>
+  <pubdate>2013</pubdate>
+  <volume>19</volume>
+  <issue>B</issue>
+  <fpage>51</fpage>
+  <lpage>55</lpage>
+  <url>http://journal.embnet.org/index.php/embnetjournal/article/view/729</url>
+</bibl>
+
+<bibl id="B22">
+  <title><p>A {Chado} case study: an ontology-based modular schema for
+  representing genome-associated biological information</p></title>
+  <aug>
+    <au><snm>Mungall</snm><fnm>CJ</fnm></au>
+    <au><snm>Emmert</snm><fnm>DB</fnm></au>
+    <au><cnm>{The FlyBase Consortium}</cnm></au>
+  </aug>
+  <source>Bioinformatics</source>
+  <pubdate>2007</pubdate>
+  <volume>23</volume>
+  <issue>13</issue>
+  <fpage>i337</fpage>
+  <lpage>i346</lpage>
+  <url>http://dx.doi.org/10.1093/bioinformatics/btm189</url>
+</bibl>
+
+<bibl id="B23">
+  <title><p>Nested Containment List {(NCList):} A new algorithm for
+  accelerating interval query of genome alignment and interval
+  databases</p></title>
+  <aug>
+    <au><snm>Alekseyenko</snm><fnm>AV</fnm></au>
+    <au><snm>Lee</snm><fnm>CJ</fnm></au>
+  </aug>
+  <source>Bioinformatics</source>
+  <pubdate>2007</pubdate>
+  <fpage>btl647</fpage>
+  <url>http://dx.doi.org/10.1093/bioinformatics/btl647</url>
+</bibl>
+
+</refgrp>
+} % end of \BMCxmlcomment

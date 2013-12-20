@@ -1,11 +1,11 @@
 \section*{Results}
 One of the practical goals driving the development of FALDO was to be able
 to represent all the annotated sequences in INSDC and UniProt as RDF
-triples, as a step towards providing this data via SPARQL end-points whereby
+triples, as a step towards providing this data via SPARQL endpoints where
 it can be queried.
 
-The protein examples considered, such as the UniProt feature annotations,
-require relatively simple locations within protein sequences to be described
+The protein examples considered here, such as the UniProt feature annotations,
+describe relatively simple locations within protein sequences
 (see the active site annotation in Figures~\ref{fig:UniProt} and \ref{fig:DDBJ}).
 
 \begin{figure}
@@ -84,7 +84,7 @@ ddbj-cds:AAS67043.1 rdf:type :Nucleotide_Resource ;
                                               faldo:reference ddbj-seq:AY566647 ]]].
 \end{verbatim}
 \end{shaded}
-\caption{The DDBJ record associated with UniProt Q6Q250 showing the related CDS sequence and how its coding region start and ends outside of the known deposited mRNA sequence.}
+\caption{The DDBJ record associated with UniProt Q6Q250 showing the related CDS sequence and how its coding region starts and ends outside of the known deposited mRNA sequence.}
 \label{fig:DDBJ}
 \end{figure}
 
@@ -129,7 +129,7 @@ gene feature \textit{chrY} at \texttt{complement(NC\_000913.2:1965072..1965461)}
 
 Describing biological features in relation to a genomic DNA sequence does not have to be complicated.
 
-For example the \textit{cheY} gene (shown in Figure~\ref{fig:insdcComplement}) 
+For example the \textit{cheY} gene (shown in Figure~\ref{fig:insdcComplement})
 \textit{Escherichia coli} str. K-12 substr. MG1655 (accession NC\_000913.2)
 is described in the INSDC feature table as \texttt{complement(1965072..1965461)},
 which is 390 base pairs using inclusive one-based counting.
@@ -182,7 +182,7 @@ ddbj-protein:AAA32209.1 a so:0000316 ; #CDS
                                          faldo:reference ddbj-seq:J02448]].
 \end{verbatim}
 \end{shaded}
-\caption{Incomplete example of using FALDO in turtle format to describe
+\caption{Incomplete example of using FALDO in Turtle format to describe
 the CDS ``Protein II'' at \texttt{join(6006..6407,1..831)} on J02448.}
 \label{fig:insdcReverseOverOrigin}
 \end{figure}
