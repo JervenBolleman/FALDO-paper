@@ -50,6 +50,7 @@ As a side effect, it allows single nucleotide or amino acid sites to be describe
 Every $\mathtt{faldo\colon{}Position}$ refers to the sequence it is on.
 This allows us to say that gene $XX$ starts at position 4 of assembly $Y1$,
 while the same conceptual gene starts at position 5 of assembly $Y2$.
+Even within the same assembly, FALDO offers the possibility to describe features in different contexts at the same time, allowing for instance to represent a SNP in terms of its position within a known coding region (i.e. gene coordinates) and within a chromosome region, which offers clear advantages for features annotation.
 Chado also allows multiple locations per feature, but unlike FALDO,
 the start and end of any location must be in the same region,
 which prohibits for example a feature that spans more than one contig,
