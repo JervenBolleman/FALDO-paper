@@ -1,11 +1,11 @@
 \section*{Results}
 One of the practical goals driving the development of FALDO was to be able
 to represent all the annotated sequences in INSDC and UniProt as RDF
-triples, as a step towards providing this data via SPARQL end-points whereby
+triples, as a step towards providing this data via SPARQL endpoints where
 it can be queried.
 
-The protein examples considered, such as the UniProt feature annotations,
-require relatively simple locations within protein sequences to be described
+The protein examples considered here, such as the UniProt feature annotations,
+describe relatively simple locations within protein sequences
 (see the active site annotation in Figures~\ref{fig:UniProt} and \ref{fig:DDBJ}).
 
 \begin{figure}
@@ -47,7 +47,7 @@ isoform:P05064-1 up:fragment "single" ;
    up:precursor true .
 \end{verbatim}
 \end{shaded}
-\caption{Example from UniProt entry Q6Q250 showing the position of an active site and a signal peptide in both the UniProt flat-file format and FALDO.}
+\caption{Excerpt from UniProt entry Q6Q250 showing the position of an active site and a signal peptide in both the UniProt flat-file format and FALDO.}
 \label{fig:UniProt}
 \end{figure}
 \begin{figure}
@@ -84,7 +84,7 @@ ddbj-cds:AAS67043.1 rdf:type :Nucleotide_Resource ;
                                               faldo:reference ddbj-seq:AY566647 ]]].
 \end{verbatim}
 \end{shaded}
-\caption{The DDBJ record associated with UniProt Q6Q250 showing the related CDS sequence and how its coding region start and ends outside of the known deposited mRNA sequence.}
+\caption{DDBJ record associated with UniProt Q6Q250 showing the related CDS sequence, with coding region outside of the known deposited mRNA sequence.}
 \label{fig:DDBJ}
 \end{figure}
 
@@ -119,7 +119,7 @@ ddbj-cds:AAS67043.1 rdf:type :Nucleotide_Resource ;
                         faldo:reference refseq:NC_000913.2 ].
 \end{verbatim}
 \end{shaded}
-\caption{Example using FALDO in turtle format to describe the location of a 
+\caption{Using FALDO in Turtle\cite{TurtleFormatSpec} format to describe the location of a
 gene feature \textit{chrY} at \texttt{complement(NC\_000913.2:1965072..1965461)} in a INSDC record.}
 \label{fig:insdcComplement}
 \end{figure}
@@ -129,12 +129,12 @@ gene feature \textit{chrY} at \texttt{complement(NC\_000913.2:1965072..1965461)}
 
 Describing biological features in relation to a genomic DNA sequence does not have to be complicated.
 
-For example the \textit{cheY} gene (shown in Figure~\ref{fig:insdcComplement}) 
+For example the \textit{cheY} gene (shown in Figure~\ref{fig:insdcComplement})
 \textit{Escherichia coli} str. K-12 substr. MG1655 (accession NC\_000913.2)
 is described in the INSDC feature table as \texttt{complement(1965072..1965461)},
 which is 390 base pairs using inclusive one-based counting.
 This feature begins on the base complementary to $start = 1965461$
-and finishes at $end = 1965072$, and so the INSDC location string
+and finishes at $end = 1965072$, so the INSDC location string
 can be interpreted as \texttt{complement($end$..$start$)}.
 FALDO respects this biological interpretation of a feature location
 on the reverse strand.
@@ -149,11 +149,10 @@ feature length is given by $length = end - start + 1$ under
 this numerically convenient scheme where the interpretation
 of $start$ versus $end$ is strand independent.
 
-However, there are a number of implicit conventions in INSDC data that need to be translated into the more explicit FALDO model.
-Some of the complicated regions for INSDC are features on a circular genome. 
-The most common is  a feature that straddles the origin of replication or the `0' mark.
-For example, the ``Protein II'' gene encoded on the reverse strand of the f1 bacteriophage (ddbj:J02448) straddles the origin of replication.
-``Protein II'' transcription starts from reverse strand position 6006 and the transcription ends at reverse strand position 831 (see Figure~\ref{fig:insdcReverseOverOrigin}).
+There are a number of implicit conventions in INSDC data that need to be translated into the more explicit FALDO model.
+Some of the complicated regions for INSDC are features on a circular chromosome, the most common of which are features that overlap the chromosome's origin of replication.
+One such feature is the ``Protein II'' gene from the reverse strand of f1 bacteriophage (ddbj:J02448).
+``Protein II'' transcription starts at position 6006 on the reverse strand and ends at position 831 (see Figure~\ref{fig:insdcReverseOverOrigin}).
 
 
 \begin{figure}
@@ -182,30 +181,32 @@ ddbj-protein:AAA32209.1 a so:0000316 ; #CDS
                                          faldo:reference ddbj-seq:J02448]].
 \end{verbatim}
 \end{shaded}
-\caption{Incomplete example of using FALDO in turtle format to describe
+\caption{Partial example of using FALDO in Turtle format to describe
 the CDS ``Protein II'' at \texttt{join(6006..6407,1..831)} on J02448.}
 \label{fig:insdcReverseOverOrigin}
 \end{figure}
 
 
 \subsection*{Fuzzy locations}
-Feature positions in, e.g. INSDC or UniProt, are not always exactly known or described, we should however describe our limited fuzzy knowledge as accurately as possible.
-In FALDO the classes $\mathtt{faldo\colon{}InRangePosition}$ and $\mathtt{faldo\colon{}OneOfPosition}$ can be used to describe such limited knowledge.
-For example the position of the signal peptide annotation shown in Figure~\ref{fig:UniProt}, 
+Feature positions in, for example, INSDC or UniProt, are not always exactly known or described, but we should strive to describe our limited knowledge as accurately as possible.
+Take for example the position of the signal peptide annotation shown in Figure~\ref{fig:UniProt}, 
 where the protein sequence is known to belong to a family of proteins,
 but unfortunately only a part of the amino acid sequence is known. 
-The UniProt curator deduced that the signal peptide region starts only partly overlaps the known sequence fragment.
+The UniProt curator deduced that the signal peptide region only partly overlaps the known sequence fragment.
 The same is true in the related INSDC record, were the CDS starts and ends before the known mRNA sequence (see Figure~\ref{fig:DDBJ}).
+As demonstrated in the figure, this limited knowledge can be described using the FALDO classes $\mathtt{faldo\colon{}InRangePosition}$ and $\mathtt{faldo\colon{}OneOfPosition}$.
 
 \subsection*{Restriction enzymes}
 
-The recognition sites of most restriction enzymes are relatively
-straightforward to describe, as is the cleavage site of a blunt
-end cutting enzyme.
-However, the cutting point of sticky-end cutting enzymes which
-leave an overhang are more challenging to describe. Here the
-flexibility in FALDO to allow the start and end positions of a region
-to have different strands can be used (Figure~\ref{fig:HindIII}).
+The task of describing the recognition sites of most restriction
+enzymes is quite straightforward, as is describing the cleavage site
+of a blunt end cutting enzyme.
+However, the cut site of a sticky-end cutting enzyme like HindIII that
+leaves an ``overhang'' is more challenging to specify, since it cuts
+in a different place on the forward and reverse strands.
+Figure~\ref{fig:HindIII} demonstrates how to describe this in FALDO by
+specifying start and end positions of the cut site that are on
+different strands.
 
 \begin{figure}
 \begin{shaded}
@@ -243,7 +244,7 @@ to have different strands can be used (Figure~\ref{fig:HindIII}).
       faldo:position 6 .
 \end{verbatim}
 \end{shaded}
-\caption{HindIII restriction enzyme cleavage site with sticky ends}
+\caption{FALDO representation of HindIII restriction enzyme cleavage site with sticky ends.}
 \label{fig:HindIII}
 \end{figure}
 
