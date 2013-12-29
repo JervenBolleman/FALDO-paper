@@ -2,15 +2,15 @@
 
 FALDO is a small OWL2 ontology with 14 classes of which 9 deal with the concept of a position on a sequence (Figure \ref{fig:ontology}).
 Four of those classes are used to describe accurately what we know of a position that is not precisely determined.
-Four are used to describe the concept of a position on a strand of DNA, e.g. positive, negative and on both strands.
-In contrast to other representations, FALDO has no explicit way to say that it is not ``known'' on which strand a position is, because this explicit statement of ``unknownedness'' can introduce contradictions when merging different data sets.
-For example, some positions could end up being contradictorily typed both as forward-stranded, and as having unknown strandedness.
+Four classes are used to describe the concept of a position on a strand of DNA, e.g. positive, negative and on both strands.
+In contrast to other representations, FALDO has no explicit way to say that it is not ``known'' on which strand a position is, because this explicit statement unknown strand position can introduce contradictions when merging different data sets.
+For example, some positions could end up being contradictorily typed both as forward-stranded as well as being located on an unkown strand position.
 There is no benefit to explicitly stating that something is unknown, as it does not make queries simpler
 and only increases the data size.
 
 FALDO defines a single datatype property,
 $\mathtt{faldo\colon{}position}$, that is used to provide a one-based
-integer offset from the start of the reference sequence.
+integer offset from the start of a reference sequence.
 This property, when used together with the
 $\mathtt{faldo\colon{}reference}$ property, links the concept of
 a $\mathtt{faldo\colon{}Position}$ to an instance of a biological
@@ -107,7 +107,7 @@ WHERE {
 }
 \end{verbatim}
 \end{shaded}
-\caption{SPARQL query to add all $\mathtt{faldo\colon{}reference}$ properties to $\mathtt{faldo\colon{}positions}$ described from a $\mathtt{insdc\colon{}record}$.}
+\caption{A SPARQL query to add all $\mathtt{faldo\colon{}reference}$ properties to $\mathtt{faldo\colon{}positions}$ described from a $\mathtt{insdc\colon{}record}$.}
 \label{sparql:chainProperty}
 \end{figure}
 
@@ -116,7 +116,7 @@ WHERE {
 Some databases only allow a subset of FALDO. For example
 INSDC requires that the start and end of a region are on the same sequence,
 while UniProt requires that a feature is described in relation to the reference's canonical isoform.
-There are many ways to add such optional constraints to the data model using Semantic technologies\cite{RDFValidationReport}.
+There are many ways to add such optional constraints to the data model using Semantic Web technologies\cite{RDFValidationReport}.
 The benefit of such optionality is that constraints needed for quality control at
 the data provider do not restrict the users of the data in any way.
 
@@ -130,7 +130,7 @@ FALDO is already deployed and used in a number of tools and databases.
 \begin{description}
 \item[JBrowse] can use SPARQL queries with FALDO to visualize annotations on reference sequences from semantic databases \cite{JBrowse}.
 \item[INSDC-DDBJ] DDBJ is currently working on an RDF format for the INSDC data that is stored in DDBJ/GenBank/EMBL-Bank.
-\item[BioInterchange] uses FALDO to make position information in current bioinformatics data stored in files such as GFF3, GVF, or GTF available to the semantic web (\url{http://www.biointerchange.org/}).
+\item[BioInterchange] uses FALDO to make position information in current bioinformatics data stored in GFF3-, GVF-, GTF-, or VCF-files available to the semantic web (\url{http://www.biointerchange.org/}).
 \item[TogoGenome] a genome database collection provided by the DBCLS also uses FALDO in its RDF representation (\url{http://togogenome.org/}).
 \item[InterMine] The popular model organism database software collection uses FALDO in its SPARQL mode \cite{InterMine}.
 \item[PhenomeBrowser] Positions of phenotypes and disease related natural variations are positioned onto the mouse genome using FALDO.

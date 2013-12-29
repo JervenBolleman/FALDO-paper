@@ -1,16 +1,16 @@
 \begin{abstract}
 \begin{description}
 \item[Background]
-Nucleotide and protein sequence feature annotation is essential to understand biology on the genome, transcriptome, and proteome level.
-Unfortunately for using Semantic Web technologies to query biological annotation,
-there was no standard that describes this potentially complex location information as subject-predicate-object triples using RDF/SPARQL.
+Nucleotide and protein sequence feature annotations are essential to understand biology on the genomic, transcriptomic, and proteomic level.
+Using Semantic Web technologies to query biological annotations,
+there was no standard that described this potentially complex location information as subject-predicate-object triples.
 \item[Description]
 We have developed an ontology, the Feature Annotation Location Description Ontology (FALDO), to describe the positions of annotated features on linear and circular sequences.
-It is usable for describing nucleotide features in sequence records, protein annotation, and glycan binding sites.
-Using the same data format to represent sequence positions independent of file formats allows us to integrate sequence data from multiple sources and data types.
-The genome browser JBrowse is used to demonstrate accessing multiple SPARQL endpoints to display genomic feature annotation,
-as well as protein annotation from UniProt mapped to genomic locations.
+FALDO can be used to describe nucleotide features in sequence records, protein annotations, and glycan binding sites, among other features in coordinate systems of the aforementioned ``omics'' areas.
+Using the same data format to represent sequence positions that are independent of file formats allows us to integrate sequence data from multiple sources and data types.
+The genome browser JBrowse is used to demonstrate accessing multiple SPARQL endpoints to display genomic feature annotations,
+as well as protein annotations from UniProt mapped to genomic locations.
 \item[Conclusions]
-This ontology allows users to merge sequence annotation from multiple sources using federalised SPARQL queries against public endpoints and local private datasources.
+Our ontology allows users to uniformally decribe -- and potentially merge -- sequence annotations from multiple sources. Data sources using FALDO can prospectively be retrieved using federalised SPARQL queries against public SPARQL endpoints and/or local private triple stores.
 \end{description}
 \end{abstract}
