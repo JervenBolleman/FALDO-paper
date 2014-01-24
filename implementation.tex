@@ -4,7 +4,7 @@ FALDO is a small OWL2 ontology with 14 classes of which 9 deal with the concept 
 Four of those classes are used to describe accurately what we know of a position that is not precisely determined.
 Four classes are used to describe the concept of a position on a strand of DNA, e.g. positive, negative and on both strands.
 In contrast to other representations, FALDO has no explicit way to say that it is not ``known'' on which strand a position is, because this explicit statement unknown strand position can introduce contradictions when merging different data sets.
-For example, some positions could end up being contradictorily typed both as forward-stranded as well as being located on an unkown strand position.
+For example, some positions could end up being contradictorily typed both as forward-stranded as well as being located on an unknown strand position.
 There is no benefit to explicitly stating that something is unknown, as it does not make queries simpler
 and only increases the data size.
 
@@ -28,6 +28,14 @@ single entity (recommended over each strand being represented
 separately), integer $\mathtt{faldo\colon{}position}$ properties are
 counted from the 5' end of whichever strand is considered the
 ``forward'' strand.
+
+A key part of the Faldo model is the separation of feature and where a feature is found in a sequence record.
+For this we us the $\mathtt{faldo\colon{}location}$ object property. 
+This property is used to distinguish between a conceptual gene as an ``unit of inheritance'' and the corresponding representation of the DNA sequence region encoding the gene as stored in a database.
+
+Like in the ASN.1 notation and datamodel used by GenBank each location in faldo has an identifier for the sequence it is found on\ref{NCBI}.
+The difference is that in faldo, due to its RDF nature, the identifier of the sequence is a dereferencable pointer on the web, instead of just a string of characters.
+
 
 \begin{figure}
 \begin{center}
@@ -113,16 +121,17 @@ WHERE {
 
 \subsection*{Validating data encoded with FALDO}
 
-Some databases only allow a subset of FALDO. For example
-INSDC requires that the start and end of a region are on the same sequence,
+Some databases only allow a subset of FALDO. 
+For example INSDC requires that the start and end of a region are on the same sequence,
 while UniProt requires that a feature is described in relation to the reference's canonical isoform.
-There are many ways to add such optional constraints to the data model using Semantic Web technologies\cite{RDFValidationReport}.
-The benefit of such optionality is that constraints needed for quality control at
-the data provider do not restrict the users of the data in any way.
+Yet another database might annotate the location of a glycsoylation site on an UniProt isoform sequence.
+This, extra annotation in RDF, when added to an UniProt record in RDF would be ignored by applications that are not concerned by glycosylation on isoforms.
+The same annotation can not be added to UniProt XML as the XSD schema does not allow for it, the flat file format does not allow for this kind of third party extensions either.
+An attempt to add such information would very likely break any XML or flat-file parser and introduces the risk of importing data incorrectly.
+Only the UniProt RDF format allows other people to make assertions about UniProt data in a compatible manner.
 
-For example the UniProtKB constraint that positions are annotated on the canonical isoform
-(for comparability with legacy data formats), if enforced, may make it difficult for a proteomics
-database describing a glycosylation site that is specific to a single isoform described in UniProtKB.
+There are many ways to add constraints to the data model by applications using Semantic Web technologies\cite{RDFValidationReport}.
+In other words data validation is application specific concern instead of a data format concern.
 
 \subsection*{Users}
 FALDO is already deployed and used in a number of tools and databases.
