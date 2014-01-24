@@ -69,19 +69,18 @@ efficient algorithms and indexes such as Nested Containment Lists (NCLs) \cite{N
 or spatial indexes.
 %%Still unhappy with this section. Our modelling did not really look into it, and efficiency depends on store choices.s 
 
-\subsection*{Verbosity of FALDO}
+%\subsection*{Verbosity of FALDO}
 
-Its clear to anyone reading this paper that FALDO is considerably more verbose than existing formats.
-Once stored in an appropriately compressed file a RDF/FALDO representation does not need to take more space than a legacy format.
-In the case of UniProt, approximately 40\% of all data has been stated at least twice in the flat-file an XML representation.
-While the straight UniProt flatfile/xml translation into RDF consumes about 2 times the disk space, a unique triple
+%Its clear to anyone reading this paper that FALDO is considerably more verbose than existing formats.
+%Once stored in an appropriately compressed file a RDF/FALDO representation does not need to take more space than a legacy format.
+%In the case of UniProt, approximately 40\% of all data has been stated at least twice in the flat-file an XML representation.
+%While the straight UniProt flatfile/xml translation into RDF consumes about 2 times the disk space, a unique triple
 set of UniProt is currently only 5\% larger in size.
 %%TODO Verify information once Matterhorn is restarted.
-This information does not need to be repeated for RDF consuming tools.
-SPARQL-BED shows that a legacy format such as BAM can be converted on demand to RDF and be used for SPARQL without needing more disk space to store sequencing data.
+%This information does not need to be repeated for RDF consuming tools.
+%SPARQL-BED shows that a legacy format such as BAM can be converted on demand to RDF and be used for SPARQL without needing more disk space to store sequencing data.
 
-
-
-
+FALDO being a RDF based format can used to represent feature position information in a wide variety of serialisations e.g. JSON-LD, RDF/XML, Turtle, RDFa (embedded in HTML) this allows different developers use FALDO information in consideration of their usage scenario.
+While at the same time allowing conversion to the common RDF triple model that can be used in RDF databases and accessed by SPARQL queries.
 
 
