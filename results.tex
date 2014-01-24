@@ -159,29 +159,40 @@ One such feature is the ``Protein II'' gene from the reverse strand of f1 bacter
 \begin{shaded}
 \small
 \begin{verbatim}
-@prefix faldo: <http://biohackathon.org/resource/faldo#> .
-@prefix ddbj-.... : examples of possible DDBJ/INSDC related prefixes
 
-ddbj-record:J02448 dc:identifier "J02448" ;
-           rdfs:Comment "Bacteriophage f1, complete genome" ;
-           taxonomy:10863 ;
-           ddbj:CDS ddbj ddbj-protein:AAA32209.1 .
-ddbj-protein:AAA32209.1 a so:0000316 ; #CDS
-           rdfs:label "Protein II" ;
-           faldo:location [ a faldo:Region ;
-                            faldo:begin [a faldo:Position ,
-                                           faldo:ExactlyKnownPosition ,
-                                           faldo:ForwardStrandPosition ;
-                                         faldo:position 6006 ;
-                                         faldo:reference ddbj-seq:J02448] ;
-                            faldo:end   [a faldo:Position , 
-                                           faldo:ExactlyKnownPosition ,
-                                           faldo:ForwardStrandPosition ;
-                                         faldo:position 831 ;
-                                         faldo:reference ddbj-seq:J02448]].
+{"@context" : {"comment"      : "http://www.w3.org/2000/01/rdf-schema#comment",
+               "label"        : "http://www.w3.org/2000/01/rdf-schema#label",
+               "taxonomy"     : "http://purl.uniprot.org/taxonomy/",
+               "ddbj"         : "http://.../example#" ,
+               "dc:identifier": "http://purl.org/dc/terms/identifier" ,
+               "ddbj-record"  :  "http://.../exampleDDBJrecordNamespace/" ,
+               "ddbj-seq"     :  "http://.../exampleDDBJsequenceNamespace/" ,
+               "faldo"        : "http://biohackathon.org/resource/faldo#" ,
+               "so"           : "http://purl.obolibrary.org/obo/so.owl#"},
+ "@id"          : "ddbj-record:J02448" ,
+ "dc:identifier": "J02448" ,
+ "comment"      : "Bacteriophage f1, complete genome" ,
+ "ddbj:organism": "taxonomy:10863" ,
+ "ddbj:CDS"     : {"@id"           : "ddbj-protein:AAA32209.1 " ,
+                   "@type"         : "so:0000316" ,
+                   "label"         : "Protein II" ,
+                   "faldo:location": {"@type"       : "faldo:Region" ,
+                                       "faldo:begin": {"@type": ["faldo:Position" , 
+                                                                 "faldo:ExactlyKnownPosition" ,
+                                                                 "faldo:ForwardStrandPosition" ],
+                                                       "faldo:position" : "6006" ,
+                                                       "faldo:reference": "ddbj-seq:J02448" },
+                                       "faldo:end" : {"@type" : ["faldo:Position" , 
+                                                                 "faldo:ExactlyKnownPosition" ,
+                                                                 "faldo:ForwardStrandPosition" ],
+                                                      "faldo:position"  : "831" ,
+                                                      "faldo:reference" : "ddbj-seq:J02448" }
+                                     }
+                   }
+}
 \end{verbatim}
 \end{shaded}
-\caption{Partial example of using FALDO in Turtle format to describe
+\caption{Partial example of using FALDO in JSON-LD format to describe
 the CDS ``Protein II'' at \texttt{join(6006..6407,1..831)} on J02448.}
 \label{fig:insdcReverseOverOrigin}
 \end{figure}
