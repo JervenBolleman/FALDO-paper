@@ -5,8 +5,6 @@ Four of those classes are used to describe accurately what we know of a position
 Four classes are used to describe the concept of a position on a strand of DNA, e.g. positive, negative and on both strands.
 In contrast to other representations, FALDO has no explicit way to say that it is not ``known'' on which strand a position is, because this explicit statement unknown strand position can introduce contradictions when merging different data sets.
 For example, some positions could end up being contradictorily typed both as forward-stranded as well as being located on an unkown strand position.
-There is no benefit to explicitly stating that something is unknown, as it does not make queries simpler
-and only increases the data size.
 
 FALDO defines a single datatype property,
 $\mathtt{faldo\colon{}position}$, that is used to provide a one-based
