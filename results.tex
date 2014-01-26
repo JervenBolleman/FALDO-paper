@@ -119,7 +119,7 @@ ddbj-cds:AAS67043.1 rdf:type :Nucleotide_Resource ;
                         faldo:reference refseq:NC_000913.2 ].
 \end{verbatim}
 \end{shaded}
-\caption{Using FALDO in Turtle\cite{TurtleFormatSpec} format to describe the location of a
+\caption{Using FALDO in Turtle\cite{TurtleFormatSpec} syntax to describe the location of a
 gene feature \textit{cheY} at \texttt{complement(NC\_000913.2:1965072..1965461)} in a INSDC record.}
 \label{fig:insdcComplement}
 \end{figure}
@@ -160,17 +160,17 @@ One such feature is the ``Protein II'' gene from the reverse strand of f1 bacter
 \small
 \begin{verbatim}
 
-{"@context" : {"comment"      : "http://www.w3.org/2000/01/rdf-schema#comment",
-               "label"        : "http://www.w3.org/2000/01/rdf-schema#label",
-               "taxonomy"     : "http://purl.uniprot.org/taxonomy/",
-               "ddbj"         : "http://.../example#" ,
-               "dc:identifier": "http://purl.org/dc/terms/identifier" ,
-               "ddbj-record"  :  "http://.../exampleDDBJrecordNamespace/" ,
-               "ddbj-seq"     :  "http://.../exampleDDBJsequenceNamespace/" ,
-               "faldo"        : "http://biohackathon.org/resource/faldo#" ,
-               "so"           : "http://purl.obolibrary.org/obo/so.owl#"},
+{"@context" : {"comment"     : "http://www.w3.org/2000/01/rdf-schema#comment",
+               "label"       : "http://www.w3.org/2000/01/rdf-schema#label",
+               "taxonomy"    : "http://purl.uniprot.org/taxonomy/",
+               "ddbj"        : "http://.../exampleDDBJNamespace#" ,
+               "identifier"  : "http://purl.org/dc/terms/identifier" ,
+               "ddbj-record" : "http://.../exampleDDBJrecordNamespace/" ,
+               "ddbj-seq"    : "http://.../exampleDDBJsequenceNamespace/" ,
+               "faldo"       : "http://biohackathon.org/resource/faldo#" ,
+               "so"          : "http://purl.obolibrary.org/obo/so.owl#"},
  "@id"          : "ddbj-record:J02448" ,
- "dc:identifier": "J02448" ,
+ "identifier"   : "J02448" ,
  "comment"      : "Bacteriophage f1, complete genome" ,
  "ddbj:organism": "taxonomy:10863" ,
  "ddbj:CDS"     : {"@id"           : "ddbj-protein:AAA32209.1 " ,
@@ -192,7 +192,7 @@ One such feature is the ``Protein II'' gene from the reverse strand of f1 bacter
 }
 \end{verbatim}
 \end{shaded}
-\caption{Partial example of using FALDO in JSON-LD format to describe
+\caption{Partial example of using FALDO in JSON-LD syntax to describe
 the CDS ``Protein II'' at \texttt{join(6006..6407,1..831)} on J02448.}
 \label{fig:insdcReverseOverOrigin}
 \end{figure}
