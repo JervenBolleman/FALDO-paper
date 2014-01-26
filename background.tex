@@ -41,24 +41,24 @@ FALDO has been designed to be general enough to describe the position of annotat
 on nucleotide and protein sequences using the various levels of location complexity used
 in major databases such as INSDC (DDBJ, NCBI-GenBank and EMBL-Bank) and UniProt, their
 associated file formats, and other generic annotation file formats such as BED,
-GTF and GFF3. It includes compound locations which are the combination of
-several regions (such as the `join' location string in INSDC), and ambiguous
-positions. It also allow us to accurately describe ambiguous positions today
+GTF and GFF3. It includes compound locations, which are the combination of
+several regions (such as the `join' location string in INSDC), as well as ambiguous
+positions. It allows us to accurately describe ambiguous positions today
 in such a way that future more precise knowledge does not introduce logical conflicts 
-that can only be resolved by expert human intervention.
+which potentially could only be resolved by intervention of an expert in the field.
 
-FALDO allows accurate descriptions of the position of
+FALDO is suited to accurately describe the position of
 a feature on multiple sequences.
 This is expected to be most useful when lifting annotation from one
 draft assembly version to another.
-For example a gene can start at position $X$ on genome assembly $A$,
-while what is conceptually the same gene is also at position $X'$ on genome assembly $A+1$.
+For example, a gene can start at a position for a given species' genome assembly,
+while the conceptually same gene can start at another position in previous/following genome assemblies for the species in question.
 
 FALDO has a deliberately narrow scope which does not address general annotation
 issues about the meaning of or evidence for a location, rather FALDO is intended be
 used in combination with other relevant ontologies such as the Sequence Ontology
 (SO) \cite{SequenceOntology2005} or database-specific ontologies.
-That is, it is used only to describe where one can find a thing, not to describe the thing itself.
+That is, it is used only to describe the loci of features, not to describe the features themselves.
 A FALDO position relative to a sequence record is comparable to a
 coordinate position on a map: it makes no claim about how that
 sequence record or map is related to the real world.
