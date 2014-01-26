@@ -39,7 +39,8 @@ For this we us the $\mathtt{faldo\colon{}location}$ object property.
 This property is used to distinguish between a conceptual gene as an ``unit of inheritance'' and the corresponding representation of the DNA sequence region encoding the gene as stored in a database.
 
 Like in the ASN.1 notation and datamodel used by GenBank each location in faldo has an identifier for the sequence it is found on\ref{NCBI}.
-The difference is that in faldo, due to its RDF nature, the identifier of the sequence is a dereferencable pointer on the web, instead of just a string of characters.
+Like in the GenBank data model this means that the position information is complete without further references to the context the position information was found in.
+The difference is that in faldo, due to its RDF nature, the identifier of the sequence is a dereferencable pointer (URI) on the web, instead of just a string of characters.
 
 
 \begin{figure}
