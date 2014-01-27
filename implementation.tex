@@ -3,12 +3,12 @@
 FALDO is a small OWL2 ontology with 14 classes of which 9 deal with the concept of a position on a sequence (Figure \ref{fig:ontology}).
 Four of those classes are used to describe accurately what we know of a position that is not precisely determined.
 Four classes are used to describe the concept of a position on a strand of DNA, e.g. positive, negative and on both strands.
-All eight of these classes are sub classes of the generic $\mathtt{faldo:\colon{}Position}$ super-class.
+All eight of these classes are sub classes of the generic $\mathtt{faldo\colon{}Position}$ super-class.
 The ninth class is the concept of a region i.e. something with an end and start position.
 In contrast to other representations, FALDO has no explicit way to say that it is not ``known'' on which strand a position is, because this explicit statement unknown strand position can introduce contradictions when merging different data sets.
 For example, some positions could end up being contradictorily typed both as forward-stranded as well as being located on an unkown strand position.
 
-There are 3 more classes ($\mathtt{faldo:\colon{}CollectionOfRegions}$ and its subclasses) that are only there for backwards compatibility with INSDC join features with uncertain semantics. i.e. those join regions where a conversion program can only state that there are some regions and that the order that they are declared in the INSDC record might have biological significance.
+There are 3 more classes ($\mathtt{faldo\colon{}CollectionOfRegions}$ and its subclasses) that are only there for backwards compatibility with INSDC join features with uncertain semantics. i.e. those join regions where a conversion program can only state that there are some regions and that the order that they are declared in the INSDC record might have biological significance.
 But where the INSDC record needs intelligent inspection before the data can be cleanly converted to a data model with rich semantics.
 
 FALDO defines a single datatype property,
