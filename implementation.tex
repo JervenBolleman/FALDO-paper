@@ -36,8 +36,9 @@ A key part of the FALDO model is the separation of feature and where a feature i
 For this we use the $\mathtt{faldo\colon{}location}$ object property. 
 This property is used to distinguish between a conceptual gene as an ``unit of inheritance'' and the corresponding representation of the DNA sequence region encoding the gene as stored in a database.
 
-Like in the ASN.1 notation and datamodel used by GenBank each location in FALDO has an identifier for the sequence it is found on \cite{NCBI}.
-Like in the GenBank data model this means that the position information is complete without further references to the context the position information was found in.
+As in the INSDC data model and the associated GenBank ASN.1 notation,
+each location in FALDO has an identifier for the sequence it is found on \cite{NCBI}.
+This means that the position information is complete without further references to the context the position information was found in.
 The difference is that in FALDO, due to its RDF nature, the identifier of the sequence is a dereferencable pointer (URI) on the web, instead of just a string of characters.
 
 
