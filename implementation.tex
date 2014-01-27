@@ -6,10 +6,10 @@ Four classes are used to describe the concept of a position on a strand of DNA, 
 All eight of these classes are sub classes of the generic $\mathtt{faldo\colon{}Position}$ super-class.
 The ninth class is the concept of a region i.e. something with an end and start position.
 In contrast to other representations, FALDO has no explicit way to say that it is not ``known'' on which strand a position is, because this explicit statement unknown strand position can introduce contradictions when merging different data sets.
-For example, some positions could end up being contradictorily typed both as forward-stranded as well as being located on an unkown strand position.
+For example, some positions could end up being contradictorily typed both as forward-stranded as well as being located on an unknown strand position.
 
 There are 3 more classes ($\mathtt{faldo\colon{}CollectionOfRegions}$ and its subclasses) that are only there for backwards compatibility with INSDC join features with uncertain semantics. i.e. those join regions where a conversion program can only state that there are some regions and that the order that they are declared in the INSDC record might have biological significance.
-But where the INSDC record needs intelligent inspection before the data can be cleanly converted to a data model with rich semantics.
+However, here the INSDC record needs intelligent inspection before the data can be cleanly converted to a data model with rich semantics.
 
 FALDO defines a single datatype property,
 $\mathtt{faldo\colon{}position}$, that is used to provide a one-based
@@ -33,7 +33,7 @@ counted from the 5' end of whichever strand is considered the
 ``forward'' strand.
 
 A key part of the FALDO model is the separation of feature and where a feature is found in a sequence record.
-For this we us the $\mathtt{faldo\colon{}location}$ object property. 
+For this we use the $\mathtt{faldo\colon{}location}$ object property. 
 This property is used to distinguish between a conceptual gene as an ``unit of inheritance'' and the corresponding representation of the DNA sequence region encoding the gene as stored in a database.
 
 Like in the ASN.1 notation and datamodel used by GenBank each location in FALDO has an identifier for the sequence it is found on \cite{NCBI}.
