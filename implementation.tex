@@ -130,13 +130,14 @@ Some databases only allow a subset of FALDO.
 For example INSDC requires that the start and end of a region are on the same sequence,
 while UniProt requires that a feature is described in relation to the reference's canonical isoform.
 Yet another database might annotate the location of a glycsoylation site on an UniProt isoform sequence.
-This, extra annotation in RDF, when added to an UniProt record in RDF would be ignored by applications that are not concerned by glycosylation on isoforms.
-The same annotation can not be added to UniProt XML as the XSD schema does not allow for it, the flat file format does not allow for this kind of third party extensions either.
+When added to an UniProt record in RDF, this extra RDF annotation would be ignored by applications that are not concerned with glycosylation of isoforms.
+The same annotation can not be added to UniProt XML as the XSD schema does not allow for it,
+and the older plain text flat-file format does not allow for this kind of third party extension either.
 An attempt to add such information would very likely break any XML or flat-file parser and introduces the risk of importing data incorrectly.
-Only the UniProt RDF format allows other people to make assertions about UniProt data without breaking existing tools manner.
+Only the UniProt RDF format allows other people to make assertions about UniProt data without breaking existing tools.
 
 There are many ways to add constraints to the data model by applications using Semantic Web technologies\cite{RDFValidationReport}.
-In other words data validation is an application specific concern instead of a data format concern.
+In other words, data validation is an application specific concern instead of a data format concern.
 
 \subsection*{Users}
 FALDO is already deployed and used in a number of tools and databases.
