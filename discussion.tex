@@ -61,13 +61,13 @@ or describing the same feature on two different genome assemblies.
 For FALDO we also considered query efficiency in comparison to existing search technology. 
 Region of interest (ROI) queries are common operations performed on a
 set of genome annotations to extract a set of features within a range.
-For applications such as genome browsers, it is important that these are as efficient enough.
+For applications such as genome browsers, it is important that these are efficient enough.
 Although some RDF query engines may perform poorly when performing ROI queries over large feature sets,
 others have special indexes (e.g. literal filter indexes) that improve query performance.
 There is scope for further optimisation in the context of a SPARQL query by combining
 efficient algorithms and indexes such as Nested Containment Lists (NCLs) \cite{NCL2007}
 or spatial indexes.
-%%Still unhappy with this section. Our modelling did not really look into it, and efficiency depends on store choices.s 
+%%Still unhappy with this section. Our modelling did not really look into it, and efficiency depends on store choices.
 
 %\subsection*{Verbosity of FALDO}
 
@@ -79,7 +79,7 @@ or spatial indexes.
 %This information does not need to be repeated for RDF consuming tools.
 %SPARQL-BED shows that a legacy format such as BAM can be converted on demand to RDF and be used for SPARQL without needing more disk space to store sequencing data.
 
-FALDO being a RDF based format can used to represent feature position information in a wide variety of serialisations e.g. JSON-LD, RDF/XML, Turtle, RDFa (embedded in HTML) this allows different developers use FALDO information in consideration of their usage scenario.
-While at the same time allowing conversion to the common RDF triple model that can be used in RDF databases and accessed by SPARQL queries.
-
-
+As a RDF based format, FALDO can be used to represent feature position information in
+a wide variety of serialisations e.g. JSON-LD, RDF/XML, Turtle, RDFa (embedded in HTML).
+This allows developers flexibility in consideration of their usage scenario, while at the same time
+allowing conversion to the common RDF triple model used in RDF databases and accessed by SPARQL queries.
