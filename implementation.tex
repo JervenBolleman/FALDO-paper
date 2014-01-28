@@ -46,10 +46,17 @@ The difference is that in FALDO, due to its RDF nature, the identifier of the se
 \begin{center}
 \includegraphics[width=17cm]{figures/ClassDiagram.pdf}
 \end{center}
-\caption{The classes and object properties used in FALDO}
+\caption{The classes and object properties used in FALDO.}
 \label{fig:ontology}
 \end{figure}
 
+\begin{figure}
+\begin{center}
+\includegraphics[width=17cm]{figures/togogenomes.pdf}
+\end{center}
+\caption{JBrowse showing features, whose location is encoded using FALDO, selected via SPARQL (at http://togogenome.org/). }
+\label{fig:jbrowse}
+\end{figure}
 
 \begin{figure}
 \begin{center}
@@ -142,7 +149,7 @@ In other words, data validation is an application specific concern instead of a 
 FALDO is already deployed and used in a number of tools and databases.
 
 \begin{description}
-\item[JBrowse] can use SPARQL queries with FALDO to visualize annotations on reference sequences from semantic databases \cite{JBrowse}.
+\item[JBrowse] can use SPARQL queries with FALDO to visualize annotations on reference sequences from semantic databases \cite{JBrowse} (see figure \ref{fig:jbrowse}).
 \item[INSDC-DDBJ] DDBJ is currently working on an RDF format for the INSDC data that is stored in DDBJ/GenBank/EMBL-Bank.
 \item[BioInterchange] uses FALDO to make position information stored in current bioinformatics formats like GFF3, GVF, GTF, or VCF, available to the semantic web (\url{http://www.biointerchange.org/}).
 \item[TogoGenome] a genome database collection provided by the DBCLS also uses FALDO in its RDF representation (\url{http://togogenome.org/}).
