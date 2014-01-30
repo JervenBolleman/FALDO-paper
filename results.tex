@@ -97,10 +97,7 @@ ddbj-cds:AAS67043.1 rdf:type :Nucleotide_Resource ;
 \small
 \begin{verbatim} 
 @prefix faldo:       <http://biohackathon.org/resource/faldo#> .
-@prefix ddbj:        <http://ddbj.nig.ac.jp/ontologies/sequence/> .
 @prefix ddbj-record: <http://ddbj.nig.ac.jp/entry/nucleotide/> . 
-@prefix ddbj-aa:     <http://ddbj.nig.ac.jp/entry/protein/> .
-@prefix ddbj-seq:    <http://ddbj.nig.ac.jp/entry/sequence/> .
 
 # Here are example triples describing a gene, note the location line:
 <_:geneCheY> a so:Gene ;
@@ -114,16 +111,16 @@ ddbj-cds:AAS67043.1 rdf:type :Nucleotide_Resource ;
                            faldo:ExactlyKnownPosition ,
                            faldo:ReverseStrandPosition ;
                          faldo:position 1965461 ;
-                         faldo:reference refseq:NC_000913.2 ];
+                         faldo:reference ddbj-record:U00096.3 ];
            faldo:end  [ a faldo:Position ,
                           faldo:ExactlyKnownPosition ;
                           faldo:ReverseStrandPosition ;
                         faldo:position 1965072
-                        faldo:reference refseq:NC_000913.2 ].
+                        faldo:reference ddbj-record:U00096.3 ].
 \end{verbatim}
 \end{shaded}
 \caption{Using FALDO in Turtle\cite{TurtleFormatSpec} syntax to describe the location of a
-gene feature \textit{cheY} at \texttt{complement(NC\_000913.2:1965072..1965461)} in a INSDC record.}
+gene feature \textit{cheY} at \texttt{complement(NC\_000913.2:1965072..1965461)} in a INSDC record U00096.3.}
 \label{fig:insdcComplement}
 \end{figure}
 
