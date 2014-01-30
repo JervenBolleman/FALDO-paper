@@ -22,7 +22,7 @@ FT   ACT_SITE    153    153       Nucleophile (By similarity).
 \begin{verbatim}
 uniprot:Q6Q250 rdf:type up:Protein ;
    up:annotation SHA:E50-1B, SHA:E50-1C ;
-   up:sequence isoform:P05064-1 ;
+   up:sequence isoform:Q6Q250-1 ;
    rdfs:seeAlso ddbj-cds:AAS67043.1 .
 SHA:E50-1B a up:Signal_Peptide_Annotation ;
   faldo:location region:f1t15 .
@@ -32,16 +32,16 @@ region:f1t15 a faldo:Region ;
    faldo:begin position:before1 ;
    faldo:end  position:15 .
 position:before1 a faldo:InRangePosition ;
-   faldo:reference isoform:P05064-1 ;
+   faldo:reference isoform:Q6Q250-1 ;
    faldo:end position:1 . 
 position:1 a faldo:ExactPosition ;
-   faldo:reference isoform:P05064-1 ;
+   faldo:reference isoform:Q6Q250-1 ;
    faldo:position 1 .
 position:15 a faldo:ExactPosition ; #End of the signal peptide region
-   faldo:reference isoform:P05064-1 ;
+   faldo:reference isoform:Q6Q250-1 ;
    faldo:position 15 .   
 position:153 a faldo:ExactPosition ; #Where the active site should be
-   faldo:reference isoform:P05064-1 ;
+   faldo:reference isoform:Q6Q250-1 ;
    faldo:position 153 .
 isoform:P05064-1 up:fragment "single" ;
    up:precursor true .
@@ -96,8 +96,11 @@ ddbj-cds:AAS67043.1 rdf:type :Nucleotide_Resource ;
 \begin{shaded}
 \small
 \begin{verbatim} 
-@prefix faldo: <http://biohackathon.org/resource/faldo#> .
-@prefix ddbj-.... : examples of possible DDBJ/INSDC related prefixes
+@prefix faldo:       <http://biohackathon.org/resource/faldo#> .
+@prefix ddbj:        <http://ddbj.nig.ac.jp/ontologies/sequence/> .
+@prefix ddbj-record: <http://ddbj.nig.ac.jp/entry/nucleotide/> . 
+@prefix ddbj-aa:     <http://ddbj.nig.ac.jp/entry/protein/> .
+@prefix ddbj-seq:    <http://ddbj.nig.ac.jp/entry/sequence/> .
 
 # Here are example triples describing a gene, note the location line:
 <_:geneCheY> a so:Gene ;
@@ -163,29 +166,30 @@ One such feature is the ``Protein II'' gene from the reverse strand of f1 bacter
 {"@context" : {"comment"     : "http://www.w3.org/2000/01/rdf-schema#comment",
                "label"       : "http://www.w3.org/2000/01/rdf-schema#label",
                "taxonomy"    : "http://purl.uniprot.org/taxonomy/",
-               "ddbj"        : "http://.../exampleDDBJNamespace#" ,
-               "identifier"  : "http://purl.org/dc/terms/identifier" ,
-               "ddbj-record" : "http://.../exampleDDBJrecordNamespace/" ,
-               "ddbj-seq"    : "http://.../exampleDDBJsequenceNamespace/" ,
-               "faldo"       : "http://biohackathon.org/resource/faldo#" ,
+               "ddbj"        : "http://ddbj.nig.ac.jp/ontologies/sequence/",
+               "ddbj-record" : "http://ddbj.nig.ac.jp/entry/nucleotide/",
+               "ddbj-aa"     : "http://ddbj.nig.ac.jp/entry/protein/",
+               "ddbj-seq"    : "http://ddbj.nig.ac.jp/entry/sequence/",
+               "identifier"  : "http://purl.org/dc/terms/identifier",
+               "faldo"       : "http://biohackathon.org/resource/faldo#",
                "so"          : "http://purl.obolibrary.org/obo/so.owl#"},
- "@id"          : "ddbj-record:J02448" ,
- "identifier"   : "J02448" ,
- "comment"      : "Bacteriophage f1, complete genome" ,
- "ddbj:organism": "taxonomy:10863" ,
- "ddbj:CDS"     : {"@id"           : "ddbj-protein:AAA32209.1 " ,
-                   "@type"         : "so:0000316" ,
-                   "label"         : "Protein II" ,
-                   "faldo:location": {"@type"       : "faldo:Region" ,
-                                       "faldo:begin": {"@type": ["faldo:Position" , 
-                                                                 "faldo:ExactlyKnownPosition" ,
+ "@id"          : "ddbj-record:J02448",
+ "identifier"   : "J02448",
+ "comment"      : "Bacteriophage f1, complete genome",
+ "ddbj:organism": "taxonomy:10863",
+ "ddbj:feature" : {"@id"           : "ddbj-protein:AAA32209.1 ",
+                   "@type"         : "so:0000316",
+                   "label"         : "Protein II",
+                   "faldo:location": {"@type"       : "faldo:Region",
+                                       "faldo:begin": {"@type": ["faldo:Position", 
+                                                                 "faldo:ExactlyKnownPosition",
                                                                  "faldo:ForwardStrandPosition" ],
-                                                       "faldo:position" : "6006" ,
+                                                       "faldo:position" : "6006",
                                                        "faldo:reference": "ddbj-seq:J02448" },
-                                       "faldo:end" : {"@type" : ["faldo:Position" , 
-                                                                 "faldo:ExactlyKnownPosition" ,
+                                       "faldo:end" : {"@type" : ["faldo:Position", 
+                                                                 "faldo:ExactlyKnownPosition",
                                                                  "faldo:ForwardStrandPosition" ],
-                                                      "faldo:position"  : "831" ,
+                                                      "faldo:position"  : "831",
                                                       "faldo:reference" : "ddbj-seq:J02448" }
                                      }
                    }
