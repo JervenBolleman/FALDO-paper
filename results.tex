@@ -230,22 +230,22 @@ different strands.
 3'..TTCGAA..5'
         /\
         
-:EnzymeRestrictionSite a example:EnzymeRestrictionSite ;
+:enzymeRestrictionSite a example:EnzymeRestrictionSite ;
        faldo:location :EnzymeRestrictionRegion .
-:EnzymeRestrictionRegion a faldo:Region ;
+:enzymeRestrictionRegion a faldo:Region ;
        faldo:begin :53_1 ;
        faldo:end   :35_6 .
 :53cleaveageSite a example:CleavageSite ;
        faldo:location [a faldo:InBetweenPosition, 
                            SO:0001690 ; # 3' restriction enzyme junction 
-                       faldo:before :35_5 ;
-                       #Note the before after reversion due to biological start      
-                       faldo:after :35_6 ]. 
+                       faldo:after  :53_1 ;        
+                       faldo:before :53_2 ] .
 :35cleaveageSite a example:CleavageSite ;
        faldo:location [a faldo:InBetweenPosition, 
                            SO:0001689  ; # 5' restriction enzyme junction 
-                       faldo:after :53_1 ;        
-                       faldo:before :53_2 ] .
+                       faldo:before :35_5 ;
+                       #Note the before after reversion due to biological start 
+                       faldo:after  :35_6 ]. 
 :53_1 a faldo:ExactPosition , faldo:ForwardStrandedPosition ;
       faldo:position 1 .
 :53_2 a faldo:ExactPosition , faldo:ForwardStrandedPosition ;
