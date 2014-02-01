@@ -1,4 +1,5 @@
 .DS_Store
+*~
 *.pdf
 *.log
 locations.synctex.gz
