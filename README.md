@@ -5,8 +5,7 @@ in RDF: https://github.com/JervenBolleman/FALDO
 FALDO was begun at the BioHackathon 2012 meeting in Japan,
 https://github.com/dbcls/bh12/wiki/Feature-annotation-locations-in-RDF
 
-------------------------------------------------------------------------------
-
+========
 Citation
 ========
 
@@ -21,8 +20,7 @@ A preprint of this work is now available to be cited as follows:
 
 Formal journal submittion is planned shortly.
 
-------------------------------------------------------------------------------
-
+=====
 LaTeX
 =====
 
