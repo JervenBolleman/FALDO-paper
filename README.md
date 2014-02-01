@@ -5,7 +5,28 @@ in RDF: https://github.com/JervenBolleman/FALDO
 FALDO was begun at the BioHackathon 2012 meeting in Japan,
 https://github.com/dbcls/bh12/wiki/Feature-annotation-locations-in-RDF
 
-We are currently writing the manuscript using LaTex using a BMC journal
+------------------------------------------------------------------------------
+
+Citation
+========
+
+A preprint of this work is now available to be cited as follows:
+
+> Jerven Bolleman, Christopher J. Mungall, Francesco Strozzi, Joachim Baran,
+> Michel Dumontier, Raoul J. P. Bonnal, Robert Buels, Robert Hoehndor,
+> Takatomo Fujisawa, Toshiaki Katayama, Peter J. A. Cock (2014)
+> **FALDO: A semantic standard for describing the location of nucleotide
+> and protein feature annotation.** bioRxiv http://dx.doi.org/10.1101/002121
+> http://biorxiv.org/content/early/2014/01/31/002121
+
+Formal journal submittion is planned shortly.
+
+------------------------------------------------------------------------------
+
+LaTeX
+=====
+
+We are currently writing the manuscript using LaTeX using a BMC journal
 template (files named `bmc_article.*`) with `location.tex` as the
 primary file which includes the sub-sections as separate child files:
 
@@ -22,7 +43,9 @@ To produce the whole PDF file, use LaTeX and BibTex:
     $ pdflatex location.tex
     $ bibtex location
     $ pdflatex location.tex
-=======
+
+------------------------------------------------------------------------------
+
 FALDO
 =====
 
