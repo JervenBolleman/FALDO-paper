@@ -6,6 +6,7 @@ Three of those classes are used to describe accurately what we know of a positio
 Four classes are used to describe the concept of a position on a strand of DNA, e.g. positive, negative and on both strands.
 All ten of these classes are sub classes of the generic $\mathtt{faldo\colon{}Position}$ super-class.
 The eleventh class is the concept of a region i.e. something with a end and start position.
+The remaining 3 classes are used to group regions which are biologicaly related but for which no exact semanitcs are available e.g. some legacy data sources can not be mapped cleanly without expert intervention.
 In contrast to other representations, FALDO has no explicit way to say that it is not ``known'' on which strand a position is, because this explicit statement unknown strand position can introduce contradictions when merging different data sets.
 For example, some positions could end up being contradictorily typed both as forward-stranded as well as being located on an unknown strand position.
 
