@@ -1,12 +1,12 @@
 \section*{Implementation}
 
-FALDO is a small OWL2 ontology with 16 classes, 11 of these deal with the concept of a position on a sequence (Figure \ref{fig:ontology}).
-The instances of the $\mathtt{faldo\colon{}ExactPosition}$ represent positions that are accuratly determined in respect to a reference sequence. There are two convience subclasses of $\mathtt{faldo\colon{}ExactPosition}$ to represent positons on the N and C-terminal of a amino acid sequence.
+FALDO is a small web ontology language version 2 (OWL2) ontology with 16 classes, 11 of these deal with the concept of a position on a sequence (Figure \ref{fig:ontology}).
+The instances of the $\mathtt{faldo\colon{}ExactPosition}$ represent positions that are accurately determined in respect to a reference sequence. There are two convenience subclasses of $\mathtt{faldo\colon{}ExactPosition}$ to represent positions on the N and C-terminal of a amino acid sequence.
 Three of those classes are used to describe accurately what we know of a position that is not precisely determined.
 Four classes are used to describe the concept of a position on a strand of DNA, e.g. positive, negative and on both strands.
 All ten of these classes are sub classes of the generic $\mathtt{faldo\colon{}Position}$ super-class.
 The eleventh class is the concept of a region i.e. something with a end and start position.
-The remaining 3 classes are used to group regions which are biologicaly related but for which no exact semanitcs are available e.g. some legacy data sources can not be mapped cleanly without expert intervention.
+The remaining 3 classes are used to group regions which are biologically related but for which no exact semantics are available e.g. some legacy data sources can not be mapped cleanly without expert intervention.
 In contrast to other representations, FALDO has no explicit way to say that it is not ``known'' on which strand a position is, because this explicit statement unknown strand position can introduce contradictions when merging different data sets.
 For example, some positions could end up being contradictorily typed both as forward-stranded as well as being located on an unknown strand position.
 
@@ -23,6 +23,8 @@ sequence.
 Note that these terms are case-sensitive:
 $\mathtt{faldo\colon{}position}$ is a property, and
 $\mathtt{faldo\colon{}Position}$ is a concept.
+
+
 
 For compatibility with a wide range of data, FALDO makes very few
 assumptions about the representation of the reference sequence, and
@@ -42,6 +44,8 @@ As in the INSDC data model and the associated GenBank ASN.1 notation,
 each location in FALDO has an identifier for the sequence it is found on \cite{NCBI}.
 This means that the position information is complete without further references to the context the position information was found in.
 The difference is that in FALDO, due to its RDF nature, the identifier of the sequence is a dereferencable pointer (URI) on the web, instead of just a string of characters.
+
+Figure \ref{fig:strands} shows how FALDO can be used to describe the position of features on a sequence, and compares  it to the INSDC and GFF3/GTF text orientated formats.
 
 
 \begin{figure}
@@ -75,6 +79,13 @@ while the reverse strand feature (blue) starts from 2080.}
 \label{fig:strands}
 \end{figure}
 
+\subsection*{Easier data integration due to OWL reasoning}
+
+Two $\mathtt{owl\colon{}Class}$es ease dataintgration with a $\mathtt{owl\colon{}hasKey}$ construct. 
+A $\mathtt{faldo\colon{}ExactPosition}$ is the same as another position if it has the same $\mathtt{faldo\colon{}position}$ and $\mathtt{faldo\colon{}reference}$.
+In practicse this means that if two sequence records are declared to be $\mathtt{owl\colon{}}$ then the features mapped to one of these sequence records is automatically mapped to the other.
+i.e. One extra statement allows feature annotation from a UniProt protein record to be transferred to INSDC Coding Domain Features.
+
 \subsection*{Compression via OWL2 reasoning}
 For large databases such as INSDC or UniProt,
 the need to repeat the reference sequence for each position may come with a significant cost in storage.
@@ -99,7 +110,7 @@ insdc:reference
 
 \end{verbatim}
 \end{shaded}
-\caption{OWL2 property chain axiom to infer that all positions described in an INSDC record are relative to the main sequence of the record (in RDF turtle syntax, prefixes ommited).}
+\caption{OWL2 property chain axiom to infer that all positions described in an INSDC record are relative to the main sequence of the record (in RDF turtle syntax, prefixes omitted).}
 \label{owl:chainProperty}
 \end{figure}
 
@@ -141,14 +152,13 @@ There are many ways to add constraints to the data model by applications using S
 In other words, data validation is an application specific concern instead of a data format concern.
 
 \subsection*{Users}
-FALDO is already deployed and used in a number of tools and databases.
-
+FALDO is already deployed and used in a number of tools and databases, in each case extended with more semantic web data using resource specific ontologies and schemas as well as other semantic standards e.g. the Sequence Ontology.
 
 \begin{figure}
 \begin{center}
 \includegraphics[width=16cm]{figures/togogenomes.pdf}
 \end{center}
-\caption{JBrowse showing features, whose location is encoded using FALDO, selected via SPARQL (at http://togogenome.org/). }
+\caption{JBrowse showing features, whose location is encoded using FALDO, selected via SPARQL (at e.g. \protect\url{http://togogenome.org/gene/1016998:SPAB_00296}). }
 \label{fig:jbrowse}
 \end{figure}
 
