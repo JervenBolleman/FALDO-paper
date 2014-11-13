@@ -6,7 +6,7 @@ Three of those classes are used to describe accurately what we know of a positio
 Four classes are used to describe the concept of a position on a strand of DNA, e.g. positive, negative and on both strands.
 All ten of these classes are sub classes of the generic $\mathtt{faldo\colon{}Position}$ super-class.
 The eleventh class is the concept of a region i.e. something with a end and start position.
-The remaining 3 classes are used to group regions which are biologically related but for which no exact semantics are available e.g. some legacy data sources can not be mapped cleanly without expert intervention.
+The remaining 3 classes are used to group regions which are biologically related but for which no exact semantics are available e.g. some legacy data sources cannot be mapped cleanly without expert intervention.
 In contrast to other representations, FALDO has no explicit way to say that it is not ``known'' on which strand a position is, because this explicit statement unknown strand position can introduce contradictions when merging different data sets.
 For example, some positions could end up being contradictorily typed both as forward-stranded as well as being located on an unknown strand position.
 
@@ -143,7 +143,7 @@ For example INSDC requires that the start and end of a region are on the same se
 while UniProt requires that a feature is described in relation to the reference's canonical isoform.
 Yet another database might annotate the location of a glycsoylation site on an UniProt isoform sequence.
 When added to an UniProt record in RDF, this extra RDF annotation would be ignored by applications that are not concerned with glycosylation of isoforms.
-The same annotation can not be added to UniProt XML as the XSD schema does not allow for it,
+The same annotation cannot be added to UniProt XML as the XSD schema does not allow for it,
 and the older plain text flat-file format does not allow for this kind of third party extension either.
 An attempt to add such information would very likely break any XML or flat-file parser and introduces the risk of importing data incorrectly.
 Only the UniProt RDF format allows other people to make assertions about UniProt data without breaking existing tools.
