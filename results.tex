@@ -125,7 +125,7 @@ gene feature \textit{cheY} at \texttt{complement(NC\_000913.2:1965072..1965461)}
 \end{figure}
 
 
-\subsection*{Complement strand and INSDC compound locations}
+\subsection*{Complement strand}
 
 Describing biological features in relation to a genomic DNA sequence does not have to be complicated.
 
@@ -149,8 +149,27 @@ feature length is given by $length = end - start + 1$ under
 this numerically convenient scheme where the interpretation
 of $start$ versus $end$ is strand independent.
 
-There are a number of implicit conventions in INSDC data that need to be translated into the more explicit FALDO model.
-Some of the complicated regions for INSDC are features on a circular chromosome, the most common of which are features that overlap the chromosome's origin of replication.
+\subsection*{INSDC compound locations}
+
+There are a number of implicit conventions in INSDC data that would ideally
+translated into a more explicit model when using FALDO.
+However, to enable automated bulk conversion of existing data, the FALDO class
+$\mathtt{faldo\colon{}CollectionOfRegions}$ and its subclasses exist to describe
+the compound locations used in the INSDC feature tables.
+Specifically, \texttt{join(...)} locations where the order is known map to FALDO's
+$\mathtt{faldo\colon{}ListOfRegions}$, while \texttt{order(...)} where the order is
+\emph{unknown} map to to $\mathtt{faldo\colon{}BagOfRegions}$.
+
+% TODO - add another RDF example using ListOfRegions, ideally something
+% which makes the expected order clear (e.g. gene with intron on reverse strand)?
+% i.e. biological order, not numerical order
+
+Thus while gene models with an intron/exon structure can be described this way,
+it is preferable when converting to RDF to explicitly describe the individual exons,
+each of which would have a simple location in FALDO.
+
+One special case of INSDC compound regions is features on a circular chromosome
+that overlap the chromosome's origin of replication.
 One such feature is the ``Protein II'' gene from the reverse strand of f1 bacteriophage (ddbj:J02448).
 ``Protein II'' transcription starts at position 6006 on the reverse strand and ends at position 831 (see Figure~\ref{fig:insdcReverseOverOrigin}).
 
@@ -194,7 +213,8 @@ One such feature is the ``Protein II'' gene from the reverse strand of f1 bacter
 \end{verbatim}
 \end{shaded}
 \caption{Partial example of using FALDO in JSON-LD\cite{JSONLDFormatSpec} syntax to describe
-the CDS ``Protein II'' at \texttt{join(6006..6407,1..831)} on J02448.}
+the CDS ``Protein II'' at \texttt{join(6006..6407,1..831)} on J02448. Notice that this is given as a
+single location rather than being artificially split in two as in the INSDC \texttt{join(...)} notation.}
 \label{fig:insdcReverseOverOrigin}
 \end{figure}
 
