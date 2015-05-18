@@ -108,12 +108,12 @@ ddbj-feature:AAS67043.1 rdf:type :Nucleotide_Resource ;
 # made up of a region and its two positions:
 <_:example> a faldo:Region ;
            faldo:begin [ a faldo:Position ,
-                           faldo:ExactlyKnownPosition ,
+                           faldo:ExactPosition ,
                            faldo:ReverseStrandPosition ;
                          faldo:position 1965461 ;
                          faldo:reference ddbj-record:U00096.3 ];
            faldo:end  [ a faldo:Position ,
-                          faldo:ExactlyKnownPosition ;
+                          faldo:ExactPosition ;
                           faldo:ReverseStrandPosition ;
                         faldo:position 1965072
                         faldo:reference ddbj-record:U00096.3 ].
@@ -198,12 +198,12 @@ One such feature is the ``Protein II'' gene from the reverse strand of f1 bacter
                    "label"         : "Protein II",
                    "faldo:location": {"@type"       : "faldo:Region",
                                        "faldo:begin": {"@type": ["faldo:Position", 
-                                                                 "faldo:ExactlyKnownPosition",
+                                                                 "faldo:ExactPosition",
                                                                  "faldo:ForwardStrandPosition" ],
                                                        "faldo:position" : "6006",
                                                        "faldo:reference": "ddbj-seq:J02448" },
                                        "faldo:end" : {"@type" : ["faldo:Position", 
-                                                                 "faldo:ExactlyKnownPosition",
+                                                                 "faldo:ExactPosition",
                                                                  "faldo:ForwardStrandPosition" ],
                                                       "faldo:position"  : "831",
                                                       "faldo:reference" : "ddbj-seq:J02448" }
